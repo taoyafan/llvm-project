@@ -1140,7 +1140,7 @@ struct AAAMDWavesPerEU : public AAAMDSizeRangeAttribute {
       if (!CallerAA || !CallerAA->isValidState())
         return false;
 
-      auto Assumed = this->getAssumed();
+      ConstantRange Assumed = this->getAssumed();
       unsigned Min = std::max(Assumed.getLower().getZExtValue(),
                               CallerAA->getAssumed().getLower().getZExtValue());
       unsigned Max = std::max(Assumed.getUpper().getZExtValue(),
@@ -1308,20 +1308,23 @@ static void addPreloadKernArgHint(Function &F, TargetMachine &TM) {
   }
 }
 
-static void checkWavesPerEU(Module &M, TargetMachine &TM) {
+/// The final check and update of the attribute 'amdgpu-waves-per-eu' based on
+/// the determined 'amdgpu-flat-work-group-size' attribute. We can't do this
+/// during attributor run because the two attributes grow in opposite direction,
+/// we should not use any intermediate value to calculate waves per eu until we
+/// have a determined flat workgroup size.
+static void updateWavesPerEU(Module &M, TargetMachine &TM) {
   for (Function &F : M) {
     const GCNSubtarget &ST = TM.getSubtarget<GCNSubtarget>(F);
 
     auto FlatWgrpSizeAttr =
         AMDGPU::getIntegerPairAttribute(F, "amdgpu-flat-work-group-size");
-    auto WavesPerEUAttr = AMDGPU::getIntegerPairAttribute(
-        F, "amdgpu-waves-per-eu", /*OnlyFirstRequired=*/true);
 
     unsigned MinWavesPerEU = ST.getMinWavesPerEU();
     unsigned MaxWavesPerEU = ST.getMaxWavesPerEU();
 
-    unsigned MinFlatWgrpSize = 1U;
-    unsigned MaxFlatWgrpSize = 1024U;
+    unsigned MinFlatWgrpSize = ST.getMinFlatWorkGroupSize();
+    unsigned MaxFlatWgrpSize = ST.getMaxFlatWorkGroupSize();
     if (FlatWgrpSizeAttr.has_value()) {
       MinFlatWgrpSize = FlatWgrpSizeAttr->first;
       MaxFlatWgrpSize = *(FlatWgrpSizeAttr->second);
@@ -1329,16 +1332,10 @@ static void checkWavesPerEU(Module &M, TargetMachine &TM) {
 
     // Start with the max range.
     unsigned Min = MinWavesPerEU;
-    unsigned Max = MaxWavesPerEU;
+    unsigned Max = MinWavesPerEU;
 
-    // If the attribute exists, set them to the value from the attribute.
-    if (WavesPerEUAttr.has_value()) {
-      Min = WavesPerEUAttr->first;
-      if (WavesPerEUAttr->second.has_value())
-        Max = *(WavesPerEUAttr->second);
-    }
-
-    // Compute the range from flat workgroup size.
+    // Compute the range from flat workgroup size. `getWavesPerEU` will also
+    // account for the 'amdgpu-waves-er-eu' attribute.
     auto [MinFromFlatWgrpSize, MaxFromFlatWgrpSize] =
         ST.getWavesPerEU(F, std::make_pair(MinFlatWgrpSize, MaxFlatWgrpSize));
 
@@ -1441,7 +1438,7 @@ static bool runImpl(Module &M, AnalysisGetter &AG, TargetMachine &TM,
   if (Changed && (LTOPhase == ThinOrFullLTOPhase::None ||
                   LTOPhase == ThinOrFullLTOPhase::FullLTOPostLink ||
                   LTOPhase == ThinOrFullLTOPhase::ThinLTOPostLink))
-    checkWavesPerEU(M, TM);
+    updateWavesPerEU(M, TM);
 
   return Changed;
 }
