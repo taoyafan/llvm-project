@@ -594,11 +594,11 @@ public:
   /// the GUID computation will assume that the global has external linkage.
   static GUID getGUIDAssumingExternalLinkage(StringRef GlobalName);
 
+  bool assignGUID();
+
   /// Return a 64-bit global unique ID constructed from global value name
   /// (i.e. returned by getGlobalIdentifier()).
-  GUID getGUID() const {
-    return getGUIDAssumingExternalLinkage(getGlobalIdentifier());
-  }
+  GUID getGUID() const;
 
   /// @name Materialization
   /// Materialization is used to construct functions only as they're needed.
