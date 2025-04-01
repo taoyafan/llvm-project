@@ -1263,6 +1263,8 @@ void CodeGenFunction::emitStoresForConstant(const VarDecl &D, Address Loc,
                            createUnnamedGlobalForMemcpyFrom(
                                CGM, D, Builder, constant, Loc.getAlignment()),
                            SizeVal, isVolatile);
+  addInstToCurrentSourceAtom(I, nullptr);
+
   if (IsAutoInit)
     I->addAnnotationMetadata("auto-init");
 }
