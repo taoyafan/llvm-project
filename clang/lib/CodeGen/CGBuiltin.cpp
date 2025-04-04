@@ -29,6 +29,7 @@
 #include "clang/Basic/TargetInfo.h"
 #include "clang/Basic/TargetOptions.h"
 #include "clang/Frontend/FrontendDiagnostic.h"
+#include "llvm/ADT/ScopeExit.h"
 #include "llvm/IR/InlineAsm.h"
 #include "llvm/IR/Intrinsics.h"
 #include "llvm/IR/IntrinsicsX86.h"
@@ -3938,6 +3939,7 @@ RValue CodeGenFunction::EmitBuiltinExpr(const GlobalDecl GD, unsigned BuiltinID,
         Matrix, Dst.emitRawPointer(*this),
         Align(Dst.getAlignment().getQuantity()), Stride, IsVolatile,
         MatrixTy->getNumRows(), MatrixTy->getNumColumns());
+    addInstToNewSourceAtom(cast<llvm::Instruction>(Result), nullptr);
     return RValue::get(Result);
   }
 
