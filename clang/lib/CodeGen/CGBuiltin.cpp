@@ -138,6 +138,7 @@ static void initializeAlloca(CodeGenFunction &CGF, AllocaInst *AI, Value *Size,
   if (CGF.CGM.stopAutoInit())
     return;
   auto *I = CGF.Builder.CreateMemSet(AI, Byte, Size, AlignmentInBytes);
+  CGF.addInstToCurrentSourceAtom(I, nullptr);
   I->addAnnotationMetadata("auto-init");
 }
 
