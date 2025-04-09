@@ -366,7 +366,8 @@ private:
 
   template <typename TAttr>
   MCSectionGOFF *getGOFFSection(SectionKind Kind, StringRef Name,
-                                TAttr SDAttributes, MCSection *Parent);
+                                TAttr SDAttributes, MCSection *Parent,
+                                bool IsVirtual);
 
   /// Map of currently defined macros.
   StringMap<MCAsmMacro> MacroMap;
@@ -607,7 +608,8 @@ public:
   MCSectionGOFF *getGOFFSection(SectionKind Kind, StringRef Name,
                                 GOFF::SDAttr SDAttributes);
   MCSectionGOFF *getGOFFSection(SectionKind Kind, StringRef Name,
-                                GOFF::EDAttr EDAttributes, MCSection *Parent);
+                                GOFF::EDAttr EDAttributes, MCSection *Parent,
+                                bool IsVirtual);
   MCSectionGOFF *getGOFFSection(SectionKind Kind, StringRef Name,
                                 GOFF::PRAttr PRAttributes, MCSection *Parent);
 

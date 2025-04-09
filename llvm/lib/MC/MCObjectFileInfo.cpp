@@ -557,7 +557,7 @@ void MCObjectFileInfo::initGOFFMCObjectFileInfo(const Triple &T) {
                    GOFF::ESD_TS_ByteOriented, GOFF::ESD_BA_Merge,
                    GOFF::ESD_LB_Deferred, GOFF::ESD_RQ_1,
                    GOFF::ESD_ALIGN_Quadword},
-      RootSDSection);
+      RootSDSection, /*IsVirtual=*/true);
   ADASection = Ctx->getGOFFSection(
       SectionKind::getData(), "#S",
       GOFF::PRAttr{false, false, GOFF::ESD_EXE_DATA, GOFF::ESD_LT_XPLink,
@@ -570,7 +570,7 @@ void MCObjectFileInfo::initGOFFMCObjectFileInfo(const Triple &T) {
                    GOFF::ESD_TS_ByteOriented, GOFF::ESD_BA_Concatenate,
                    GOFF::ESD_LB_Initial, GOFF::ESD_RQ_0,
                    GOFF::ESD_ALIGN_Doubleword},
-      RootSDSection);
+      RootSDSection, /*IsVirtual=*/false);
 
   MCSectionGOFF *PPA2ListEDSection = Ctx->getGOFFSection(
       SectionKind::getMetadata(), GOFF::CLASS_PPA2,
@@ -578,7 +578,7 @@ void MCObjectFileInfo::initGOFFMCObjectFileInfo(const Triple &T) {
                    GOFF::ESD_TS_ByteOriented, GOFF::ESD_BA_Merge,
                    GOFF::ESD_LB_Initial, GOFF::ESD_RQ_0,
                    GOFF::ESD_ALIGN_Doubleword},
-      RootSDSection);
+      RootSDSection, /*IsVirtual=*/true);
   PPA2ListSection = Ctx->getGOFFSection(
       SectionKind::getData(), ".&ppa2",
       GOFF::PRAttr{true, false, GOFF::ESD_EXE_DATA, GOFF::ESD_LT_OS,
@@ -591,7 +591,7 @@ void MCObjectFileInfo::initGOFFMCObjectFileInfo(const Triple &T) {
                    GOFF::ESD_TS_Structured, GOFF::ESD_BA_Concatenate,
                    GOFF::ESD_LB_NoLoad, GOFF::ESD_RQ_0,
                    GOFF::ESD_ALIGN_Doubleword},
-      RootSDSection);
+      RootSDSection, /*IsVirtual=*/false);
 }
 
 void MCObjectFileInfo::initCOFFMCObjectFileInfo(const Triple &T) {
