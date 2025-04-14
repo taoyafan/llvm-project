@@ -671,7 +671,7 @@ protected:
   ErrorOr<StringRef> readString();
 
   /// Read the string index and check whether it overflows the table.
-  template <typename T> inline ErrorOr<size_t> readStringIndex(T &Table);
+  template <typename T> inline ErrorOr<size_t> readStringIndex(const T &Table);
 
   /// Read the next function profile instance.
   std::error_code readFuncProfile(const uint8_t *Start);
@@ -691,7 +691,8 @@ protected:
   std::error_code readNameTable();
 
   /// Read a string indirectly via the name table. Optionally return the index.
-  ErrorOr<FunctionId> readStringFromTable(size_t *RetIdx = nullptr);
+  ErrorOr<FunctionId> readStringFromTable(const std::vector<FunctionId> &Table,
+                                          size_t *RetIdx = nullptr);
 
   /// Read a context indirectly via the CSNameTable. Optionally return the
   /// index.
@@ -709,6 +710,8 @@ protected:
 
   /// Function name table.
   std::vector<FunctionId> NameTable;
+
+  std::vector<FunctionId> TypeNameTable;
 
   /// CSNameTable is used to save full context vectors. It is the backing buffer
   /// for SampleContextFrames.

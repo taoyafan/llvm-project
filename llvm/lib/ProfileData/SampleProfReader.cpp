@@ -534,7 +534,8 @@ ErrorOr<T> SampleProfileReaderBinary::readUnencodedNumber() {
 }
 
 template <typename T>
-inline ErrorOr<size_t> SampleProfileReaderBinary::readStringIndex(T &Table) {
+inline ErrorOr<size_t>
+SampleProfileReaderBinary::readStringIndex(const T &Table) {
   auto Idx = readNumber<size_t>();
   if (std::error_code EC = Idx.getError())
     return EC;
@@ -543,8 +544,8 @@ inline ErrorOr<size_t> SampleProfileReaderBinary::readStringIndex(T &Table) {
   return *Idx;
 }
 
-ErrorOr<FunctionId>
-SampleProfileReaderBinary::readStringFromTable(size_t *RetIdx) {
+ErrorOr<FunctionId> SampleProfileReaderBinary::readStringFromTable(
+    const std::vector<FunctionId> &Table, size_t *RetIdx) {
   auto Idx = readStringIndex(NameTable);
   if (std::error_code EC = Idx.getError())
     return EC;
@@ -575,7 +576,7 @@ SampleProfileReaderBinary::readSampleContextFromTable() {
       return EC;
     Context = SampleContext(*FContext);
   } else {
-    auto FName(readStringFromTable(&Idx));
+    auto FName(readStringFromTable(NameTable, &Idx));
     if (std::error_code EC = FName.getError())
       return EC;
     Context = SampleContext(*FName);
@@ -631,7 +632,7 @@ SampleProfileReaderBinary::readProfile(FunctionSamples &FProfile) {
     uint32_t DiscriminatorVal = (*Discriminator) & getDiscriminatorMask();
 
     for (uint32_t J = 0; J < *NumCalls; ++J) {
-      auto CalledFunction(readStringFromTable());
+      auto CalledFunction(readStringFromTable(NameTable));
       if (std::error_code EC = CalledFunction.getError())
         return EC;
 
@@ -641,6 +642,21 @@ SampleProfileReaderBinary::readProfile(FunctionSamples &FProfile) {
 
       FProfile.addCalledTargetSamples(*LineOffset, DiscriminatorVal,
                                       *CalledFunction, *CalledFunctionSamples);
+    }
+
+    // if (version >= 104 && variant & mask)
+    auto NumTypes = readNumber<uint32_t>();
+    if (std::error_code EC = NumTypes.getError())
+      return EC;
+    for (uint32_t J = 0; J < *NumTypes; J++) {
+      auto TypeName(readStringFromTable(TypeNameTable));
+      if (std::error_code EC = TypeName.getError())
+        return EC;
+      auto TypeSamples = readNumber<uint64_t>();
+      if (std::error_code EC = TypeSamples.getError())
+        return EC;
+      FProfile.addTypeSamples(*LineOffset, DiscriminatorVal, *TypeName,
+                              *TypeSamples);
     }
 
     FProfile.addBodySamples(*LineOffset, DiscriminatorVal, *NumSamples);
@@ -660,7 +676,7 @@ SampleProfileReaderBinary::readProfile(FunctionSamples &FProfile) {
     if (std::error_code EC = Discriminator.getError())
       return EC;
 
-    auto FName(readStringFromTable());
+    auto FName(readStringFromTable(NameTable));
     if (std::error_code EC = FName.getError())
       return EC;
 
@@ -672,7 +688,12 @@ SampleProfileReaderBinary::readProfile(FunctionSamples &FProfile) {
     CalleeProfile.setFunction(*FName);
     if (std::error_code EC = readProfile(CalleeProfile))
       return EC;
+    // Read the type profiles for this location.
   }
+
+  // if (version >= 104 && variant & mask)
+  
+  
 
   return sampleprof_error::success;
 }
@@ -1231,7 +1252,7 @@ std::error_code SampleProfileReaderExtBinaryBase::readCSNameTableSec() {
     if (std::error_code EC = ContextSize.getError())
       return EC;
     for (uint32_t J = 0; J < *ContextSize; ++J) {
-      auto FName(readStringFromTable());
+      auto FName(readStringFromTable(NameTable));
       if (std::error_code EC = FName.getError())
         return EC;
       auto LineOffset = readNumber<uint64_t>();
@@ -1510,7 +1531,7 @@ std::error_code SampleProfileReaderBinary::readMagicIdent() {
   auto Version = readNumber<uint64_t>();
   if (std::error_code EC = Version.getError())
     return EC;
-  else if (*Version != SPVersion())
+  else if (*Version <= SPVersion())
     return sampleprof_error::unsupported_version;
 
   return sampleprof_error::success;
