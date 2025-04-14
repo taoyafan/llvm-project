@@ -851,7 +851,8 @@ std::error_code SampleProfileWriterBinary::writeBody(const FunctionSamples &S) {
   for (const auto &J : S.getCallsiteSamples())
     NumCallsites += J.second.size();
   encodeULEB128(NumCallsites, OS);
-  for (const auto &J : S.getCallsiteSamples())
+  for (const auto &J : S.getCallsiteSamples()) {
+    errs() << "SPW.cpp:855\t" << J.second.size() << "\n";
     for (const auto &FS : J.second) {
       LineLocation Loc = J.first;
       const FunctionSamples &CalleeSamples = FS.second;
@@ -860,6 +861,7 @@ std::error_code SampleProfileWriterBinary::writeBody(const FunctionSamples &S) {
       if (std::error_code EC = writeBody(CalleeSamples))
         return EC;
     }
+  }
 
   return sampleprof_error::success;
 }
