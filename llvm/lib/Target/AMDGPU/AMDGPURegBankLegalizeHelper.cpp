@@ -237,6 +237,21 @@ void RegBankLegalizeHelper::lowerS_BFE(MachineInstr &MI) {
   MI.eraseFromParent();
 }
 
+void RegBankLegalizeHelper::lowerSplitTo32(MachineInstr &MI) {
+  Register Dst = MI.getOperand(0).getReg();
+  LLT Ty = MRI.getType(Dst) == V4S16 ? V2S16 : S32;
+  auto Op1 = B.buildUnmerge({VgprRB, Ty}, MI.getOperand(1).getReg());
+  auto Op2 = B.buildUnmerge({VgprRB, Ty}, MI.getOperand(2).getReg());
+  unsigned Opc = MI.getOpcode();
+  auto Flags = MI.getFlags();
+  auto Lo =
+      B.buildInstr(Opc, {{VgprRB, Ty}}, {Op1.getReg(0), Op2.getReg(0)}, Flags);
+  auto Hi =
+      B.buildInstr(Opc, {{VgprRB, Ty}}, {Op1.getReg(1), Op2.getReg(1)}, Flags);
+  B.buildMergeLikeInstr(MI.getOperand(0).getReg(), {Lo, Hi});
+  MI.eraseFromParent();
+}
+
 void RegBankLegalizeHelper::lower(MachineInstr &MI,
                                   const RegBankLLTMapping &Mapping,
                                   SmallSet<Register, 4> &WaterfallSgprs) {
@@ -325,20 +340,12 @@ void RegBankLegalizeHelper::lower(MachineInstr &MI,
     MI.eraseFromParent();
     return;
   }
-  case SplitTo32: {
-    auto Op1 = B.buildUnmerge(VgprRB_S32, MI.getOperand(1).getReg());
-    auto Op2 = B.buildUnmerge(VgprRB_S32, MI.getOperand(2).getReg());
-    unsigned Opc = MI.getOpcode();
-    auto Lo = B.buildInstr(Opc, {VgprRB_S32}, {Op1.getReg(0), Op2.getReg(0)});
-    auto Hi = B.buildInstr(Opc, {VgprRB_S32}, {Op1.getReg(1), Op2.getReg(1)});
-    B.buildMergeLikeInstr(MI.getOperand(0).getReg(), {Lo, Hi});
-    MI.eraseFromParent();
-    break;
-  }
   case V_BFE:
     return lowerV_BFE(MI);
   case S_BFE:
     return lowerS_BFE(MI);
+  case SplitTo32:
+    return lowerSplitTo32(MI);
   case SplitLoad: {
     LLT DstTy = MRI.getType(MI.getOperand(0).getReg());
     unsigned Size = DstTy.getSizeInBits();
@@ -398,6 +405,7 @@ LLT RegBankLegalizeHelper::getTyFromID(RegBankLLTMappingApplyID ID) {
   case UniInVcc:
     return LLT::scalar(1);
   case Sgpr16:
+  case Vgpr16:
     return LLT::scalar(16);
   case Sgpr32:
   case Sgpr32Trunc:
@@ -517,6 +525,7 @@ RegBankLegalizeHelper::getRegBankFromID(RegBankLLTMappingApplyID ID) {
   case Sgpr32AExtBoolInReg:
   case Sgpr32SExt:
     return SgprRB;
+  case Vgpr16:
   case Vgpr32:
   case Vgpr64:
   case VgprP0:
@@ -560,6 +569,7 @@ void RegBankLegalizeHelper::applyMappingDst(
     case SgprP4:
     case SgprP5:
     case SgprV4S32:
+    case Vgpr16:
     case Vgpr32:
     case Vgpr64:
     case VgprP0:
@@ -691,6 +701,7 @@ void RegBankLegalizeHelper::applyMappingSrc(
       break;
     }
     // vgpr scalars, pointers and vectors
+    case Vgpr16:
     case Vgpr32:
     case Vgpr64:
     case VgprP0:
