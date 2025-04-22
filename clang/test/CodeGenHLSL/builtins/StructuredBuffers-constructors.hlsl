@@ -52,14 +52,14 @@ RasterizerOrderedStructuredBuffer<float> Buf5 : register(u1, space2);
 // CHECK-DXIL: [[H:%.*]] = call target("dx.RawBuffer", float, 1, 1) @llvm.dx.resource.handlefrombinding.tdx.RawBuffer_f32_1_1t(i32 2, i32 1, i32 1, i32 0, i1 false)
 // CHECK-DXIL: store target("dx.RawBuffer", float, 1, 1) [[H]], ptr @_ZL4Buf5, align 4
 
-// CHECK: define linkonce_odr void @_ZN4hlsl16StructuredBufferIfEC2Ev(ptr noundef nonnull align {{[48]}} dereferenceable({{[48]}}) %this)
+// CHECK: define linkonce_odr void @_ZN4hlsl16StructuredBufferIfEC2Ev(ptr noalias noundef nonnull align {{[48]}} dereferenceable({{[48]}}) %this)
 // CHECK-NEXT: entry:
-// CHECK-DXIL: define linkonce_odr void @_ZN4hlsl18RWStructuredBufferIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %this)
+// CHECK-DXIL: define linkonce_odr void @_ZN4hlsl18RWStructuredBufferIfEC2Ev(ptr noalias noundef nonnull align 4 dereferenceable(4) %this)
 // CHECK-DXIL-NEXT: entry:
-// CHECK-DXIL: define linkonce_odr void @_ZN4hlsl22AppendStructuredBufferIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %this)
+// CHECK-DXIL: define linkonce_odr void @_ZN4hlsl22AppendStructuredBufferIfEC2Ev(ptr noalias noundef nonnull align 4 dereferenceable(4) %this)
 // CHECK-DXIL-NEXT: entry:
-// CHECK-DXIL: define linkonce_odr void @_ZN4hlsl23ConsumeStructuredBufferIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %this)
-// CHECK-DXIL: define linkonce_odr void @_ZN4hlsl33RasterizerOrderedStructuredBufferIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %this)
+// CHECK-DXIL: define linkonce_odr void @_ZN4hlsl23ConsumeStructuredBufferIfEC2Ev(ptr noalias noundef nonnull align 4 dereferenceable(4) %this)
+// CHECK-DXIL: define linkonce_odr void @_ZN4hlsl33RasterizerOrderedStructuredBufferIfEC2Ev(ptr noalias noundef nonnull align 4 dereferenceable(4) %this)
 // CHECK-DXIL-NEXT: entry:
 
 // CHECK: define {{.*}} void @_GLOBAL__sub_I_StructuredBuffers_constructors.hlsl()

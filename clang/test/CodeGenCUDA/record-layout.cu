@@ -162,7 +162,7 @@ void test_J() {
   J_kernel<<<1, 1>>>();
 }
 
-// HOST: define linkonce_odr dso_local noundef ptr @"??0J@@QEAA@XZ"(ptr noundef nonnull returned align 8 dereferenceable(24) %this)
+// HOST: define linkonce_odr dso_local noundef ptr @"??0J@@QEAA@XZ"(ptr noalias noundef nonnull returned align 8 dereferenceable(24) %this)
 // HOST:  %this.addr = alloca ptr, align 8
 // HOST:  store ptr %this, ptr %this.addr, align 8
 // HOST:  %this1 = load ptr, ptr %this.addr, align 8
@@ -170,21 +170,21 @@ void test_J() {
 // HOST:  store ptr @"??_7J@@6B@", ptr %this1, align 8
 // HOST:  ret ptr %this1
 
-// HOST: define linkonce_odr dso_local noundef ptr @"??0I@@QEAA@XZ"(ptr noundef nonnull returned align 8 dereferenceable(16) %this)
+// HOST: define linkonce_odr dso_local noundef ptr @"??0I@@QEAA@XZ"(ptr noalias noundef nonnull returned align 8 dereferenceable(16) %this)
 // HOST:  %this.addr = alloca ptr, align 8
 // HOST:  store ptr %this, ptr %this.addr, align 8
 // HOST:  %this1 = load ptr, ptr %this.addr, align 8
 // HOST:  store ptr @"??_7I@@6B@", ptr %this1, align 8
 // HOST:  ret ptr %this1
 
-// DEV: define linkonce_odr void @_ZN1JC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %this)
+// DEV: define linkonce_odr void @_ZN1JC1Ev(ptr noalias noundef nonnull align 8 dereferenceable(24) %this)
 // DEV:  %this.addr = alloca ptr, align 8, addrspace(5)
 // DEV:  %this.addr.ascast = addrspacecast ptr addrspace(5) %this.addr to ptr
 // DEV:  store ptr %this, ptr %this.addr.ascast, align 8
 // DEV:  %this1 = load ptr, ptr %this.addr.ascast, align 8
 // DEV:  call void @_ZN1JC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
 
-// DEV: define linkonce_odr void @_ZN1JC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this)
+// DEV: define linkonce_odr void @_ZN1JC2Ev(ptr noalias noundef nonnull align 8 dereferenceable(24) %this)
 // DEV:  %this.addr = alloca ptr, align 8, addrspace(5)
 // DEV:  %this.addr.ascast = addrspacecast ptr addrspace(5) %this.addr to ptr
 // DEV:  store ptr %this, ptr %this.addr.ascast, align 8
@@ -192,7 +192,7 @@ void test_J() {
 // DEV:  call void @_ZN1IC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
 // DEV:  store ptr addrspace(1) getelementptr inbounds inrange(-16, 24) ({ [5 x ptr addrspace(1)] }, ptr addrspace(1) @_ZTV1J, i32 0, i32 0, i32 2), ptr %this1, align 8
 
-// DEV: define linkonce_odr void @_ZN1IC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
+// DEV: define linkonce_odr void @_ZN1IC2Ev(ptr noalias noundef nonnull align 8 dereferenceable(16) %this)
 // DEV:  %this.addr = alloca ptr, align 8, addrspace(5)
 // DEV:  %this.addr.ascast = addrspacecast ptr addrspace(5) %this.addr to ptr
 // DEV:  store ptr %this, ptr %this.addr.ascast, align 8

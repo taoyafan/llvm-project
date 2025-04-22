@@ -137,7 +137,7 @@ int main(void) {
 // CHECK:   ret i32 0
 // CHECK: }
 
-// CHECK: define linkonce_odr void @_ZN5CTestC1Eg(ptr noundef nonnull align 16 dereferenceable(32) %this, ppc_fp128 noundef %arg)
+// CHECK: define linkonce_odr void @_ZN5CTestC1Eg(ptr noalias noundef nonnull align 16 dereferenceable(32) %this, ppc_fp128 noundef %arg)
 // CHECK: entry:
 // CHECK:   store ptr %this, ptr %this.addr, align 8
 // CHECK:   store ppc_fp128 %arg, ptr %arg.addr, align 16
@@ -157,7 +157,7 @@ int main(void) {
 // CHECK:   ret ppc_fp128 %mul
 // CHECK: }
 
-// CHECK: define linkonce_odr void @_ZN5CTestC2Eg(ptr noundef nonnull align 16 dereferenceable(32) %this, ppc_fp128 noundef %arg)
+// CHECK: define linkonce_odr void @_ZN5CTestC2Eg(ptr noalias noundef nonnull align 16 dereferenceable(32) %this, ppc_fp128 noundef %arg)
 // CHECK: entry:
 // CHECK:   store ptr %this, ptr %this.addr, align 8
 // CHECK:   store ppc_fp128 %arg, ptr %arg.addr, align 16

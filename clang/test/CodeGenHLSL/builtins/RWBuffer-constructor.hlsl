@@ -13,7 +13,7 @@ RWBuffer<float> Buf : register(u5, space3);
 // CHECK-DXIL: [[H:%.*]] = call target("dx.TypedBuffer", float, 1, 0, 0) @llvm.dx.resource.handlefrombinding.tdx.TypedBuffer_f32_1_0_0t(i32 3, i32 5, i32 1, i32 0, i1 false)
 // CHECK-DXIL: store target("dx.TypedBuffer", float, 1, 0, 0) [[H]], ptr @_ZL3Buf, align 4
 
-// CHECK: define linkonce_odr void @_ZN4hlsl8RWBufferIfEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %this)
+// CHECK: define linkonce_odr void @_ZN4hlsl8RWBufferIfEC2Ev(ptr noalias noundef nonnull align 4 dereferenceable(4) %this)
 // CHECK-NEXT: entry:
 
 // CHECK: define internal void @_GLOBAL__sub_I_RWBuffer_constructor.hlsl()
