@@ -2345,7 +2345,8 @@ public:
                           FastMathFlags(), ReductionInst,
                           ArrayRef<VPValue *>({Op0, Op1}), Cond, false, {}),
         Opcode(Opcode) {
-    [[maybe_unused]] auto *AccumulatorRecipe = getChainOp()->getDefiningRecipe();
+    [[maybe_unused]] auto *AccumulatorRecipe =
+        getChainOp()->getDefiningRecipe();
     assert((isa<VPReductionPHIRecipe>(AccumulatorRecipe) ||
             isa<VPPartialReductionRecipe>(AccumulatorRecipe)) &&
            "Unexpected operand order for partial reduction recipe");
