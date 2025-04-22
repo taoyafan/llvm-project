@@ -653,7 +653,7 @@ struct S {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SC1Ei
-// CHECK1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR8:[0-9]+]] align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR8:[0-9]+]] align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    [[C_ADDR:%.*]] = alloca i32, align 4
@@ -666,7 +666,7 @@ struct S {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SC2Ei
-// CHECK1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR8]] align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR8]] align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    [[C_ADDR:%.*]] = alloca i32, align 4
@@ -1465,7 +1465,7 @@ struct S {
 //
 //
 // CHECK2-LABEL: define {{[^@]+}}@_ZN1SC1Ei
-// CHECK2-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR8:[0-9]+]] align 2 {
+// CHECK2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR8:[0-9]+]] align 2 {
 // CHECK2-NEXT:  entry:
 // CHECK2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK2-NEXT:    [[C_ADDR:%.*]] = alloca i32, align 4
@@ -1478,7 +1478,7 @@ struct S {
 //
 //
 // CHECK2-LABEL: define {{[^@]+}}@_ZN1SC2Ei
-// CHECK2-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR8]] align 2 {
+// CHECK2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR8]] align 2 {
 // CHECK2-NEXT:  entry:
 // CHECK2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK2-NEXT:    [[C_ADDR:%.*]] = alloca i32, align 4
@@ -2332,7 +2332,7 @@ struct S {
 //
 //
 // CHECK3-LABEL: define {{[^@]+}}@_ZN1SC1Ei
-// CHECK3-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR8:[0-9]+]] align 2 {
+// CHECK3-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR8:[0-9]+]] align 2 {
 // CHECK3-NEXT:  entry:
 // CHECK3-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK3-NEXT:    [[C_ADDR:%.*]] = alloca i32, align 4
@@ -2345,7 +2345,7 @@ struct S {
 //
 //
 // CHECK3-LABEL: define {{[^@]+}}@_ZN1SC2Ei
-// CHECK3-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR8]] align 2 {
+// CHECK3-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR8]] align 2 {
 // CHECK3-NEXT:  entry:
 // CHECK3-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK3-NEXT:    [[C_ADDR:%.*]] = alloca i32, align 4
@@ -2780,7 +2780,7 @@ struct S {
 //
 //
 // CHECK5-LABEL: define {{[^@]+}}@_ZN1SC1Ei
-// CHECK5-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR3:[0-9]+]] align 2 {
+// CHECK5-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR3:[0-9]+]] align 2 {
 // CHECK5-NEXT:  entry:
 // CHECK5-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK5-NEXT:    [[C_ADDR:%.*]] = alloca i32, align 4
@@ -2793,7 +2793,7 @@ struct S {
 //
 //
 // CHECK5-LABEL: define {{[^@]+}}@_ZN1SC2Ei
-// CHECK5-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR3]] align 2 {
+// CHECK5-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR3]] align 2 {
 // CHECK5-NEXT:  entry:
 // CHECK5-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK5-NEXT:    [[C_ADDR:%.*]] = alloca i32, align 4
@@ -3119,7 +3119,7 @@ struct S {
 //
 //
 // CHECK6-LABEL: define {{[^@]+}}@_ZN1SC1Ei
-// CHECK6-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR3:[0-9]+]] align 2 {
+// CHECK6-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR3:[0-9]+]] align 2 {
 // CHECK6-NEXT:  entry:
 // CHECK6-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK6-NEXT:    [[C_ADDR:%.*]] = alloca i32, align 4
@@ -3132,7 +3132,7 @@ struct S {
 //
 //
 // CHECK6-LABEL: define {{[^@]+}}@_ZN1SC2Ei
-// CHECK6-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR3]] align 2 {
+// CHECK6-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR3]] align 2 {
 // CHECK6-NEXT:  entry:
 // CHECK6-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK6-NEXT:    [[C_ADDR:%.*]] = alloca i32, align 4
@@ -3523,7 +3523,7 @@ struct S {
 //
 //
 // CHECK7-LABEL: define {{[^@]+}}@_ZN1SC1Ei
-// CHECK7-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR3:[0-9]+]] align 2 {
+// CHECK7-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR3:[0-9]+]] align 2 {
 // CHECK7-NEXT:  entry:
 // CHECK7-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK7-NEXT:    [[C_ADDR:%.*]] = alloca i32, align 4
@@ -3536,7 +3536,7 @@ struct S {
 //
 //
 // CHECK7-LABEL: define {{[^@]+}}@_ZN1SC2Ei
-// CHECK7-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR3]] align 2 {
+// CHECK7-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR3]] align 2 {
 // CHECK7-NEXT:  entry:
 // CHECK7-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK7-NEXT:    [[C_ADDR:%.*]] = alloca i32, align 4
@@ -3927,7 +3927,7 @@ struct S {
 //
 //
 // CHECK8-LABEL: define {{[^@]+}}@_ZN1SC1Ei
-// CHECK8-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR3:[0-9]+]] align 2 {
+// CHECK8-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR3:[0-9]+]] align 2 {
 // CHECK8-NEXT:  entry:
 // CHECK8-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK8-NEXT:    [[C_ADDR:%.*]] = alloca i32, align 4
@@ -3940,7 +3940,7 @@ struct S {
 //
 //
 // CHECK8-LABEL: define {{[^@]+}}@_ZN1SC2Ei
-// CHECK8-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR3]] align 2 {
+// CHECK8-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR3]] align 2 {
 // CHECK8-NEXT:  entry:
 // CHECK8-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK8-NEXT:    [[C_ADDR:%.*]] = alloca i32, align 4

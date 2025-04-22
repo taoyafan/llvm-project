@@ -38,7 +38,7 @@ S A;
 //
 //
 // CHECK-LABEL: define {{[^@]+}}@_ZN1SC1Ev
-// CHECK-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
+// CHECK-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
 // CHECK-NEXT:  entry:
 // CHECK-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8, addrspace(5)
 // CHECK-NEXT:    [[THIS_ADDR_ASCAST:%.*]] = addrspacecast ptr addrspace(5) [[THIS_ADDR]] to ptr
@@ -67,7 +67,7 @@ S A;
 //
 //
 // CHECK-LABEL: define {{[^@]+}}@_ZN1SC2Ev
-// CHECK-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK-NEXT:  entry:
 // CHECK-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8, addrspace(5)
 // CHECK-NEXT:    [[THIS_ADDR_ASCAST:%.*]] = addrspacecast ptr addrspace(5) [[THIS_ADDR]] to ptr

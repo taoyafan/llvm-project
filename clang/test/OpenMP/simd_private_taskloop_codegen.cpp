@@ -537,7 +537,7 @@ int main() {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN1SIfEC1Ev
-// CHECK9-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat {
+// CHECK9-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -547,7 +547,7 @@ int main() {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN1SIfEC1Ef
-// CHECK9-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], float noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK9-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], float noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    [[A_ADDR:%.*]] = alloca float, align 4
@@ -856,11 +856,11 @@ int main() {
 // CHECK9-NEXT:    call void @__kmpc_taskgroup(ptr @[[GLOB1]], i32 [[TMP0]])
 // CHECK9-NEXT:    store ptr undef, ptr [[_TMP1]], align 8
 // CHECK9-NEXT:    [[TMP1:%.*]] = call ptr @__kmpc_omp_task_alloc(ptr @[[GLOB1]], i32 [[TMP0]], i32 9, i64 104, i64 1, ptr @.omp_task_entry..5)
-// CHECK9-NEXT:    [[TMP2:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_4:%.*]], ptr [[TMP1]], i32 0, i32 0
-// CHECK9-NEXT:    [[TMP3:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_4]], ptr [[TMP1]], i32 0, i32 1
-// CHECK9-NEXT:    [[TMP4:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_5:%.*]], ptr [[TMP3]], i32 0, i32 0
+// CHECK9-NEXT:    [[TMP2:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_5:%.*]], ptr [[TMP1]], i32 0, i32 0
+// CHECK9-NEXT:    [[TMP3:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_5]], ptr [[TMP1]], i32 0, i32 1
+// CHECK9-NEXT:    [[TMP4:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_4:%.*]], ptr [[TMP3]], i32 0, i32 0
 // CHECK9-NEXT:    call void @_ZN1SIiEC1Ev(ptr noundef nonnull align 4 dereferenceable(4) [[TMP4]])
-// CHECK9-NEXT:    [[TMP5:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_5]], ptr [[TMP3]], i32 0, i32 3
+// CHECK9-NEXT:    [[TMP5:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_4]], ptr [[TMP3]], i32 0, i32 3
 // CHECK9-NEXT:    [[ARRAY_BEGIN:%.*]] = getelementptr inbounds [2 x %struct.S.2], ptr [[TMP5]], i32 0, i32 0
 // CHECK9-NEXT:    [[ARRAYCTOR_END:%.*]] = getelementptr inbounds [[STRUCT_S_2]], ptr [[ARRAY_BEGIN]], i64 2
 // CHECK9-NEXT:    br label [[ARRAYCTOR_LOOP:%.*]]
@@ -901,7 +901,7 @@ int main() {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN1SIfEC2Ev
-// CHECK9-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK9-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -912,7 +912,7 @@ int main() {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN1SIfEC2Ef
-// CHECK9-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], float noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK9-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], float noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    [[A_ADDR:%.*]] = alloca float, align 4
@@ -935,7 +935,7 @@ int main() {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN1SIiEC1Ev
-// CHECK9-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK9-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -945,7 +945,7 @@ int main() {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN1SIiEC1Ei
-// CHECK9-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef signext [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK9-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef signext [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -971,16 +971,16 @@ int main() {
 // CHECK9-NEXT:    store ptr [[TMP3]], ptr [[DOTADDR3]], align 8
 // CHECK9-NEXT:    store ptr [[TMP4]], ptr [[DOTADDR4]], align 8
 // CHECK9-NEXT:    [[TMP5:%.*]] = load ptr, ptr [[DOTADDR]], align 8
-// CHECK9-NEXT:    [[TMP6:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_5:%.*]], ptr [[TMP5]], i32 0, i32 0
+// CHECK9-NEXT:    [[TMP6:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_4:%.*]], ptr [[TMP5]], i32 0, i32 0
 // CHECK9-NEXT:    [[TMP7:%.*]] = load ptr, ptr [[DOTADDR4]], align 8
 // CHECK9-NEXT:    store ptr [[TMP6]], ptr [[TMP7]], align 8
-// CHECK9-NEXT:    [[TMP8:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_5]], ptr [[TMP5]], i32 0, i32 1
+// CHECK9-NEXT:    [[TMP8:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_4]], ptr [[TMP5]], i32 0, i32 1
 // CHECK9-NEXT:    [[TMP9:%.*]] = load ptr, ptr [[DOTADDR1]], align 8
 // CHECK9-NEXT:    store ptr [[TMP8]], ptr [[TMP9]], align 8
-// CHECK9-NEXT:    [[TMP10:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_5]], ptr [[TMP5]], i32 0, i32 2
+// CHECK9-NEXT:    [[TMP10:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_4]], ptr [[TMP5]], i32 0, i32 2
 // CHECK9-NEXT:    [[TMP11:%.*]] = load ptr, ptr [[DOTADDR2]], align 8
 // CHECK9-NEXT:    store ptr [[TMP10]], ptr [[TMP11]], align 8
-// CHECK9-NEXT:    [[TMP12:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_5]], ptr [[TMP5]], i32 0, i32 3
+// CHECK9-NEXT:    [[TMP12:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_4]], ptr [[TMP5]], i32 0, i32 3
 // CHECK9-NEXT:    [[TMP13:%.*]] = load ptr, ptr [[DOTADDR3]], align 8
 // CHECK9-NEXT:    store ptr [[TMP12]], ptr [[TMP13]], align 8
 // CHECK9-NEXT:    ret void
@@ -1014,11 +1014,11 @@ int main() {
 // CHECK9-NEXT:    store ptr [[TMP1]], ptr [[DOTADDR1]], align 8
 // CHECK9-NEXT:    [[TMP2:%.*]] = load i32, ptr [[DOTADDR]], align 4
 // CHECK9-NEXT:    [[TMP3:%.*]] = load ptr, ptr [[DOTADDR1]], align 8
-// CHECK9-NEXT:    [[TMP4:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_4:%.*]], ptr [[TMP3]], i32 0, i32 0
+// CHECK9-NEXT:    [[TMP4:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_5:%.*]], ptr [[TMP3]], i32 0, i32 0
 // CHECK9-NEXT:    [[TMP5:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T:%.*]], ptr [[TMP4]], i32 0, i32 2
 // CHECK9-NEXT:    [[TMP6:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T]], ptr [[TMP4]], i32 0, i32 0
 // CHECK9-NEXT:    [[TMP7:%.*]] = load ptr, ptr [[TMP6]], align 8
-// CHECK9-NEXT:    [[TMP8:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_4]], ptr [[TMP3]], i32 0, i32 1
+// CHECK9-NEXT:    [[TMP8:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_5]], ptr [[TMP3]], i32 0, i32 1
 // CHECK9-NEXT:    [[TMP9:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T]], ptr [[TMP4]], i32 0, i32 5
 // CHECK9-NEXT:    [[TMP10:%.*]] = load i64, ptr [[TMP9]], align 8
 // CHECK9-NEXT:    [[TMP11:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T]], ptr [[TMP4]], i32 0, i32 6
@@ -1096,10 +1096,10 @@ int main() {
 // CHECK9-NEXT:    store ptr [[TMP1]], ptr [[DOTADDR1]], align 8
 // CHECK9-NEXT:    store i32 [[TMP2]], ptr [[DOTADDR2]], align 4
 // CHECK9-NEXT:    [[TMP3:%.*]] = load ptr, ptr [[DOTADDR]], align 8
-// CHECK9-NEXT:    [[TMP4:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_4:%.*]], ptr [[TMP3]], i32 0, i32 1
-// CHECK9-NEXT:    [[TMP5:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_5:%.*]], ptr [[TMP4]], i32 0, i32 0
+// CHECK9-NEXT:    [[TMP4:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_5:%.*]], ptr [[TMP3]], i32 0, i32 1
+// CHECK9-NEXT:    [[TMP5:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_4:%.*]], ptr [[TMP4]], i32 0, i32 0
 // CHECK9-NEXT:    call void @_ZN1SIiEC1Ev(ptr noundef nonnull align 4 dereferenceable(4) [[TMP5]])
-// CHECK9-NEXT:    [[TMP6:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_5]], ptr [[TMP4]], i32 0, i32 3
+// CHECK9-NEXT:    [[TMP6:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_4]], ptr [[TMP4]], i32 0, i32 3
 // CHECK9-NEXT:    [[ARRAY_BEGIN:%.*]] = getelementptr inbounds [2 x %struct.S.2], ptr [[TMP6]], i32 0, i32 0
 // CHECK9-NEXT:    [[ARRAYCTOR_END:%.*]] = getelementptr inbounds [[STRUCT_S_2:%.*]], ptr [[ARRAY_BEGIN]], i64 2
 // CHECK9-NEXT:    br label [[ARRAYCTOR_LOOP:%.*]]
@@ -1122,9 +1122,9 @@ int main() {
 // CHECK9-NEXT:    store i32 [[TMP0]], ptr [[DOTADDR]], align 4
 // CHECK9-NEXT:    store ptr [[TMP1]], ptr [[DOTADDR1]], align 8
 // CHECK9-NEXT:    [[TMP2:%.*]] = load ptr, ptr [[DOTADDR1]], align 8
-// CHECK9-NEXT:    [[TMP3:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_4:%.*]], ptr [[TMP2]], i32 0, i32 1
-// CHECK9-NEXT:    [[TMP4:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_5:%.*]], ptr [[TMP3]], i32 0, i32 0
-// CHECK9-NEXT:    [[TMP5:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_5]], ptr [[TMP3]], i32 0, i32 3
+// CHECK9-NEXT:    [[TMP3:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_5:%.*]], ptr [[TMP2]], i32 0, i32 1
+// CHECK9-NEXT:    [[TMP4:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_4:%.*]], ptr [[TMP3]], i32 0, i32 0
+// CHECK9-NEXT:    [[TMP5:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_4]], ptr [[TMP3]], i32 0, i32 3
 // CHECK9-NEXT:    [[ARRAY_BEGIN:%.*]] = getelementptr inbounds [2 x %struct.S.2], ptr [[TMP5]], i32 0, i32 0
 // CHECK9-NEXT:    [[TMP6:%.*]] = getelementptr inbounds [[STRUCT_S_2:%.*]], ptr [[ARRAY_BEGIN]], i64 2
 // CHECK9-NEXT:    br label [[ARRAYDESTROY_BODY:%.*]]
@@ -1151,7 +1151,7 @@ int main() {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN1SIiEC2Ev
-// CHECK9-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK9-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -1162,7 +1162,7 @@ int main() {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN1SIiEC2Ei
-// CHECK9-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef signext [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK9-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef signext [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -1274,7 +1274,7 @@ int main() {
 //
 //
 // CHECK11-LABEL: define {{[^@]+}}@_ZN1SIfEC1Ev
-// CHECK11-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
+// CHECK11-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
 // CHECK11-NEXT:  entry:
 // CHECK11-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK11-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 4
@@ -1284,7 +1284,7 @@ int main() {
 //
 //
 // CHECK11-LABEL: define {{[^@]+}}@_ZN1SIfEC1Ef
-// CHECK11-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], float noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK11-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], float noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK11-NEXT:  entry:
 // CHECK11-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK11-NEXT:    [[A_ADDR:%.*]] = alloca float, align 4
@@ -1591,9 +1591,9 @@ int main() {
 // CHECK11-NEXT:    call void @__kmpc_taskgroup(ptr @[[GLOB1]], i32 [[TMP0]])
 // CHECK11-NEXT:    store ptr undef, ptr [[_TMP1]], align 4
 // CHECK11-NEXT:    [[TMP1:%.*]] = call ptr @__kmpc_omp_task_alloc(ptr @[[GLOB1]], i32 [[TMP0]], i32 9, i32 76, i32 1, ptr @.omp_task_entry..5)
-// CHECK11-NEXT:    [[TMP2:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_4:%.*]], ptr [[TMP1]], i32 0, i32 0
-// CHECK11-NEXT:    [[TMP3:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_4]], ptr [[TMP1]], i32 0, i32 1
-// CHECK11-NEXT:    [[TMP4:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_5:%.*]], ptr [[TMP3]], i32 0, i32 2
+// CHECK11-NEXT:    [[TMP2:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_5:%.*]], ptr [[TMP1]], i32 0, i32 0
+// CHECK11-NEXT:    [[TMP3:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_5]], ptr [[TMP1]], i32 0, i32 1
+// CHECK11-NEXT:    [[TMP4:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_4:%.*]], ptr [[TMP3]], i32 0, i32 2
 // CHECK11-NEXT:    [[ARRAY_BEGIN:%.*]] = getelementptr inbounds [2 x %struct.S.2], ptr [[TMP4]], i32 0, i32 0
 // CHECK11-NEXT:    [[ARRAYCTOR_END:%.*]] = getelementptr inbounds [[STRUCT_S_2]], ptr [[ARRAY_BEGIN]], i32 2
 // CHECK11-NEXT:    br label [[ARRAYCTOR_LOOP:%.*]]
@@ -1604,7 +1604,7 @@ int main() {
 // CHECK11-NEXT:    [[ARRAYCTOR_DONE:%.*]] = icmp eq ptr [[ARRAYCTOR_NEXT]], [[ARRAYCTOR_END]]
 // CHECK11-NEXT:    br i1 [[ARRAYCTOR_DONE]], label [[ARRAYCTOR_CONT:%.*]], label [[ARRAYCTOR_LOOP]]
 // CHECK11:       arrayctor.cont:
-// CHECK11-NEXT:    [[TMP5:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_5]], ptr [[TMP3]], i32 0, i32 3
+// CHECK11-NEXT:    [[TMP5:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_4]], ptr [[TMP3]], i32 0, i32 3
 // CHECK11-NEXT:    call void @_ZN1SIiEC1Ev(ptr noundef nonnull align 4 dereferenceable(4) [[TMP5]])
 // CHECK11-NEXT:    [[TMP6:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T:%.*]], ptr [[TMP2]], i32 0, i32 3
 // CHECK11-NEXT:    store ptr @.omp_task_destructor..7, ptr [[TMP6]], align 4
@@ -1636,7 +1636,7 @@ int main() {
 //
 //
 // CHECK11-LABEL: define {{[^@]+}}@_ZN1SIfEC2Ev
-// CHECK11-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK11-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK11-NEXT:  entry:
 // CHECK11-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK11-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 4
@@ -1647,7 +1647,7 @@ int main() {
 //
 //
 // CHECK11-LABEL: define {{[^@]+}}@_ZN1SIfEC2Ef
-// CHECK11-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], float noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK11-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], float noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK11-NEXT:  entry:
 // CHECK11-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK11-NEXT:    [[A_ADDR:%.*]] = alloca float, align 4
@@ -1670,7 +1670,7 @@ int main() {
 //
 //
 // CHECK11-LABEL: define {{[^@]+}}@_ZN1SIiEC1Ev
-// CHECK11-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK11-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK11-NEXT:  entry:
 // CHECK11-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK11-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 4
@@ -1680,7 +1680,7 @@ int main() {
 //
 //
 // CHECK11-LABEL: define {{[^@]+}}@_ZN1SIiEC1Ei
-// CHECK11-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK11-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK11-NEXT:  entry:
 // CHECK11-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK11-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -1706,16 +1706,16 @@ int main() {
 // CHECK11-NEXT:    store ptr [[TMP3]], ptr [[DOTADDR3]], align 4
 // CHECK11-NEXT:    store ptr [[TMP4]], ptr [[DOTADDR4]], align 4
 // CHECK11-NEXT:    [[TMP5:%.*]] = load ptr, ptr [[DOTADDR]], align 4
-// CHECK11-NEXT:    [[TMP6:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_5:%.*]], ptr [[TMP5]], i32 0, i32 0
+// CHECK11-NEXT:    [[TMP6:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_4:%.*]], ptr [[TMP5]], i32 0, i32 0
 // CHECK11-NEXT:    [[TMP7:%.*]] = load ptr, ptr [[DOTADDR1]], align 4
 // CHECK11-NEXT:    store ptr [[TMP6]], ptr [[TMP7]], align 4
-// CHECK11-NEXT:    [[TMP8:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_5]], ptr [[TMP5]], i32 0, i32 1
+// CHECK11-NEXT:    [[TMP8:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_4]], ptr [[TMP5]], i32 0, i32 1
 // CHECK11-NEXT:    [[TMP9:%.*]] = load ptr, ptr [[DOTADDR2]], align 4
 // CHECK11-NEXT:    store ptr [[TMP8]], ptr [[TMP9]], align 4
-// CHECK11-NEXT:    [[TMP10:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_5]], ptr [[TMP5]], i32 0, i32 2
+// CHECK11-NEXT:    [[TMP10:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_4]], ptr [[TMP5]], i32 0, i32 2
 // CHECK11-NEXT:    [[TMP11:%.*]] = load ptr, ptr [[DOTADDR3]], align 4
 // CHECK11-NEXT:    store ptr [[TMP10]], ptr [[TMP11]], align 4
-// CHECK11-NEXT:    [[TMP12:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_5]], ptr [[TMP5]], i32 0, i32 3
+// CHECK11-NEXT:    [[TMP12:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_4]], ptr [[TMP5]], i32 0, i32 3
 // CHECK11-NEXT:    [[TMP13:%.*]] = load ptr, ptr [[DOTADDR4]], align 4
 // CHECK11-NEXT:    store ptr [[TMP12]], ptr [[TMP13]], align 4
 // CHECK11-NEXT:    ret void
@@ -1749,11 +1749,11 @@ int main() {
 // CHECK11-NEXT:    store ptr [[TMP1]], ptr [[DOTADDR1]], align 4
 // CHECK11-NEXT:    [[TMP2:%.*]] = load i32, ptr [[DOTADDR]], align 4
 // CHECK11-NEXT:    [[TMP3:%.*]] = load ptr, ptr [[DOTADDR1]], align 4
-// CHECK11-NEXT:    [[TMP4:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_4:%.*]], ptr [[TMP3]], i32 0, i32 0
+// CHECK11-NEXT:    [[TMP4:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_5:%.*]], ptr [[TMP3]], i32 0, i32 0
 // CHECK11-NEXT:    [[TMP5:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T:%.*]], ptr [[TMP4]], i32 0, i32 2
 // CHECK11-NEXT:    [[TMP6:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T]], ptr [[TMP4]], i32 0, i32 0
 // CHECK11-NEXT:    [[TMP7:%.*]] = load ptr, ptr [[TMP6]], align 4
-// CHECK11-NEXT:    [[TMP8:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_4]], ptr [[TMP3]], i32 0, i32 1
+// CHECK11-NEXT:    [[TMP8:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_5]], ptr [[TMP3]], i32 0, i32 1
 // CHECK11-NEXT:    [[TMP9:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T]], ptr [[TMP4]], i32 0, i32 5
 // CHECK11-NEXT:    [[TMP10:%.*]] = load i64, ptr [[TMP9]], align 4
 // CHECK11-NEXT:    [[TMP11:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T]], ptr [[TMP4]], i32 0, i32 6
@@ -1829,8 +1829,8 @@ int main() {
 // CHECK11-NEXT:    store ptr [[TMP1]], ptr [[DOTADDR1]], align 4
 // CHECK11-NEXT:    store i32 [[TMP2]], ptr [[DOTADDR2]], align 4
 // CHECK11-NEXT:    [[TMP3:%.*]] = load ptr, ptr [[DOTADDR]], align 4
-// CHECK11-NEXT:    [[TMP4:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_4:%.*]], ptr [[TMP3]], i32 0, i32 1
-// CHECK11-NEXT:    [[TMP5:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_5:%.*]], ptr [[TMP4]], i32 0, i32 2
+// CHECK11-NEXT:    [[TMP4:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_5:%.*]], ptr [[TMP3]], i32 0, i32 1
+// CHECK11-NEXT:    [[TMP5:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_4:%.*]], ptr [[TMP4]], i32 0, i32 2
 // CHECK11-NEXT:    [[ARRAY_BEGIN:%.*]] = getelementptr inbounds [2 x %struct.S.2], ptr [[TMP5]], i32 0, i32 0
 // CHECK11-NEXT:    [[ARRAYCTOR_END:%.*]] = getelementptr inbounds [[STRUCT_S_2:%.*]], ptr [[ARRAY_BEGIN]], i32 2
 // CHECK11-NEXT:    br label [[ARRAYCTOR_LOOP:%.*]]
@@ -1841,7 +1841,7 @@ int main() {
 // CHECK11-NEXT:    [[ARRAYCTOR_DONE:%.*]] = icmp eq ptr [[ARRAYCTOR_NEXT]], [[ARRAYCTOR_END]]
 // CHECK11-NEXT:    br i1 [[ARRAYCTOR_DONE]], label [[ARRAYCTOR_CONT:%.*]], label [[ARRAYCTOR_LOOP]]
 // CHECK11:       arrayctor.cont:
-// CHECK11-NEXT:    [[TMP6:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_5]], ptr [[TMP4]], i32 0, i32 3
+// CHECK11-NEXT:    [[TMP6:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_4]], ptr [[TMP4]], i32 0, i32 3
 // CHECK11-NEXT:    call void @_ZN1SIiEC1Ev(ptr noundef nonnull align 4 dereferenceable(4) [[TMP6]])
 // CHECK11-NEXT:    ret void
 //
@@ -1855,9 +1855,9 @@ int main() {
 // CHECK11-NEXT:    store i32 [[TMP0]], ptr [[DOTADDR]], align 4
 // CHECK11-NEXT:    store ptr [[TMP1]], ptr [[DOTADDR1]], align 4
 // CHECK11-NEXT:    [[TMP2:%.*]] = load ptr, ptr [[DOTADDR1]], align 4
-// CHECK11-NEXT:    [[TMP3:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_4:%.*]], ptr [[TMP2]], i32 0, i32 1
-// CHECK11-NEXT:    [[TMP4:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_5:%.*]], ptr [[TMP3]], i32 0, i32 2
-// CHECK11-NEXT:    [[TMP5:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_5]], ptr [[TMP3]], i32 0, i32 3
+// CHECK11-NEXT:    [[TMP3:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_5:%.*]], ptr [[TMP2]], i32 0, i32 1
+// CHECK11-NEXT:    [[TMP4:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_4:%.*]], ptr [[TMP3]], i32 0, i32 2
+// CHECK11-NEXT:    [[TMP5:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_4]], ptr [[TMP3]], i32 0, i32 3
 // CHECK11-NEXT:    call void @_ZN1SIiED1Ev(ptr noundef nonnull align 4 dereferenceable(4) [[TMP5]]) #[[ATTR3]]
 // CHECK11-NEXT:    [[ARRAY_BEGIN:%.*]] = getelementptr inbounds [2 x %struct.S.2], ptr [[TMP4]], i32 0, i32 0
 // CHECK11-NEXT:    [[TMP6:%.*]] = getelementptr inbounds [[STRUCT_S_2:%.*]], ptr [[ARRAY_BEGIN]], i32 2
@@ -1884,7 +1884,7 @@ int main() {
 //
 //
 // CHECK11-LABEL: define {{[^@]+}}@_ZN1SIiEC2Ev
-// CHECK11-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK11-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK11-NEXT:  entry:
 // CHECK11-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK11-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 4
@@ -1895,7 +1895,7 @@ int main() {
 //
 //
 // CHECK11-LABEL: define {{[^@]+}}@_ZN1SIiEC2Ei
-// CHECK11-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK11-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK11-NEXT:  entry:
 // CHECK11-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK11-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -2063,7 +2063,7 @@ int main() {
 //
 //
 // CHECK13-LABEL: define {{[^@]+}}@_ZN1SIfEC1Ev
-// CHECK13-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat {
+// CHECK13-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat {
 // CHECK13-NEXT:  entry:
 // CHECK13-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK13-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -2073,7 +2073,7 @@ int main() {
 //
 //
 // CHECK13-LABEL: define {{[^@]+}}@_ZN1SIfEC1Ef
-// CHECK13-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], float noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK13-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], float noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK13-NEXT:  entry:
 // CHECK13-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK13-NEXT:    [[A_ADDR:%.*]] = alloca float, align 4
@@ -2202,7 +2202,7 @@ int main() {
 //
 //
 // CHECK13-LABEL: define {{[^@]+}}@_ZN1SIfEC2Ev
-// CHECK13-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK13-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK13-NEXT:  entry:
 // CHECK13-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK13-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -2222,7 +2222,7 @@ int main() {
 //
 //
 // CHECK13-LABEL: define {{[^@]+}}@_ZN1SIfEC2Ef
-// CHECK13-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], float noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK13-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], float noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK13-NEXT:  entry:
 // CHECK13-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK13-NEXT:    [[A_ADDR:%.*]] = alloca float, align 4
@@ -2236,7 +2236,7 @@ int main() {
 //
 //
 // CHECK13-LABEL: define {{[^@]+}}@_ZN1SIiEC1Ev
-// CHECK13-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK13-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK13-NEXT:  entry:
 // CHECK13-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK13-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -2246,7 +2246,7 @@ int main() {
 //
 //
 // CHECK13-LABEL: define {{[^@]+}}@_ZN1SIiEC1Ei
-// CHECK13-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef signext [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK13-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef signext [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK13-NEXT:  entry:
 // CHECK13-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK13-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -2269,7 +2269,7 @@ int main() {
 //
 //
 // CHECK13-LABEL: define {{[^@]+}}@_ZN1SIiEC2Ev
-// CHECK13-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK13-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK13-NEXT:  entry:
 // CHECK13-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK13-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -2280,7 +2280,7 @@ int main() {
 //
 //
 // CHECK13-LABEL: define {{[^@]+}}@_ZN1SIiEC2Ei
-// CHECK13-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef signext [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK13-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef signext [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK13-NEXT:  entry:
 // CHECK13-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK13-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -2446,7 +2446,7 @@ int main() {
 //
 //
 // CHECK15-LABEL: define {{[^@]+}}@_ZN1SIfEC1Ev
-// CHECK15-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
+// CHECK15-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
 // CHECK15-NEXT:  entry:
 // CHECK15-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK15-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 4
@@ -2456,7 +2456,7 @@ int main() {
 //
 //
 // CHECK15-LABEL: define {{[^@]+}}@_ZN1SIfEC1Ef
-// CHECK15-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], float noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK15-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], float noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK15-NEXT:  entry:
 // CHECK15-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK15-NEXT:    [[A_ADDR:%.*]] = alloca float, align 4
@@ -2583,7 +2583,7 @@ int main() {
 //
 //
 // CHECK15-LABEL: define {{[^@]+}}@_ZN1SIfEC2Ev
-// CHECK15-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK15-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK15-NEXT:  entry:
 // CHECK15-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK15-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 4
@@ -2603,7 +2603,7 @@ int main() {
 //
 //
 // CHECK15-LABEL: define {{[^@]+}}@_ZN1SIfEC2Ef
-// CHECK15-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], float noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK15-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], float noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK15-NEXT:  entry:
 // CHECK15-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK15-NEXT:    [[A_ADDR:%.*]] = alloca float, align 4
@@ -2617,7 +2617,7 @@ int main() {
 //
 //
 // CHECK15-LABEL: define {{[^@]+}}@_ZN1SIiEC1Ev
-// CHECK15-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK15-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK15-NEXT:  entry:
 // CHECK15-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK15-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 4
@@ -2627,7 +2627,7 @@ int main() {
 //
 //
 // CHECK15-LABEL: define {{[^@]+}}@_ZN1SIiEC1Ei
-// CHECK15-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK15-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK15-NEXT:  entry:
 // CHECK15-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK15-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -2650,7 +2650,7 @@ int main() {
 //
 //
 // CHECK15-LABEL: define {{[^@]+}}@_ZN1SIiEC2Ev
-// CHECK15-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK15-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK15-NEXT:  entry:
 // CHECK15-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK15-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 4
@@ -2661,7 +2661,7 @@ int main() {
 //
 //
 // CHECK15-LABEL: define {{[^@]+}}@_ZN1SIiEC2Ei
-// CHECK15-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK15-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK15-NEXT:  entry:
 // CHECK15-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK15-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4

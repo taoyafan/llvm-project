@@ -396,7 +396,7 @@ int main()
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN2S2C1Ev
-// CHECK1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -447,7 +447,7 @@ int main()
 // CHECK1-NEXT:    [[TMP7:%.*]] = load i32, ptr [[I]], align 4
 // CHECK1-NEXT:    [[INC:%.*]] = add nsw i32 [[TMP7]], 1
 // CHECK1-NEXT:    store i32 [[INC]], ptr [[I]], align 4
-// CHECK1-NEXT:    br label [[FOR_COND]], !llvm.loop [[LOOP5:![0-9]+]]
+// CHECK1-NEXT:    br label [[FOR_COND]], !llvm.loop [[LOOP7:![0-9]+]]
 // CHECK1:       for.end:
 // CHECK1-NEXT:    [[TMP8:%.*]] = getelementptr inbounds [1 x ptr], ptr [[DOTOMP_REDUCTION_RED_LIST]], i64 0, i64 0
 // CHECK1-NEXT:    store ptr [[O1]], ptr [[TMP8]], align 8
@@ -783,7 +783,7 @@ int main()
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN2S2C2Ev
-// CHECK1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -1909,7 +1909,7 @@ int main()
 // CHECK2-NEXT:    [[TMP9:%.*]] = load i32, ptr [[I]], align 4
 // CHECK2-NEXT:    [[INC:%.*]] = add nsw i32 [[TMP9]], 1
 // CHECK2-NEXT:    store i32 [[INC]], ptr [[I]], align 4
-// CHECK2-NEXT:    br label [[FOR_COND]], !llvm.loop [[LOOP10:![0-9]+]]
+// CHECK2-NEXT:    br label [[FOR_COND]], !llvm.loop [[LOOP14:![0-9]+]]
 // CHECK2:       for.end:
 // CHECK2-NEXT:    [[TMP10:%.*]] = getelementptr inbounds [1 x ptr], ptr [[DOTOMP_REDUCTION_RED_LIST]], i32 0, i32 0
 // CHECK2-NEXT:    store ptr [[A2]], ptr [[TMP10]], align 4
@@ -2039,7 +2039,7 @@ int main()
 // CHECK2-NEXT:    [[TMP8:%.*]] = load i32, ptr [[I]], align 4
 // CHECK2-NEXT:    [[INC:%.*]] = add nsw i32 [[TMP8]], 1
 // CHECK2-NEXT:    store i32 [[INC]], ptr [[I]], align 4
-// CHECK2-NEXT:    br label [[FOR_COND]], !llvm.loop [[LOOP12:![0-9]+]]
+// CHECK2-NEXT:    br label [[FOR_COND]], !llvm.loop [[LOOP16:![0-9]+]]
 // CHECK2:       for.end:
 // CHECK2-NEXT:    [[TMP9:%.*]] = getelementptr inbounds [1 x ptr], ptr [[DOTOMP_REDUCTION_RED_LIST]], i32 0, i32 0
 // CHECK2-NEXT:    store ptr [[A1]], ptr [[TMP9]], align 4

@@ -983,7 +983,7 @@ int foobar() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN2S1C1Ei
-// CHECK1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -1160,7 +1160,7 @@ int foobar() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN2S1C2Ei
-// CHECK1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -1193,7 +1193,7 @@ int foobar() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN2S2C1Ei
-// CHECK1-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -1216,7 +1216,7 @@ int foobar() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN2S2C2Ei
-// CHECK1-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -1464,7 +1464,7 @@ int foobar() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZZ4mainEN5SmainC1Ei
-// CHECK1-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -1497,7 +1497,7 @@ int foobar() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZZ4mainEN5SmainC2Ei
-// CHECK1-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -1604,7 +1604,7 @@ int foobar() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN2S4C1Ei
-// CHECK1-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -1637,7 +1637,7 @@ int foobar() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN2S4C2Ei
-// CHECK1-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -1681,7 +1681,7 @@ int foobar() {
 //
 //
 // CHECK2-LABEL: define {{[^@]+}}@_ZN2S1C1Ei
-// CHECK2-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
+// CHECK2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
 // CHECK2-NEXT:  entry:
 // CHECK2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -1741,7 +1741,7 @@ int foobar() {
 //
 //
 // CHECK2-LABEL: define {{[^@]+}}@_ZN2S2C1Ei
-// CHECK2-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK2-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK2-NEXT:  entry:
 // CHECK2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -2115,7 +2115,7 @@ int foobar() {
 //
 //
 // CHECK2-LABEL: define {{[^@]+}}@_ZZ4mainEN5SmainC1Ei
-// CHECK2-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// CHECK2-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // CHECK2-NEXT:  entry:
 // CHECK2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -2230,7 +2230,7 @@ int foobar() {
 //
 //
 // CHECK2-LABEL: define {{[^@]+}}@_ZN2S4C1Ei
-// CHECK2-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK2-NEXT:  entry:
 // CHECK2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -2263,7 +2263,7 @@ int foobar() {
 //
 //
 // CHECK2-LABEL: define {{[^@]+}}@_ZN2S1C2Ei
-// CHECK2-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
+// CHECK2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
 // CHECK2-NEXT:  entry:
 // CHECK2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -2288,7 +2288,7 @@ int foobar() {
 //
 //
 // CHECK2-LABEL: define {{[^@]+}}@_ZN2S2C2Ei
-// CHECK2-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
+// CHECK2-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
 // CHECK2-NEXT:  entry:
 // CHECK2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -2313,7 +2313,7 @@ int foobar() {
 //
 //
 // CHECK2-LABEL: define {{[^@]+}}@_ZZ4mainEN5SmainC2Ei
-// CHECK2-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] align 2 {
+// CHECK2-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] align 2 {
 // CHECK2-NEXT:  entry:
 // CHECK2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -2338,7 +2338,7 @@ int foobar() {
 //
 //
 // CHECK2-LABEL: define {{[^@]+}}@_ZN2S4C2Ei
-// CHECK2-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
+// CHECK2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
 // CHECK2-NEXT:  entry:
 // CHECK2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -2382,7 +2382,7 @@ int foobar() {
 //
 //
 // SIMD1-LABEL: define {{[^@]+}}@_ZN2S1C1Ei
-// SIMD1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
+// SIMD1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
 // SIMD1-NEXT:  entry:
 // SIMD1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -2413,7 +2413,7 @@ int foobar() {
 //
 //
 // SIMD1-LABEL: define {{[^@]+}}@_ZN2S2C1Ei
-// SIMD1-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// SIMD1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // SIMD1-NEXT:  entry:
 // SIMD1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -2623,7 +2623,7 @@ int foobar() {
 //
 //
 // SIMD1-LABEL: define {{[^@]+}}@_ZZ4mainEN5SmainC1Ei
-// SIMD1-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// SIMD1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // SIMD1-NEXT:  entry:
 // SIMD1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -2700,7 +2700,7 @@ int foobar() {
 //
 //
 // SIMD1-LABEL: define {{[^@]+}}@_ZN2S4C1Ei
-// SIMD1-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// SIMD1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // SIMD1-NEXT:  entry:
 // SIMD1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -2723,7 +2723,7 @@ int foobar() {
 //
 //
 // SIMD1-LABEL: define {{[^@]+}}@_ZN2S1C2Ei
-// SIMD1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
+// SIMD1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
 // SIMD1-NEXT:  entry:
 // SIMD1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -2748,7 +2748,7 @@ int foobar() {
 //
 //
 // SIMD1-LABEL: define {{[^@]+}}@_ZN2S2C2Ei
-// SIMD1-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
+// SIMD1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
 // SIMD1-NEXT:  entry:
 // SIMD1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -2773,7 +2773,7 @@ int foobar() {
 //
 //
 // SIMD1-LABEL: define {{[^@]+}}@_ZZ4mainEN5SmainC2Ei
-// SIMD1-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] align 2 {
+// SIMD1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] align 2 {
 // SIMD1-NEXT:  entry:
 // SIMD1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -2798,7 +2798,7 @@ int foobar() {
 //
 //
 // SIMD1-LABEL: define {{[^@]+}}@_ZN2S4C2Ei
-// SIMD1-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
+// SIMD1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
 // SIMD1-NEXT:  entry:
 // SIMD1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -2840,7 +2840,7 @@ int foobar() {
 //
 //
 // SIMD2-LABEL: define {{[^@]+}}@_ZN2S1C1Ei
-// SIMD2-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 !dbg [[DBG122:![0-9]+]] {
+// SIMD2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 !dbg [[DBG122:![0-9]+]] {
 // SIMD2-NEXT:  entry:
 // SIMD2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -2874,7 +2874,7 @@ int foobar() {
 //
 //
 // SIMD2-LABEL: define {{[^@]+}}@_ZN2S2C1Ei
-// SIMD2-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 !dbg [[DBG140:![0-9]+]] {
+// SIMD2-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 !dbg [[DBG140:![0-9]+]] {
 // SIMD2-NEXT:  entry:
 // SIMD2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -3089,7 +3089,7 @@ int foobar() {
 //
 //
 // SIMD2-LABEL: define {{[^@]+}}@_ZZ4mainEN5SmainC1Ei
-// SIMD2-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 !dbg [[DBG199:![0-9]+]] {
+// SIMD2-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 !dbg [[DBG199:![0-9]+]] {
 // SIMD2-NEXT:  entry:
 // SIMD2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -3170,7 +3170,7 @@ int foobar() {
 //
 //
 // SIMD2-LABEL: define {{[^@]+}}@_ZN2S4C1Ei
-// SIMD2-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 !dbg [[DBG238:![0-9]+]] {
+// SIMD2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 !dbg [[DBG238:![0-9]+]] {
 // SIMD2-NEXT:  entry:
 // SIMD2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -3196,7 +3196,7 @@ int foobar() {
 //
 //
 // SIMD2-LABEL: define {{[^@]+}}@_ZN2S1C2Ei
-// SIMD2-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG251:![0-9]+]] {
+// SIMD2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG251:![0-9]+]] {
 // SIMD2-NEXT:  entry:
 // SIMD2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -3224,7 +3224,7 @@ int foobar() {
 //
 //
 // SIMD2-LABEL: define {{[^@]+}}@_ZN2S2C2Ei
-// SIMD2-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG266:![0-9]+]] {
+// SIMD2-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG266:![0-9]+]] {
 // SIMD2-NEXT:  entry:
 // SIMD2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -3252,7 +3252,7 @@ int foobar() {
 //
 //
 // SIMD2-LABEL: define {{[^@]+}}@_ZZ4mainEN5SmainC2Ei
-// SIMD2-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] align 2 !dbg [[DBG281:![0-9]+]] {
+// SIMD2-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] align 2 !dbg [[DBG281:![0-9]+]] {
 // SIMD2-NEXT:  entry:
 // SIMD2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -3280,7 +3280,7 @@ int foobar() {
 //
 //
 // SIMD2-LABEL: define {{[^@]+}}@_ZN2S4C2Ei
-// SIMD2-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG296:![0-9]+]] {
+// SIMD2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG296:![0-9]+]] {
 // SIMD2-NEXT:  entry:
 // SIMD2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -3325,7 +3325,7 @@ int foobar() {
 //
 //
 // CHECK-TLS1-LABEL: define {{[^@]+}}@_ZN2S1C1Ei
-// CHECK-TLS1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
+// CHECK-TLS1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
 // CHECK-TLS1-NEXT:  entry:
 // CHECK-TLS1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -3348,7 +3348,7 @@ int foobar() {
 //
 //
 // CHECK-TLS1-LABEL: define {{[^@]+}}@_ZN2S1C2Ei
-// CHECK-TLS1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
+// CHECK-TLS1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
 // CHECK-TLS1-NEXT:  entry:
 // CHECK-TLS1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -3381,7 +3381,7 @@ int foobar() {
 //
 //
 // CHECK-TLS1-LABEL: define {{[^@]+}}@_ZN2S2C1Ei
-// CHECK-TLS1-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK-TLS1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK-TLS1-NEXT:  entry:
 // CHECK-TLS1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -3404,7 +3404,7 @@ int foobar() {
 //
 //
 // CHECK-TLS1-LABEL: define {{[^@]+}}@_ZN2S2C2Ei
-// CHECK-TLS1-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
+// CHECK-TLS1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
 // CHECK-TLS1-NEXT:  entry:
 // CHECK-TLS1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -3618,7 +3618,7 @@ int foobar() {
 //
 //
 // CHECK-TLS1-LABEL: define {{[^@]+}}@_ZZ4mainEN5SmainC1Ei
-// CHECK-TLS1-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// CHECK-TLS1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // CHECK-TLS1-NEXT:  entry:
 // CHECK-TLS1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -3679,7 +3679,7 @@ int foobar() {
 //
 //
 // CHECK-TLS1-LABEL: define {{[^@]+}}@_ZZ4mainEN5SmainC2Ei
-// CHECK-TLS1-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] align 2 {
+// CHECK-TLS1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] align 2 {
 // CHECK-TLS1-NEXT:  entry:
 // CHECK-TLS1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -3772,7 +3772,7 @@ int foobar() {
 //
 //
 // CHECK-TLS1-LABEL: define {{[^@]+}}@_ZN2S4C1Ei
-// CHECK-TLS1-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK-TLS1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK-TLS1-NEXT:  entry:
 // CHECK-TLS1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -3795,7 +3795,7 @@ int foobar() {
 //
 //
 // CHECK-TLS1-LABEL: define {{[^@]+}}@_ZN2S4C2Ei
-// CHECK-TLS1-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
+// CHECK-TLS1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
 // CHECK-TLS1-NEXT:  entry:
 // CHECK-TLS1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -3922,7 +3922,7 @@ int foobar() {
 //
 //
 // CHECK-TLS2-LABEL: define {{[^@]+}}@_ZZ4mainEN5SmainC1Ei
-// CHECK-TLS2-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2:[0-9]+]] align 2 {
+// CHECK-TLS2-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2:[0-9]+]] align 2 {
 // CHECK-TLS2-NEXT:  entry:
 // CHECK-TLS2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -4056,7 +4056,7 @@ int foobar() {
 //
 //
 // CHECK-TLS2-LABEL: define {{[^@]+}}@_ZN2S1C1Ei
-// CHECK-TLS2-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
+// CHECK-TLS2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
 // CHECK-TLS2-NEXT:  entry:
 // CHECK-TLS2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -4079,7 +4079,7 @@ int foobar() {
 //
 //
 // CHECK-TLS2-LABEL: define {{[^@]+}}@_ZN2S1C2Ei
-// CHECK-TLS2-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR3]] comdat align 2 {
+// CHECK-TLS2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR3]] comdat align 2 {
 // CHECK-TLS2-NEXT:  entry:
 // CHECK-TLS2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -4112,7 +4112,7 @@ int foobar() {
 //
 //
 // CHECK-TLS2-LABEL: define {{[^@]+}}@_ZN2S2C1Ei
-// CHECK-TLS2-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
+// CHECK-TLS2-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
 // CHECK-TLS2-NEXT:  entry:
 // CHECK-TLS2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -4135,7 +4135,7 @@ int foobar() {
 //
 //
 // CHECK-TLS2-LABEL: define {{[^@]+}}@_ZN2S2C2Ei
-// CHECK-TLS2-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR3]] comdat align 2 {
+// CHECK-TLS2-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR3]] comdat align 2 {
 // CHECK-TLS2-NEXT:  entry:
 // CHECK-TLS2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -4269,7 +4269,7 @@ int foobar() {
 //
 //
 // CHECK-TLS2-LABEL: define {{[^@]+}}@_ZZ4mainEN5SmainC2Ei
-// CHECK-TLS2-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR3]] align 2 {
+// CHECK-TLS2-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR3]] align 2 {
 // CHECK-TLS2-NEXT:  entry:
 // CHECK-TLS2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -4309,7 +4309,7 @@ int foobar() {
 //
 //
 // CHECK-TLS2-LABEL: define {{[^@]+}}@_ZN2S4C1Ei
-// CHECK-TLS2-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
+// CHECK-TLS2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
 // CHECK-TLS2-NEXT:  entry:
 // CHECK-TLS2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -4332,7 +4332,7 @@ int foobar() {
 //
 //
 // CHECK-TLS2-LABEL: define {{[^@]+}}@_ZN2S4C2Ei
-// CHECK-TLS2-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR3]] comdat align 2 {
+// CHECK-TLS2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR3]] comdat align 2 {
 // CHECK-TLS2-NEXT:  entry:
 // CHECK-TLS2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -4387,7 +4387,7 @@ int foobar() {
 //
 //
 // CHECK-TLS3-LABEL: define {{[^@]+}}@_ZN2S1C1Ei
-// CHECK-TLS3-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 !dbg [[DBG123:![0-9]+]] {
+// CHECK-TLS3-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 !dbg [[DBG123:![0-9]+]] {
 // CHECK-TLS3-NEXT:  entry:
 // CHECK-TLS3-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS3-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -4413,7 +4413,7 @@ int foobar() {
 //
 //
 // CHECK-TLS3-LABEL: define {{[^@]+}}@_ZN2S1C2Ei
-// CHECK-TLS3-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG136:![0-9]+]] {
+// CHECK-TLS3-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG136:![0-9]+]] {
 // CHECK-TLS3-NEXT:  entry:
 // CHECK-TLS3-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS3-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -4449,7 +4449,7 @@ int foobar() {
 //
 //
 // CHECK-TLS3-LABEL: define {{[^@]+}}@_ZN2S2C1Ei
-// CHECK-TLS3-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 !dbg [[DBG156:![0-9]+]] {
+// CHECK-TLS3-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 !dbg [[DBG156:![0-9]+]] {
 // CHECK-TLS3-NEXT:  entry:
 // CHECK-TLS3-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS3-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -4475,7 +4475,7 @@ int foobar() {
 //
 //
 // CHECK-TLS3-LABEL: define {{[^@]+}}@_ZN2S2C2Ei
-// CHECK-TLS3-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG169:![0-9]+]] {
+// CHECK-TLS3-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG169:![0-9]+]] {
 // CHECK-TLS3-NEXT:  entry:
 // CHECK-TLS3-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS3-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -4694,7 +4694,7 @@ int foobar() {
 //
 //
 // CHECK-TLS3-LABEL: define {{[^@]+}}@_ZZ4mainEN5SmainC1Ei
-// CHECK-TLS3-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 !dbg [[DBG236:![0-9]+]] {
+// CHECK-TLS3-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 !dbg [[DBG236:![0-9]+]] {
 // CHECK-TLS3-NEXT:  entry:
 // CHECK-TLS3-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS3-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -4758,7 +4758,7 @@ int foobar() {
 //
 //
 // CHECK-TLS3-LABEL: define {{[^@]+}}@_ZZ4mainEN5SmainC2Ei
-// CHECK-TLS3-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] align 2 !dbg [[DBG249:![0-9]+]] {
+// CHECK-TLS3-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] align 2 !dbg [[DBG249:![0-9]+]] {
 // CHECK-TLS3-NEXT:  entry:
 // CHECK-TLS3-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS3-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -4855,7 +4855,7 @@ int foobar() {
 //
 //
 // CHECK-TLS3-LABEL: define {{[^@]+}}@_ZN2S4C1Ei
-// CHECK-TLS3-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 !dbg [[DBG295:![0-9]+]] {
+// CHECK-TLS3-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 !dbg [[DBG295:![0-9]+]] {
 // CHECK-TLS3-NEXT:  entry:
 // CHECK-TLS3-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS3-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -4881,7 +4881,7 @@ int foobar() {
 //
 //
 // CHECK-TLS3-LABEL: define {{[^@]+}}@_ZN2S4C2Ei
-// CHECK-TLS3-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG308:![0-9]+]] {
+// CHECK-TLS3-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG308:![0-9]+]] {
 // CHECK-TLS3-NEXT:  entry:
 // CHECK-TLS3-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS3-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -5012,7 +5012,7 @@ int foobar() {
 //
 //
 // CHECK-TLS4-LABEL: define {{[^@]+}}@_ZZ4mainEN5SmainC1Ei
-// CHECK-TLS4-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2:[0-9]+]] align 2 !dbg [[DBG149:![0-9]+]] {
+// CHECK-TLS4-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2:[0-9]+]] align 2 !dbg [[DBG149:![0-9]+]] {
 // CHECK-TLS4-NEXT:  entry:
 // CHECK-TLS4-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS4-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -5150,7 +5150,7 @@ int foobar() {
 //
 //
 // CHECK-TLS4-LABEL: define {{[^@]+}}@_ZN2S1C1Ei
-// CHECK-TLS4-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG195:![0-9]+]] {
+// CHECK-TLS4-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG195:![0-9]+]] {
 // CHECK-TLS4-NEXT:  entry:
 // CHECK-TLS4-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS4-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -5176,7 +5176,7 @@ int foobar() {
 //
 //
 // CHECK-TLS4-LABEL: define {{[^@]+}}@_ZN2S1C2Ei
-// CHECK-TLS4-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR3]] comdat align 2 !dbg [[DBG208:![0-9]+]] {
+// CHECK-TLS4-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR3]] comdat align 2 !dbg [[DBG208:![0-9]+]] {
 // CHECK-TLS4-NEXT:  entry:
 // CHECK-TLS4-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS4-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -5212,7 +5212,7 @@ int foobar() {
 //
 //
 // CHECK-TLS4-LABEL: define {{[^@]+}}@_ZN2S2C1Ei
-// CHECK-TLS4-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG228:![0-9]+]] {
+// CHECK-TLS4-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG228:![0-9]+]] {
 // CHECK-TLS4-NEXT:  entry:
 // CHECK-TLS4-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS4-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -5238,7 +5238,7 @@ int foobar() {
 //
 //
 // CHECK-TLS4-LABEL: define {{[^@]+}}@_ZN2S2C2Ei
-// CHECK-TLS4-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR3]] comdat align 2 !dbg [[DBG241:![0-9]+]] {
+// CHECK-TLS4-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR3]] comdat align 2 !dbg [[DBG241:![0-9]+]] {
 // CHECK-TLS4-NEXT:  entry:
 // CHECK-TLS4-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS4-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -5376,7 +5376,7 @@ int foobar() {
 //
 //
 // CHECK-TLS4-LABEL: define {{[^@]+}}@_ZZ4mainEN5SmainC2Ei
-// CHECK-TLS4-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR3]] align 2 !dbg [[DBG275:![0-9]+]] {
+// CHECK-TLS4-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR3]] align 2 !dbg [[DBG275:![0-9]+]] {
 // CHECK-TLS4-NEXT:  entry:
 // CHECK-TLS4-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS4-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -5419,7 +5419,7 @@ int foobar() {
 //
 //
 // CHECK-TLS4-LABEL: define {{[^@]+}}@_ZN2S4C1Ei
-// CHECK-TLS4-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG295:![0-9]+]] {
+// CHECK-TLS4-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG295:![0-9]+]] {
 // CHECK-TLS4-NEXT:  entry:
 // CHECK-TLS4-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS4-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -5445,7 +5445,7 @@ int foobar() {
 //
 //
 // CHECK-TLS4-LABEL: define {{[^@]+}}@_ZN2S4C2Ei
-// CHECK-TLS4-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR3]] comdat align 2 !dbg [[DBG308:![0-9]+]] {
+// CHECK-TLS4-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR3]] comdat align 2 !dbg [[DBG308:![0-9]+]] {
 // CHECK-TLS4-NEXT:  entry:
 // CHECK-TLS4-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-TLS4-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -5503,7 +5503,7 @@ int foobar() {
 //
 //
 // SIMD3-LABEL: define {{[^@]+}}@_ZN2S1C1Ei
-// SIMD3-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
+// SIMD3-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
 // SIMD3-NEXT:  entry:
 // SIMD3-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD3-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -5534,7 +5534,7 @@ int foobar() {
 //
 //
 // SIMD3-LABEL: define {{[^@]+}}@_ZN2S2C1Ei
-// SIMD3-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// SIMD3-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // SIMD3-NEXT:  entry:
 // SIMD3-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD3-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -5744,7 +5744,7 @@ int foobar() {
 //
 //
 // SIMD3-LABEL: define {{[^@]+}}@_ZZ4mainEN5SmainC1Ei
-// SIMD3-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// SIMD3-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // SIMD3-NEXT:  entry:
 // SIMD3-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD3-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -5821,7 +5821,7 @@ int foobar() {
 //
 //
 // SIMD3-LABEL: define {{[^@]+}}@_ZN2S4C1Ei
-// SIMD3-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// SIMD3-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // SIMD3-NEXT:  entry:
 // SIMD3-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD3-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -5844,7 +5844,7 @@ int foobar() {
 //
 //
 // SIMD3-LABEL: define {{[^@]+}}@_ZN2S1C2Ei
-// SIMD3-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
+// SIMD3-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
 // SIMD3-NEXT:  entry:
 // SIMD3-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD3-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -5869,7 +5869,7 @@ int foobar() {
 //
 //
 // SIMD3-LABEL: define {{[^@]+}}@_ZN2S2C2Ei
-// SIMD3-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
+// SIMD3-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
 // SIMD3-NEXT:  entry:
 // SIMD3-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD3-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -5894,7 +5894,7 @@ int foobar() {
 //
 //
 // SIMD3-LABEL: define {{[^@]+}}@_ZZ4mainEN5SmainC2Ei
-// SIMD3-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] align 2 {
+// SIMD3-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] align 2 {
 // SIMD3-NEXT:  entry:
 // SIMD3-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD3-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -5919,7 +5919,7 @@ int foobar() {
 //
 //
 // SIMD3-LABEL: define {{[^@]+}}@_ZN2S4C2Ei
-// SIMD3-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
+// SIMD3-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
 // SIMD3-NEXT:  entry:
 // SIMD3-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD3-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -5961,7 +5961,7 @@ int foobar() {
 //
 //
 // SIMD4-LABEL: define {{[^@]+}}@_ZN2S1C1Ei
-// SIMD4-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 !dbg [[DBG122:![0-9]+]] {
+// SIMD4-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 !dbg [[DBG122:![0-9]+]] {
 // SIMD4-NEXT:  entry:
 // SIMD4-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD4-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -5995,7 +5995,7 @@ int foobar() {
 //
 //
 // SIMD4-LABEL: define {{[^@]+}}@_ZN2S2C1Ei
-// SIMD4-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 !dbg [[DBG140:![0-9]+]] {
+// SIMD4-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 !dbg [[DBG140:![0-9]+]] {
 // SIMD4-NEXT:  entry:
 // SIMD4-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD4-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -6210,7 +6210,7 @@ int foobar() {
 //
 //
 // SIMD4-LABEL: define {{[^@]+}}@_ZZ4mainEN5SmainC1Ei
-// SIMD4-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 !dbg [[DBG199:![0-9]+]] {
+// SIMD4-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 !dbg [[DBG199:![0-9]+]] {
 // SIMD4-NEXT:  entry:
 // SIMD4-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD4-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -6291,7 +6291,7 @@ int foobar() {
 //
 //
 // SIMD4-LABEL: define {{[^@]+}}@_ZN2S4C1Ei
-// SIMD4-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 !dbg [[DBG238:![0-9]+]] {
+// SIMD4-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 !dbg [[DBG238:![0-9]+]] {
 // SIMD4-NEXT:  entry:
 // SIMD4-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD4-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -6317,7 +6317,7 @@ int foobar() {
 //
 //
 // SIMD4-LABEL: define {{[^@]+}}@_ZN2S1C2Ei
-// SIMD4-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG251:![0-9]+]] {
+// SIMD4-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG251:![0-9]+]] {
 // SIMD4-NEXT:  entry:
 // SIMD4-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD4-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -6345,7 +6345,7 @@ int foobar() {
 //
 //
 // SIMD4-LABEL: define {{[^@]+}}@_ZN2S2C2Ei
-// SIMD4-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG266:![0-9]+]] {
+// SIMD4-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG266:![0-9]+]] {
 // SIMD4-NEXT:  entry:
 // SIMD4-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD4-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -6373,7 +6373,7 @@ int foobar() {
 //
 //
 // SIMD4-LABEL: define {{[^@]+}}@_ZZ4mainEN5SmainC2Ei
-// SIMD4-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] align 2 !dbg [[DBG281:![0-9]+]] {
+// SIMD4-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] align 2 !dbg [[DBG281:![0-9]+]] {
 // SIMD4-NEXT:  entry:
 // SIMD4-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD4-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -6401,7 +6401,7 @@ int foobar() {
 //
 //
 // SIMD4-LABEL: define {{[^@]+}}@_ZN2S4C2Ei
-// SIMD4-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG296:![0-9]+]] {
+// SIMD4-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG296:![0-9]+]] {
 // SIMD4-NEXT:  entry:
 // SIMD4-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD4-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -6450,7 +6450,7 @@ int foobar() {
 //
 //
 // DEBUG1-LABEL: define {{[^@]+}}@_ZN2S1C1Ei
-// DEBUG1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 !dbg [[DBG123:![0-9]+]] {
+// DEBUG1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 !dbg [[DBG123:![0-9]+]] {
 // DEBUG1-NEXT:  entry:
 // DEBUG1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // DEBUG1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -6633,7 +6633,7 @@ int foobar() {
 //
 //
 // DEBUG1-LABEL: define {{[^@]+}}@_ZN2S1C2Ei
-// DEBUG1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG168:![0-9]+]] {
+// DEBUG1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG168:![0-9]+]] {
 // DEBUG1-NEXT:  entry:
 // DEBUG1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // DEBUG1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -6669,7 +6669,7 @@ int foobar() {
 //
 //
 // DEBUG1-LABEL: define {{[^@]+}}@_ZN2S2C1Ei
-// DEBUG1-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 !dbg [[DBG188:![0-9]+]] {
+// DEBUG1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 !dbg [[DBG188:![0-9]+]] {
 // DEBUG1-NEXT:  entry:
 // DEBUG1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // DEBUG1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -6695,7 +6695,7 @@ int foobar() {
 //
 //
 // DEBUG1-LABEL: define {{[^@]+}}@_ZN2S2C2Ei
-// DEBUG1-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG201:![0-9]+]] {
+// DEBUG1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG201:![0-9]+]] {
 // DEBUG1-NEXT:  entry:
 // DEBUG1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // DEBUG1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -6949,7 +6949,7 @@ int foobar() {
 //
 //
 // DEBUG1-LABEL: define {{[^@]+}}@_ZZ4mainEN5SmainC1Ei
-// DEBUG1-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 !dbg [[DBG275:![0-9]+]] {
+// DEBUG1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 !dbg [[DBG275:![0-9]+]] {
 // DEBUG1-NEXT:  entry:
 // DEBUG1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // DEBUG1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -6986,7 +6986,7 @@ int foobar() {
 //
 //
 // DEBUG1-LABEL: define {{[^@]+}}@_ZZ4mainEN5SmainC2Ei
-// DEBUG1-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] align 2 !dbg [[DBG292:![0-9]+]] {
+// DEBUG1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] align 2 !dbg [[DBG292:![0-9]+]] {
 // DEBUG1-NEXT:  entry:
 // DEBUG1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // DEBUG1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -7098,7 +7098,7 @@ int foobar() {
 //
 //
 // DEBUG1-LABEL: define {{[^@]+}}@_ZN2S4C1Ei
-// DEBUG1-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 !dbg [[DBG343:![0-9]+]] {
+// DEBUG1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 !dbg [[DBG343:![0-9]+]] {
 // DEBUG1-NEXT:  entry:
 // DEBUG1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // DEBUG1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -7135,7 +7135,7 @@ int foobar() {
 //
 //
 // DEBUG1-LABEL: define {{[^@]+}}@_ZN2S4C2Ei
-// DEBUG1-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG360:![0-9]+]] {
+// DEBUG1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG360:![0-9]+]] {
 // DEBUG1-NEXT:  entry:
 // DEBUG1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // DEBUG1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -7196,7 +7196,7 @@ int foobar() {
 //
 //
 // DEBUG2-LABEL: define {{[^@]+}}@_ZN2S1C1Ei
-// DEBUG2-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 !dbg [[DBG130:![0-9]+]] {
+// DEBUG2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 !dbg [[DBG130:![0-9]+]] {
 // DEBUG2-NEXT:  entry:
 // DEBUG2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // DEBUG2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -7241,7 +7241,7 @@ int foobar() {
 //
 //
 // DEBUG2-LABEL: define {{[^@]+}}@_ZN2S2C1Ei
-// DEBUG2-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 !dbg [[DBG152:![0-9]+]] {
+// DEBUG2-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 !dbg [[DBG152:![0-9]+]] {
 // DEBUG2-NEXT:  entry:
 // DEBUG2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // DEBUG2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -7617,7 +7617,7 @@ int foobar() {
 //
 //
 // DEBUG2-LABEL: define {{[^@]+}}@_ZZ4mainEN5SmainC1Ei
-// DEBUG2-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 !dbg [[DBG241:![0-9]+]] {
+// DEBUG2-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 !dbg [[DBG241:![0-9]+]] {
 // DEBUG2-NEXT:  entry:
 // DEBUG2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // DEBUG2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -7738,7 +7738,7 @@ int foobar() {
 //
 //
 // DEBUG2-LABEL: define {{[^@]+}}@_ZN2S4C1Ei
-// DEBUG2-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 !dbg [[DBG294:![0-9]+]] {
+// DEBUG2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 !dbg [[DBG294:![0-9]+]] {
 // DEBUG2-NEXT:  entry:
 // DEBUG2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // DEBUG2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -7775,7 +7775,7 @@ int foobar() {
 //
 //
 // DEBUG2-LABEL: define {{[^@]+}}@_ZN2S1C2Ei
-// DEBUG2-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG311:![0-9]+]] {
+// DEBUG2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG311:![0-9]+]] {
 // DEBUG2-NEXT:  entry:
 // DEBUG2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // DEBUG2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -7803,7 +7803,7 @@ int foobar() {
 //
 //
 // DEBUG2-LABEL: define {{[^@]+}}@_ZN2S2C2Ei
-// DEBUG2-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG326:![0-9]+]] {
+// DEBUG2-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG326:![0-9]+]] {
 // DEBUG2-NEXT:  entry:
 // DEBUG2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // DEBUG2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -7831,7 +7831,7 @@ int foobar() {
 //
 //
 // DEBUG2-LABEL: define {{[^@]+}}@_ZZ4mainEN5SmainC2Ei
-// DEBUG2-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] align 2 !dbg [[DBG341:![0-9]+]] {
+// DEBUG2-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] align 2 !dbg [[DBG341:![0-9]+]] {
 // DEBUG2-NEXT:  entry:
 // DEBUG2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // DEBUG2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -7859,7 +7859,7 @@ int foobar() {
 //
 //
 // DEBUG2-LABEL: define {{[^@]+}}@_ZN2S4C2Ei
-// DEBUG2-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG356:![0-9]+]] {
+// DEBUG2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 !dbg [[DBG356:![0-9]+]] {
 // DEBUG2-NEXT:  entry:
 // DEBUG2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // DEBUG2-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4

@@ -210,7 +210,7 @@ int main() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SC1El
-// CHECK1-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i64 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i64 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    [[A_ADDR:%.*]] = alloca i64, align 8
@@ -728,7 +728,7 @@ int main() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SC2El
-// CHECK1-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i64 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i64 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    [[A_ADDR:%.*]] = alloca i64, align 8
@@ -1497,7 +1497,7 @@ int main() {
 //
 //
 // CHECK5-LABEL: define {{[^@]+}}@_ZN1SC1El
-// CHECK5-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i64 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat {
+// CHECK5-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i64 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat {
 // CHECK5-NEXT:  entry:
 // CHECK5-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK5-NEXT:    [[A_ADDR:%.*]] = alloca i64, align 8
@@ -2015,7 +2015,7 @@ int main() {
 //
 //
 // CHECK5-LABEL: define {{[^@]+}}@_ZN1SC2El
-// CHECK5-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i64 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat {
+// CHECK5-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i64 noundef [[A:%.*]]) unnamed_addr #[[ATTR2]] comdat {
 // CHECK5-NEXT:  entry:
 // CHECK5-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK5-NEXT:    [[A_ADDR:%.*]] = alloca i64, align 8

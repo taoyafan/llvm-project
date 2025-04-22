@@ -725,7 +725,7 @@ struct S {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SC1Ei
-// CHECK1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR8:[0-9]+]] align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR8:[0-9]+]] align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    [[C_ADDR:%.*]] = alloca i32, align 4
@@ -738,7 +738,7 @@ struct S {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SC2Ei
-// CHECK1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR8]] align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[C:%.*]]) unnamed_addr #[[ATTR8]] align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    [[C_ADDR:%.*]] = alloca i32, align 4

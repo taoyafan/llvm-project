@@ -453,7 +453,7 @@ void parallel_master_allocate() {
 //
 //
 // CHECK17-LABEL: define {{[^@]+}}@_ZN2StC1Ev
-// CHECK17-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
+// CHECK17-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
 // CHECK17-NEXT:  entry:
 // CHECK17-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK17-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -516,7 +516,7 @@ void parallel_master_allocate() {
 //
 //
 // CHECK17-LABEL: define {{[^@]+}}@_ZN2StC2Ev
-// CHECK17-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR4]] comdat align 2 {
+// CHECK17-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR4]] comdat align 2 {
 // CHECK17-NEXT:  entry:
 // CHECK17-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK17-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8

@@ -237,7 +237,7 @@ void loop() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SIdEC1Ev
-// CHECK1-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -247,7 +247,7 @@ void loop() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SIdEC1Ed
-// CHECK1-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], double noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], double noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    [[A_ADDR:%.*]] = alloca double, align 8
@@ -603,7 +603,7 @@ void loop() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SIdEC2Ev
-// CHECK1-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -614,7 +614,7 @@ void loop() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SIdEC2Ed
-// CHECK1-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], double noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], double noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    [[A_ADDR:%.*]] = alloca double, align 8
@@ -637,7 +637,7 @@ void loop() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SIiEC1Ev
-// CHECK1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -647,7 +647,7 @@ void loop() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SIiEC1Ei
-// CHECK1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -696,12 +696,12 @@ void loop() {
 // CHECK1-NEXT:    store ptr [[TMP3]], ptr [[TMP11]], align 8
 // CHECK1-NEXT:    call void @__kmpc_taskgroup(ptr @[[GLOB1]], i32 [[TMP5]])
 // CHECK1-NEXT:    [[TMP12:%.*]] = call ptr @__kmpc_omp_task_alloc(ptr @[[GLOB1]], i32 [[TMP5]], i32 9, i64 256, i64 32, ptr @.omp_task_entry..3)
-// CHECK1-NEXT:    [[TMP13:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_2:%.*]], ptr [[TMP12]], i32 0, i32 0
+// CHECK1-NEXT:    [[TMP13:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_3:%.*]], ptr [[TMP12]], i32 0, i32 0
 // CHECK1-NEXT:    [[TMP14:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T:%.*]], ptr [[TMP13]], i32 0, i32 0
 // CHECK1-NEXT:    [[TMP15:%.*]] = load ptr, ptr [[TMP14]], align 128
 // CHECK1-NEXT:    call void @llvm.memcpy.p0.p0.i64(ptr align 8 [[TMP15]], ptr align 8 [[AGG_CAPTURED]], i64 32, i1 false)
-// CHECK1-NEXT:    [[TMP16:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_2]], ptr [[TMP12]], i32 0, i32 2
-// CHECK1-NEXT:    [[TMP17:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_3:%.*]], ptr [[TMP16]], i32 0, i32 2
+// CHECK1-NEXT:    [[TMP16:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_3]], ptr [[TMP12]], i32 0, i32 2
+// CHECK1-NEXT:    [[TMP17:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_2:%.*]], ptr [[TMP16]], i32 0, i32 2
 // CHECK1-NEXT:    [[ARRAY_BEGIN:%.*]] = getelementptr inbounds [2 x %struct.S.0], ptr [[TMP17]], i32 0, i32 0
 // CHECK1-NEXT:    [[ARRAYCTOR_END:%.*]] = getelementptr inbounds [[STRUCT_S_0:%.*]], ptr [[ARRAY_BEGIN]], i64 2
 // CHECK1-NEXT:    br label [[ARRAYCTOR_LOOP:%.*]]
@@ -712,7 +712,7 @@ void loop() {
 // CHECK1-NEXT:    [[ARRAYCTOR_DONE:%.*]] = icmp eq ptr [[ARRAYCTOR_NEXT]], [[ARRAYCTOR_END]]
 // CHECK1-NEXT:    br i1 [[ARRAYCTOR_DONE]], label [[ARRAYCTOR_CONT:%.*]], label [[ARRAYCTOR_LOOP]]
 // CHECK1:       arrayctor.cont:
-// CHECK1-NEXT:    [[TMP18:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_3]], ptr [[TMP16]], i32 0, i32 3
+// CHECK1-NEXT:    [[TMP18:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_2]], ptr [[TMP16]], i32 0, i32 3
 // CHECK1-NEXT:    call void @_ZN1SIiEC1Ev(ptr noundef nonnull align 4 dereferenceable(4) [[TMP18]])
 // CHECK1-NEXT:    [[TMP19:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T]], ptr [[TMP13]], i32 0, i32 3
 // CHECK1-NEXT:    store ptr @.omp_task_destructor..5, ptr [[TMP19]], align 8
@@ -747,16 +747,16 @@ void loop() {
 // CHECK1-NEXT:    store ptr [[TMP3]], ptr [[DOTADDR3]], align 8
 // CHECK1-NEXT:    store ptr [[TMP4]], ptr [[DOTADDR4]], align 8
 // CHECK1-NEXT:    [[TMP5:%.*]] = load ptr, ptr [[DOTADDR]], align 8
-// CHECK1-NEXT:    [[TMP6:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_3:%.*]], ptr [[TMP5]], i32 0, i32 0
+// CHECK1-NEXT:    [[TMP6:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_2:%.*]], ptr [[TMP5]], i32 0, i32 0
 // CHECK1-NEXT:    [[TMP7:%.*]] = load ptr, ptr [[DOTADDR1]], align 8
 // CHECK1-NEXT:    store ptr [[TMP6]], ptr [[TMP7]], align 8
-// CHECK1-NEXT:    [[TMP8:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_3]], ptr [[TMP5]], i32 0, i32 1
+// CHECK1-NEXT:    [[TMP8:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_2]], ptr [[TMP5]], i32 0, i32 1
 // CHECK1-NEXT:    [[TMP9:%.*]] = load ptr, ptr [[DOTADDR2]], align 8
 // CHECK1-NEXT:    store ptr [[TMP8]], ptr [[TMP9]], align 8
-// CHECK1-NEXT:    [[TMP10:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_3]], ptr [[TMP5]], i32 0, i32 2
+// CHECK1-NEXT:    [[TMP10:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_2]], ptr [[TMP5]], i32 0, i32 2
 // CHECK1-NEXT:    [[TMP11:%.*]] = load ptr, ptr [[DOTADDR3]], align 8
 // CHECK1-NEXT:    store ptr [[TMP10]], ptr [[TMP11]], align 8
-// CHECK1-NEXT:    [[TMP12:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_3]], ptr [[TMP5]], i32 0, i32 3
+// CHECK1-NEXT:    [[TMP12:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_2]], ptr [[TMP5]], i32 0, i32 3
 // CHECK1-NEXT:    [[TMP13:%.*]] = load ptr, ptr [[DOTADDR4]], align 8
 // CHECK1-NEXT:    store ptr [[TMP12]], ptr [[TMP13]], align 8
 // CHECK1-NEXT:    ret void
@@ -788,11 +788,11 @@ void loop() {
 // CHECK1-NEXT:    store ptr [[TMP1]], ptr [[DOTADDR1]], align 8
 // CHECK1-NEXT:    [[TMP2:%.*]] = load i32, ptr [[DOTADDR]], align 4
 // CHECK1-NEXT:    [[TMP3:%.*]] = load ptr, ptr [[DOTADDR1]], align 8
-// CHECK1-NEXT:    [[TMP4:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_2:%.*]], ptr [[TMP3]], i32 0, i32 0
+// CHECK1-NEXT:    [[TMP4:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_3:%.*]], ptr [[TMP3]], i32 0, i32 0
 // CHECK1-NEXT:    [[TMP5:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T:%.*]], ptr [[TMP4]], i32 0, i32 2
 // CHECK1-NEXT:    [[TMP6:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T]], ptr [[TMP4]], i32 0, i32 0
 // CHECK1-NEXT:    [[TMP7:%.*]] = load ptr, ptr [[TMP6]], align 128
-// CHECK1-NEXT:    [[TMP8:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_2]], ptr [[TMP3]], i32 0, i32 2
+// CHECK1-NEXT:    [[TMP8:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_3]], ptr [[TMP3]], i32 0, i32 2
 // CHECK1-NEXT:    [[TMP9:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T]], ptr [[TMP4]], i32 0, i32 5
 // CHECK1-NEXT:    [[TMP10:%.*]] = load i64, ptr [[TMP9]], align 8
 // CHECK1-NEXT:    [[TMP11:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T]], ptr [[TMP4]], i32 0, i32 6
@@ -893,12 +893,12 @@ void loop() {
 // CHECK1-NEXT:    store ptr [[TMP1]], ptr [[DOTADDR1]], align 8
 // CHECK1-NEXT:    store i32 [[TMP2]], ptr [[DOTADDR2]], align 4
 // CHECK1-NEXT:    [[TMP3:%.*]] = load ptr, ptr [[DOTADDR]], align 8
-// CHECK1-NEXT:    [[TMP4:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_2:%.*]], ptr [[TMP3]], i32 0, i32 0
+// CHECK1-NEXT:    [[TMP4:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_3:%.*]], ptr [[TMP3]], i32 0, i32 0
 // CHECK1-NEXT:    [[TMP5:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T:%.*]], ptr [[TMP4]], i32 0, i32 8
 // CHECK1-NEXT:    [[TMP6:%.*]] = load i32, ptr [[DOTADDR2]], align 4
 // CHECK1-NEXT:    store i32 [[TMP6]], ptr [[TMP5]], align 64
-// CHECK1-NEXT:    [[TMP7:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_2]], ptr [[TMP3]], i32 0, i32 2
-// CHECK1-NEXT:    [[TMP8:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_3:%.*]], ptr [[TMP7]], i32 0, i32 2
+// CHECK1-NEXT:    [[TMP7:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_3]], ptr [[TMP3]], i32 0, i32 2
+// CHECK1-NEXT:    [[TMP8:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_2:%.*]], ptr [[TMP7]], i32 0, i32 2
 // CHECK1-NEXT:    [[ARRAY_BEGIN:%.*]] = getelementptr inbounds [2 x %struct.S.0], ptr [[TMP8]], i32 0, i32 0
 // CHECK1-NEXT:    [[ARRAYCTOR_END:%.*]] = getelementptr inbounds [[STRUCT_S_0:%.*]], ptr [[ARRAY_BEGIN]], i64 2
 // CHECK1-NEXT:    br label [[ARRAYCTOR_LOOP:%.*]]
@@ -909,7 +909,7 @@ void loop() {
 // CHECK1-NEXT:    [[ARRAYCTOR_DONE:%.*]] = icmp eq ptr [[ARRAYCTOR_NEXT]], [[ARRAYCTOR_END]]
 // CHECK1-NEXT:    br i1 [[ARRAYCTOR_DONE]], label [[ARRAYCTOR_CONT:%.*]], label [[ARRAYCTOR_LOOP]]
 // CHECK1:       arrayctor.cont:
-// CHECK1-NEXT:    [[TMP9:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_3]], ptr [[TMP7]], i32 0, i32 3
+// CHECK1-NEXT:    [[TMP9:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_2]], ptr [[TMP7]], i32 0, i32 3
 // CHECK1-NEXT:    call void @_ZN1SIiEC1Ev(ptr noundef nonnull align 4 dereferenceable(4) [[TMP9]])
 // CHECK1-NEXT:    ret void
 //
@@ -923,9 +923,9 @@ void loop() {
 // CHECK1-NEXT:    store i32 [[TMP0]], ptr [[DOTADDR]], align 4
 // CHECK1-NEXT:    store ptr [[TMP1]], ptr [[DOTADDR1]], align 8
 // CHECK1-NEXT:    [[TMP2:%.*]] = load ptr, ptr [[DOTADDR1]], align 8
-// CHECK1-NEXT:    [[TMP3:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_2:%.*]], ptr [[TMP2]], i32 0, i32 2
-// CHECK1-NEXT:    [[TMP4:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_3:%.*]], ptr [[TMP3]], i32 0, i32 2
-// CHECK1-NEXT:    [[TMP5:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_3]], ptr [[TMP3]], i32 0, i32 3
+// CHECK1-NEXT:    [[TMP3:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_3:%.*]], ptr [[TMP2]], i32 0, i32 2
+// CHECK1-NEXT:    [[TMP4:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_2:%.*]], ptr [[TMP3]], i32 0, i32 2
+// CHECK1-NEXT:    [[TMP5:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_2]], ptr [[TMP3]], i32 0, i32 3
 // CHECK1-NEXT:    call void @_ZN1SIiED1Ev(ptr noundef nonnull align 4 dereferenceable(4) [[TMP5]]) #[[ATTR4]]
 // CHECK1-NEXT:    [[ARRAY_BEGIN:%.*]] = getelementptr inbounds [2 x %struct.S.0], ptr [[TMP4]], i32 0, i32 0
 // CHECK1-NEXT:    [[TMP6:%.*]] = getelementptr inbounds [[STRUCT_S_0:%.*]], ptr [[ARRAY_BEGIN]], i64 2
@@ -952,7 +952,7 @@ void loop() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SIiEC2Ev
-// CHECK1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -963,7 +963,7 @@ void loop() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SIiEC2Ei
-// CHECK1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4

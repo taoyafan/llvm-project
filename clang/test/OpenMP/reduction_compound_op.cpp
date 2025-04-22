@@ -99,7 +99,7 @@ void foo(int N, Point const *Points) {
 //
 //
 // NORM-LABEL: define {{[^@]+}}@_ZN5PointC1Ev
-// NORM-SAME: (ptr nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
+// NORM-SAME: (ptr noalias nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
 // NORM-NEXT:  entry:
 // NORM-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // NORM-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -1269,7 +1269,7 @@ void foo(int N, Point const *Points) {
 //
 //
 // NORM-LABEL: define {{[^@]+}}@_ZN5PointC2Ev
-// NORM-SAME: (ptr nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
+// NORM-SAME: (ptr noalias nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
 // NORM-NEXT:  entry:
 // NORM-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // NORM-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -1302,7 +1302,7 @@ void foo(int N, Point const *Points) {
 //
 //
 // COMP-LABEL: define {{[^@]+}}@_ZN5PointC1Ev
-// COMP-SAME: (ptr nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
+// COMP-SAME: (ptr noalias nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
 // COMP-NEXT:  entry:
 // COMP-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // COMP-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -2418,7 +2418,7 @@ void foo(int N, Point const *Points) {
 //
 //
 // COMP-LABEL: define {{[^@]+}}@_ZN5PointC2Ev
-// COMP-SAME: (ptr nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
+// COMP-SAME: (ptr noalias nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
 // COMP-NEXT:  entry:
 // COMP-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // COMP-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -2595,7 +2595,7 @@ void foo(int N, Point const *Points) {
 //
 //
 // SIMD-ONLY-LABEL: define {{[^@]+}}@_ZN5PointC1Ev
-// SIMD-ONLY-SAME: (ptr nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
+// SIMD-ONLY-SAME: (ptr noalias nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
 // SIMD-ONLY-NEXT:  entry:
 // SIMD-ONLY-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -2605,7 +2605,7 @@ void foo(int N, Point const *Points) {
 //
 //
 // SIMD-ONLY-LABEL: define {{[^@]+}}@_ZN5PointC2Ev
-// SIMD-ONLY-SAME: (ptr nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
+// SIMD-ONLY-SAME: (ptr noalias nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
 // SIMD-ONLY-NEXT:  entry:
 // SIMD-ONLY-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8

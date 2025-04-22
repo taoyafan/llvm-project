@@ -3957,7 +3957,7 @@ void bar() {
 //
 //
 // CK20-LABEL: define {{[^@]+}}@_ZN2STIdEC1ERPd
-// CK20-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat {
+// CK20-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat {
 // CK20-NEXT:  entry:
 // CK20-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CK20-NEXT:    [[B_ADDR:%.*]] = alloca ptr, align 8
@@ -4162,7 +4162,7 @@ void bar() {
 //
 //
 // CK20-LABEL: define {{[^@]+}}@_ZN2STIdEC2ERPd
-// CK20-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat {
+// CK20-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat {
 // CK20-NEXT:  entry:
 // CK20-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CK20-NEXT:    [[B_ADDR:%.*]] = alloca ptr, align 8
@@ -4237,7 +4237,7 @@ void bar() {
 //
 //
 // CK21-LABEL: define {{[^@]+}}@_ZN2STIdEC1ERPd
-// CK21-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat {
+// CK21-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat {
 // CK21-NEXT:  entry:
 // CK21-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CK21-NEXT:    [[B_ADDR:%.*]] = alloca ptr, align 8
@@ -4442,7 +4442,7 @@ void bar() {
 //
 //
 // CK21-LABEL: define {{[^@]+}}@_ZN2STIdEC2ERPd
-// CK21-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat {
+// CK21-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat {
 // CK21-NEXT:  entry:
 // CK21-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CK21-NEXT:    [[B_ADDR:%.*]] = alloca ptr, align 8
@@ -4517,7 +4517,7 @@ void bar() {
 //
 //
 // CK22-LABEL: define {{[^@]+}}@_ZN2STIdEC1ERPd
-// CK22-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
+// CK22-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
 // CK22-NEXT:  entry:
 // CK22-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CK22-NEXT:    [[B_ADDR:%.*]] = alloca ptr, align 4
@@ -4722,7 +4722,7 @@ void bar() {
 //
 //
 // CK22-LABEL: define {{[^@]+}}@_ZN2STIdEC2ERPd
-// CK22-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
+// CK22-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
 // CK22-NEXT:  entry:
 // CK22-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CK22-NEXT:    [[B_ADDR:%.*]] = alloca ptr, align 4
@@ -4797,7 +4797,7 @@ void bar() {
 //
 //
 // CK23-LABEL: define {{[^@]+}}@_ZN2STIdEC1ERPd
-// CK23-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
+// CK23-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
 // CK23-NEXT:  entry:
 // CK23-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CK23-NEXT:    [[B_ADDR:%.*]] = alloca ptr, align 4
@@ -5002,7 +5002,7 @@ void bar() {
 //
 //
 // CK23-LABEL: define {{[^@]+}}@_ZN2STIdEC2ERPd
-// CK23-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
+// CK23-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
 // CK23-NEXT:  entry:
 // CK23-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CK23-NEXT:    [[B_ADDR:%.*]] = alloca ptr, align 4
@@ -5077,7 +5077,7 @@ void bar() {
 //
 //
 // SIMD-ONLY10-LABEL: define {{[^@]+}}@_ZN2STIdEC1ERPd
-// SIMD-ONLY10-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat {
+// SIMD-ONLY10-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat {
 // SIMD-ONLY10-NEXT:  entry:
 // SIMD-ONLY10-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY10-NEXT:    [[B_ADDR:%.*]] = alloca ptr, align 8
@@ -5121,7 +5121,7 @@ void bar() {
 //
 //
 // SIMD-ONLY10-LABEL: define {{[^@]+}}@_ZN2STIdEC2ERPd
-// SIMD-ONLY10-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat {
+// SIMD-ONLY10-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat {
 // SIMD-ONLY10-NEXT:  entry:
 // SIMD-ONLY10-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY10-NEXT:    [[B_ADDR:%.*]] = alloca ptr, align 8
@@ -5151,7 +5151,7 @@ void bar() {
 //
 //
 // SIMD-ONLY11-LABEL: define {{[^@]+}}@_ZN2STIdEC1ERPd
-// SIMD-ONLY11-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat {
+// SIMD-ONLY11-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat {
 // SIMD-ONLY11-NEXT:  entry:
 // SIMD-ONLY11-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY11-NEXT:    [[B_ADDR:%.*]] = alloca ptr, align 8
@@ -5195,7 +5195,7 @@ void bar() {
 //
 //
 // SIMD-ONLY11-LABEL: define {{[^@]+}}@_ZN2STIdEC2ERPd
-// SIMD-ONLY11-SAME: (ptr noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat {
+// SIMD-ONLY11-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(16) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat {
 // SIMD-ONLY11-NEXT:  entry:
 // SIMD-ONLY11-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY11-NEXT:    [[B_ADDR:%.*]] = alloca ptr, align 8
@@ -5225,7 +5225,7 @@ void bar() {
 //
 //
 // SIMD-ONLY12-LABEL: define {{[^@]+}}@_ZN2STIdEC1ERPd
-// SIMD-ONLY12-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
+// SIMD-ONLY12-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
 // SIMD-ONLY12-NEXT:  entry:
 // SIMD-ONLY12-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // SIMD-ONLY12-NEXT:    [[B_ADDR:%.*]] = alloca ptr, align 4
@@ -5269,7 +5269,7 @@ void bar() {
 //
 //
 // SIMD-ONLY12-LABEL: define {{[^@]+}}@_ZN2STIdEC2ERPd
-// SIMD-ONLY12-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
+// SIMD-ONLY12-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
 // SIMD-ONLY12-NEXT:  entry:
 // SIMD-ONLY12-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // SIMD-ONLY12-NEXT:    [[B_ADDR:%.*]] = alloca ptr, align 4
@@ -5299,7 +5299,7 @@ void bar() {
 //
 //
 // SIMD-ONLY13-LABEL: define {{[^@]+}}@_ZN2STIdEC1ERPd
-// SIMD-ONLY13-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
+// SIMD-ONLY13-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
 // SIMD-ONLY13-NEXT:  entry:
 // SIMD-ONLY13-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // SIMD-ONLY13-NEXT:    [[B_ADDR:%.*]] = alloca ptr, align 4
@@ -5343,7 +5343,7 @@ void bar() {
 //
 //
 // SIMD-ONLY13-LABEL: define {{[^@]+}}@_ZN2STIdEC2ERPd
-// SIMD-ONLY13-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
+// SIMD-ONLY13-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[B:%.*]]) unnamed_addr #[[ATTR0]] comdat align 2 {
 // SIMD-ONLY13-NEXT:  entry:
 // SIMD-ONLY13-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // SIMD-ONLY13-NEXT:    [[B_ADDR:%.*]] = alloca ptr, align 4

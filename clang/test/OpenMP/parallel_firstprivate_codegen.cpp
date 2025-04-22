@@ -293,7 +293,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN2SSC1ERi
-// CHECK1-SAME: (ptr nonnull align 4 dereferenceable(28) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias nonnull align 4 dereferenceable(28) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK1-NEXT:    [[D_ADDR:%.*]] = alloca ptr, align 4
@@ -306,7 +306,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SIfEC1Ev
-// CHECK1-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK1-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 4
@@ -316,7 +316,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SIfEC1Ef
-// CHECK1-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]], float [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]], float [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK1-NEXT:    [[A_ADDR:%.*]] = alloca float, align 4
@@ -393,7 +393,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN2StC1Ev
-// CHECK1-SAME: (ptr nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK1-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 4
@@ -403,7 +403,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SIfEC1ERKS0_2St
-// CHECK1-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[S:%.*]], ptr [[T:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[S:%.*]], ptr [[T:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK1-NEXT:    [[S_ADDR:%.*]] = alloca ptr, align 4
@@ -502,7 +502,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN2SSC2ERi
-// CHECK1-SAME: (ptr nonnull align 4 dereferenceable(28) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias nonnull align 4 dereferenceable(28) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK1-NEXT:    [[D_ADDR:%.*]] = alloca ptr, align 4
@@ -603,7 +603,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SIfEC2Ev
-// CHECK1-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK1-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 4
@@ -616,7 +616,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SIfEC2Ef
-// CHECK1-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]], float [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]], float [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK1-NEXT:    [[A_ADDR:%.*]] = alloca float, align 4
@@ -633,7 +633,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN2StC2Ev
-// CHECK1-SAME: (ptr nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK1-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 4
@@ -646,7 +646,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SIfEC2ERKS0_2St
-// CHECK1-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[S:%.*]], ptr [[T:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[S:%.*]], ptr [[T:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK1-NEXT:    [[S_ADDR:%.*]] = alloca ptr, align 4
@@ -686,7 +686,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SIiEC1Ev
-// CHECK1-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK1-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 4
@@ -696,7 +696,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN3SSTIiEC1Ev
-// CHECK1-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK1-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 4
@@ -706,7 +706,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SIiEC1Ei
-// CHECK1-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -780,7 +780,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SIiEC1ERKS0_2St
-// CHECK1-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[S:%.*]], ptr [[T:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[S:%.*]], ptr [[T:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK1-NEXT:    [[S_ADDR:%.*]] = alloca ptr, align 4
@@ -817,7 +817,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SIiEC2Ev
-// CHECK1-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK1-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 4
@@ -829,7 +829,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN3SSTIiEC2Ev
-// CHECK1-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK1-NEXT:    [[A2:%.*]] = alloca ptr, align 4
@@ -870,7 +870,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SIiEC2Ei
-// CHECK1-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -886,7 +886,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SIiEC2ERKS0_2St
-// CHECK1-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[S:%.*]], ptr [[T:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[S:%.*]], ptr [[T:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK1-NEXT:    [[S_ADDR:%.*]] = alloca ptr, align 4
@@ -930,7 +930,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK3-LABEL: define {{[^@]+}}@_ZN2SSC1ERi
-// CHECK3-SAME: (ptr nonnull align 4 dereferenceable(28) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
+// CHECK3-SAME: (ptr noalias nonnull align 4 dereferenceable(28) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
 // CHECK3-NEXT:  entry:
 // CHECK3-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK3-NEXT:    [[D_ADDR:%.*]] = alloca ptr, align 4
@@ -943,7 +943,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK3-LABEL: define {{[^@]+}}@_ZN2SSC2ERi
-// CHECK3-SAME: (ptr nonnull align 4 dereferenceable(28) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK3-SAME: (ptr noalias nonnull align 4 dereferenceable(28) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK3-NEXT:  entry:
 // CHECK3-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK3-NEXT:    [[D_ADDR:%.*]] = alloca ptr, align 4
@@ -1148,7 +1148,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK4-LABEL: define {{[^@]+}}@_ZN2SSC1ERi
-// CHECK4-SAME: (ptr nonnull align 4 dereferenceable(28) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
+// CHECK4-SAME: (ptr noalias nonnull align 4 dereferenceable(28) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
 // CHECK4-NEXT:  entry:
 // CHECK4-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK4-NEXT:    [[D_ADDR:%.*]] = alloca ptr, align 4
@@ -1230,7 +1230,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK4-LABEL: define {{[^@]+}}@_ZN2SSC2ERi
-// CHECK4-SAME: (ptr nonnull align 4 dereferenceable(28) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK4-SAME: (ptr noalias nonnull align 4 dereferenceable(28) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK4-NEXT:  entry:
 // CHECK4-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // CHECK4-NEXT:    [[D_ADDR:%.*]] = alloca ptr, align 4
@@ -1473,7 +1473,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN2SSC1ERi
-// CHECK9-SAME: (ptr nonnull align 8 dereferenceable(32) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
+// CHECK9-SAME: (ptr noalias nonnull align 8 dereferenceable(32) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    [[D_ADDR:%.*]] = alloca ptr, align 8
@@ -1486,7 +1486,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN1SIfEC1Ev
-// CHECK9-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK9-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -1496,7 +1496,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN1SIfEC1Ef
-// CHECK9-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]], float [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK9-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]], float [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    [[A_ADDR:%.*]] = alloca float, align 4
@@ -1573,7 +1573,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN2StC1Ev
-// CHECK9-SAME: (ptr nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK9-SAME: (ptr noalias nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -1583,7 +1583,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN1SIfEC1ERKS0_2St
-// CHECK9-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[S:%.*]], ptr [[T:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK9-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[S:%.*]], ptr [[T:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    [[S_ADDR:%.*]] = alloca ptr, align 8
@@ -1682,7 +1682,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN2SSC2ERi
-// CHECK9-SAME: (ptr nonnull align 8 dereferenceable(32) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK9-SAME: (ptr noalias nonnull align 8 dereferenceable(32) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    [[D_ADDR:%.*]] = alloca ptr, align 8
@@ -1783,7 +1783,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN1SIfEC2Ev
-// CHECK9-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK9-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -1796,7 +1796,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN1SIfEC2Ef
-// CHECK9-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]], float [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK9-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]], float [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    [[A_ADDR:%.*]] = alloca float, align 4
@@ -1813,7 +1813,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN2StC2Ev
-// CHECK9-SAME: (ptr nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK9-SAME: (ptr noalias nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -1826,7 +1826,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN1SIfEC2ERKS0_2St
-// CHECK9-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[S:%.*]], ptr [[T:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK9-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[S:%.*]], ptr [[T:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    [[S_ADDR:%.*]] = alloca ptr, align 8
@@ -1866,7 +1866,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN1SIiEC1Ev
-// CHECK9-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK9-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -1876,7 +1876,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN3SSTIiEC1Ev
-// CHECK9-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK9-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -1886,7 +1886,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN1SIiEC1Ei
-// CHECK9-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK9-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -1960,7 +1960,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN1SIiEC1ERKS0_2St
-// CHECK9-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[S:%.*]], ptr [[T:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK9-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[S:%.*]], ptr [[T:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    [[S_ADDR:%.*]] = alloca ptr, align 8
@@ -1997,7 +1997,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN1SIiEC2Ev
-// CHECK9-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK9-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -2009,7 +2009,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN3SSTIiEC2Ev
-// CHECK9-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK9-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    [[A2:%.*]] = alloca ptr, align 8
@@ -2050,7 +2050,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN1SIiEC2Ei
-// CHECK9-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK9-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 [[A:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -2066,7 +2066,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN1SIiEC2ERKS0_2St
-// CHECK9-SAME: (ptr nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[S:%.*]], ptr [[T:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK9-SAME: (ptr noalias nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[S:%.*]], ptr [[T:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    [[S_ADDR:%.*]] = alloca ptr, align 8
@@ -2110,7 +2110,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK11-LABEL: define {{[^@]+}}@_ZN2SSC1ERi
-// CHECK11-SAME: (ptr nonnull align 8 dereferenceable(32) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
+// CHECK11-SAME: (ptr noalias nonnull align 8 dereferenceable(32) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
 // CHECK11-NEXT:  entry:
 // CHECK11-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK11-NEXT:    [[D_ADDR:%.*]] = alloca ptr, align 8
@@ -2123,7 +2123,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK11-LABEL: define {{[^@]+}}@_ZN2SSC2ERi
-// CHECK11-SAME: (ptr nonnull align 8 dereferenceable(32) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK11-SAME: (ptr noalias nonnull align 8 dereferenceable(32) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK11-NEXT:  entry:
 // CHECK11-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK11-NEXT:    [[D_ADDR:%.*]] = alloca ptr, align 8
@@ -2328,7 +2328,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK12-LABEL: define {{[^@]+}}@_ZN2SSC1ERi
-// CHECK12-SAME: (ptr nonnull align 8 dereferenceable(32) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
+// CHECK12-SAME: (ptr noalias nonnull align 8 dereferenceable(32) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
 // CHECK12-NEXT:  entry:
 // CHECK12-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK12-NEXT:    [[D_ADDR:%.*]] = alloca ptr, align 8
@@ -2410,7 +2410,7 @@ void array_func(float a[3], St s[2], int n, long double vla1[n]) {
 //
 //
 // CHECK12-LABEL: define {{[^@]+}}@_ZN2SSC2ERi
-// CHECK12-SAME: (ptr nonnull align 8 dereferenceable(32) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK12-SAME: (ptr noalias nonnull align 8 dereferenceable(32) [[THIS:%.*]], ptr nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK12-NEXT:  entry:
 // CHECK12-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK12-NEXT:    [[D_ADDR:%.*]] = alloca ptr, align 8

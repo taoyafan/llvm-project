@@ -224,7 +224,7 @@ int main() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SC1El
-// CHECK1-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i64 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i64 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    [[A_ADDR:%.*]] = alloca i64, align 8
@@ -720,7 +720,7 @@ int main() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN1SC2El
-// CHECK1-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i64 noundef [[A:%.*]]) unnamed_addr #[[ATTR6]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i64 noundef [[A:%.*]]) unnamed_addr #[[ATTR6]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    [[A_ADDR:%.*]] = alloca i64, align 8
@@ -1476,7 +1476,7 @@ int main() {
 //
 //
 // CHECK5-LABEL: define {{[^@]+}}@_ZN1SC1El
-// CHECK5-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i64 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
+// CHECK5-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i64 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
 // CHECK5-NEXT:  entry:
 // CHECK5-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK5-NEXT:    [[A_ADDR:%.*]] = alloca i64, align 8
@@ -1972,7 +1972,7 @@ int main() {
 //
 //
 // CHECK5-LABEL: define {{[^@]+}}@_ZN1SC2El
-// CHECK5-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i64 noundef [[A:%.*]]) unnamed_addr #[[ATTR6]] comdat align 2 {
+// CHECK5-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i64 noundef [[A:%.*]]) unnamed_addr #[[ATTR6]] comdat align 2 {
 // CHECK5-NEXT:  entry:
 // CHECK5-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK5-NEXT:    [[A_ADDR:%.*]] = alloca i64, align 8
@@ -2728,7 +2728,7 @@ int main() {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN1SC1El
-// CHECK9-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i64 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat {
+// CHECK9-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i64 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    [[A_ADDR:%.*]] = alloca i64, align 8
@@ -3224,7 +3224,7 @@ int main() {
 //
 //
 // CHECK9-LABEL: define {{[^@]+}}@_ZN1SC2El
-// CHECK9-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i64 noundef [[A:%.*]]) unnamed_addr #[[ATTR6]] comdat {
+// CHECK9-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i64 noundef [[A:%.*]]) unnamed_addr #[[ATTR6]] comdat {
 // CHECK9-NEXT:  entry:
 // CHECK9-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK9-NEXT:    [[A_ADDR:%.*]] = alloca i64, align 8
@@ -3980,7 +3980,7 @@ int main() {
 //
 //
 // CHECK13-LABEL: define {{[^@]+}}@_ZN1SC1El
-// CHECK13-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i64 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat {
+// CHECK13-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i64 noundef [[A:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat {
 // CHECK13-NEXT:  entry:
 // CHECK13-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK13-NEXT:    [[A_ADDR:%.*]] = alloca i64, align 8
@@ -4476,7 +4476,7 @@ int main() {
 //
 //
 // CHECK13-LABEL: define {{[^@]+}}@_ZN1SC2El
-// CHECK13-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i64 noundef [[A:%.*]]) unnamed_addr #[[ATTR6]] comdat {
+// CHECK13-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], i64 noundef [[A:%.*]]) unnamed_addr #[[ATTR6]] comdat {
 // CHECK13-NEXT:  entry:
 // CHECK13-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK13-NEXT:    [[A_ADDR:%.*]] = alloca i64, align 8

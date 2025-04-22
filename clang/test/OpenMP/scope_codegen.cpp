@@ -137,7 +137,7 @@ int main() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN9TestClassC1Ev
-// CHECK1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -157,7 +157,7 @@ int main() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN9TestClassC2Ev
-// CHECK1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -313,7 +313,7 @@ int main() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN3SSTIdEC1Ev
-// CHECK1-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -323,7 +323,7 @@ int main() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN2SSC1ERi
-// CHECK1-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    [[D_ADDR:%.*]] = alloca ptr, align 8
@@ -336,7 +336,7 @@ int main() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN9TestClassC1ERKS_
-// CHECK1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[C:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[C:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    [[C_ADDR:%.*]] = alloca ptr, align 8
@@ -363,7 +363,7 @@ int main() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN2SSC2ERi
-// CHECK1-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 personality ptr @__gxx_personality_v0 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 personality ptr @__gxx_personality_v0 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    [[D_ADDR:%.*]] = alloca ptr, align 8
@@ -567,7 +567,7 @@ int main() {
 //
 //
 // CHECK1-LABEL: define {{[^@]+}}@_ZN9TestClassC2ERKS_
-// CHECK1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[C:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
+// CHECK1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[C:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
 // CHECK1-NEXT:  entry:
 // CHECK1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK1-NEXT:    [[C_ADDR:%.*]] = alloca ptr, align 8
@@ -635,7 +635,7 @@ int main() {
 //
 //
 // CHECK4-LABEL: define {{[^@]+}}@_ZN9TestClassC1Ev
-// CHECK4-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
+// CHECK4-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
 // CHECK4-NEXT:  entry:
 // CHECK4-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK4-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -655,7 +655,7 @@ int main() {
 //
 //
 // CHECK4-LABEL: define {{[^@]+}}@_ZN9TestClassC2Ev
-// CHECK4-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
+// CHECK4-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
 // CHECK4-NEXT:  entry:
 // CHECK4-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK4-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -811,7 +811,7 @@ int main() {
 //
 //
 // CHECK4-LABEL: define {{[^@]+}}@_ZN3SSTIdEC1Ev
-// CHECK4-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK4-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK4-NEXT:  entry:
 // CHECK4-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK4-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -821,7 +821,7 @@ int main() {
 //
 //
 // CHECK4-LABEL: define {{[^@]+}}@_ZN2SSC1ERi
-// CHECK4-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK4-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK4-NEXT:  entry:
 // CHECK4-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK4-NEXT:    [[D_ADDR:%.*]] = alloca ptr, align 8
@@ -834,7 +834,7 @@ int main() {
 //
 //
 // CHECK4-LABEL: define {{[^@]+}}@_ZN9TestClassC1ERKS_
-// CHECK4-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[C:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// CHECK4-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[C:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // CHECK4-NEXT:  entry:
 // CHECK4-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK4-NEXT:    [[C_ADDR:%.*]] = alloca ptr, align 8
@@ -854,7 +854,7 @@ int main() {
 //
 //
 // CHECK4-LABEL: define {{[^@]+}}@_ZN3SSTIdEC2Ev
-// CHECK4-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
+// CHECK4-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
 // CHECK4-NEXT:  entry:
 // CHECK4-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK4-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -1189,7 +1189,7 @@ int main() {
 //
 //
 // CHECK4-LABEL: define {{[^@]+}}@_ZN2SSC2ERi
-// CHECK4-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 personality ptr @__gxx_personality_v0 {
+// CHECK4-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 personality ptr @__gxx_personality_v0 {
 // CHECK4-NEXT:  entry:
 // CHECK4-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK4-NEXT:    [[D_ADDR:%.*]] = alloca ptr, align 8
@@ -1393,7 +1393,7 @@ int main() {
 //
 //
 // CHECK4-LABEL: define {{[^@]+}}@_ZN9TestClassC2ERKS_
-// CHECK4-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[C:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
+// CHECK4-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[C:%.*]]) unnamed_addr #[[ATTR2]] comdat align 2 {
 // CHECK4-NEXT:  entry:
 // CHECK4-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK4-NEXT:    [[C_ADDR:%.*]] = alloca ptr, align 8
@@ -1454,7 +1454,7 @@ int main() {
 //
 //
 // CHECK5-LABEL: define {{[^@]+}}@_ZN9TestClassC1Ev
-// CHECK5-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] align 2 !dbg [[DBG13:![0-9]+]] {
+// CHECK5-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] align 2 !dbg [[DBG13:![0-9]+]] {
 // CHECK5-NEXT:  entry:
 // CHECK5-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK5-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -1474,7 +1474,7 @@ int main() {
 //
 //
 // CHECK5-LABEL: define {{[^@]+}}@_ZN9TestClassC2Ev
-// CHECK5-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR2]] align 2 !dbg [[DBG19:![0-9]+]] {
+// CHECK5-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR2]] align 2 !dbg [[DBG19:![0-9]+]] {
 // CHECK5-NEXT:  entry:
 // CHECK5-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK5-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -1630,7 +1630,7 @@ int main() {
 //
 //
 // CHECK5-LABEL: define {{[^@]+}}@_ZN3SSTIdEC1Ev
-// CHECK5-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] align 2 !dbg [[DBG51:![0-9]+]] {
+// CHECK5-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] align 2 !dbg [[DBG51:![0-9]+]] {
 // CHECK5-NEXT:  entry:
 // CHECK5-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK5-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -1640,7 +1640,7 @@ int main() {
 //
 //
 // CHECK5-LABEL: define {{[^@]+}}@_ZN2SSC1ERi
-// CHECK5-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1]] align 2 !dbg [[DBG54:![0-9]+]] {
+// CHECK5-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR1]] align 2 !dbg [[DBG54:![0-9]+]] {
 // CHECK5-NEXT:  entry:
 // CHECK5-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK5-NEXT:    [[D_ADDR:%.*]] = alloca ptr, align 8
@@ -1653,7 +1653,7 @@ int main() {
 //
 //
 // CHECK5-LABEL: define {{[^@]+}}@_ZN9TestClassC1ERKS_
-// CHECK5-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[C:%.*]]) unnamed_addr #[[ATTR1]] align 2 !dbg [[DBG57:![0-9]+]] {
+// CHECK5-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[C:%.*]]) unnamed_addr #[[ATTR1]] align 2 !dbg [[DBG57:![0-9]+]] {
 // CHECK5-NEXT:  entry:
 // CHECK5-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK5-NEXT:    [[C_ADDR:%.*]] = alloca ptr, align 8
@@ -1673,7 +1673,7 @@ int main() {
 //
 //
 // CHECK5-LABEL: define {{[^@]+}}@_ZN3SSTIdEC2Ev
-// CHECK5-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR2]] align 2 !dbg [[DBG60:![0-9]+]] {
+// CHECK5-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR2]] align 2 !dbg [[DBG60:![0-9]+]] {
 // CHECK5-NEXT:  entry:
 // CHECK5-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK5-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -1848,7 +1848,7 @@ int main() {
 //
 //
 // CHECK5-LABEL: define {{[^@]+}}@_ZN2SSC2ERi
-// CHECK5-SAME: (ptr noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR2]] align 2 personality ptr @__gxx_personality_v0 !dbg [[DBG98:![0-9]+]] {
+// CHECK5-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(24) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[D:%.*]]) unnamed_addr #[[ATTR2]] align 2 personality ptr @__gxx_personality_v0 !dbg [[DBG98:![0-9]+]] {
 // CHECK5-NEXT:  entry:
 // CHECK5-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK5-NEXT:    [[D_ADDR:%.*]] = alloca ptr, align 8
@@ -2052,7 +2052,7 @@ int main() {
 //
 //
 // CHECK5-LABEL: define {{[^@]+}}@_ZN9TestClassC2ERKS_
-// CHECK5-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[C:%.*]]) unnamed_addr #[[ATTR2]] align 2 !dbg [[DBG142:![0-9]+]] {
+// CHECK5-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[C:%.*]]) unnamed_addr #[[ATTR2]] align 2 !dbg [[DBG142:![0-9]+]] {
 // CHECK5-NEXT:  entry:
 // CHECK5-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK5-NEXT:    [[C_ADDR:%.*]] = alloca ptr, align 8
@@ -2225,7 +2225,7 @@ int main() {
 //
 //
 // CHECK6-LABEL: define {{[^@]+}}@_ZN2StC1Ev
-// CHECK6-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] align 2 {
+// CHECK6-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] align 2 {
 // CHECK6-NEXT:  entry:
 // CHECK6-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK6-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -2245,7 +2245,7 @@ int main() {
 //
 //
 // CHECK6-LABEL: define {{[^@]+}}@_ZN2StC2Ev
-// CHECK6-SAME: (ptr noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] align 2 {
+// CHECK6-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] align 2 {
 // CHECK6-NEXT:  entry:
 // CHECK6-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK6-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8

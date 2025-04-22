@@ -1451,7 +1451,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-LABEL: define {{[^@]+}}@_ZN2SAC1Ev
-// CHECK-NTARGET-SAME: (ptr noundef nonnull align 4 dereferenceable(16) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
+// CHECK-NTARGET-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(16) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
 // CHECK-NTARGET-NEXT:  entry:
 // CHECK-NTARGET-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -1471,7 +1471,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-LABEL: define {{[^@]+}}@_ZN2SAC2Ev
-// CHECK-NTARGET-SAME: (ptr noundef nonnull align 4 dereferenceable(16) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
+// CHECK-NTARGET-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(16) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
 // CHECK-NTARGET-NEXT:  entry:
 // CHECK-NTARGET-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -1525,7 +1525,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-LABEL: define {{[^@]+}}@_ZN2SBC1Ev
-// CHECK-NTARGET-SAME: (ptr noundef nonnull align 4 dereferenceable(32) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
+// CHECK-NTARGET-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(32) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
 // CHECK-NTARGET-NEXT:  entry:
 // CHECK-NTARGET-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -1545,7 +1545,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-LABEL: define {{[^@]+}}@_ZN2SBC2Ev
-// CHECK-NTARGET-SAME: (ptr noundef nonnull align 4 dereferenceable(32) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
+// CHECK-NTARGET-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(32) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
 // CHECK-NTARGET-NEXT:  entry:
 // CHECK-NTARGET-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -1599,7 +1599,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-LABEL: define {{[^@]+}}@_ZN2SCC1Ev
-// CHECK-NTARGET-SAME: (ptr noundef nonnull align 4 dereferenceable(64) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
+// CHECK-NTARGET-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(64) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
 // CHECK-NTARGET-NEXT:  entry:
 // CHECK-NTARGET-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -1619,7 +1619,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-LABEL: define {{[^@]+}}@_ZN2SCC2Ev
-// CHECK-NTARGET-SAME: (ptr noundef nonnull align 4 dereferenceable(64) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
+// CHECK-NTARGET-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(64) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
 // CHECK-NTARGET-NEXT:  entry:
 // CHECK-NTARGET-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -1745,7 +1745,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-LABEL: define {{[^@]+}}@_ZN2SDC1Ev
-// CHECK-NTARGET-SAME: (ptr noundef nonnull align 4 dereferenceable(128) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
+// CHECK-NTARGET-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(128) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
 // CHECK-NTARGET-NEXT:  entry:
 // CHECK-NTARGET-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -1765,7 +1765,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-LABEL: define {{[^@]+}}@_ZN2SDC2Ev
-// CHECK-NTARGET-SAME: (ptr noundef nonnull align 4 dereferenceable(128) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
+// CHECK-NTARGET-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(128) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
 // CHECK-NTARGET-NEXT:  entry:
 // CHECK-NTARGET-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -1891,7 +1891,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-LABEL: define {{[^@]+}}@_ZN2SEC1Ev
-// CHECK-NTARGET-SAME: (ptr noundef nonnull align 4 dereferenceable(256) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
+// CHECK-NTARGET-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(256) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
 // CHECK-NTARGET-NEXT:  entry:
 // CHECK-NTARGET-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -1911,7 +1911,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-LABEL: define {{[^@]+}}@_ZN2SEC2Ev
-// CHECK-NTARGET-SAME: (ptr noundef nonnull align 4 dereferenceable(256) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
+// CHECK-NTARGET-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(256) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
 // CHECK-NTARGET-NEXT:  entry:
 // CHECK-NTARGET-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -2117,7 +2117,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-LABEL: define {{[^@]+}}@_ZN2STILi100EEC1Ev
-// CHECK-NTARGET-SAME: (ptr noundef nonnull align 4 dereferenceable(912) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
+// CHECK-NTARGET-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(912) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
 // CHECK-NTARGET-NEXT:  entry:
 // CHECK-NTARGET-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -2137,7 +2137,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-LABEL: define {{[^@]+}}@_ZN2STILi100EEC2Ev
-// CHECK-NTARGET-SAME: (ptr noundef nonnull align 4 dereferenceable(912) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
+// CHECK-NTARGET-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(912) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
 // CHECK-NTARGET-NEXT:  entry:
 // CHECK-NTARGET-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -2343,7 +2343,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-LABEL: define {{[^@]+}}@_ZN2STILi1000EEC1Ev
-// CHECK-NTARGET-SAME: (ptr noundef nonnull align 4 dereferenceable(4512) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
+// CHECK-NTARGET-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4512) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
 // CHECK-NTARGET-NEXT:  entry:
 // CHECK-NTARGET-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -2363,7 +2363,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-LABEL: define {{[^@]+}}@_ZN2STILi1000EEC2Ev
-// CHECK-NTARGET-SAME: (ptr noundef nonnull align 4 dereferenceable(4512) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
+// CHECK-NTARGET-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4512) [[THIS:%.*]]) unnamed_addr #[[ATTR0]] comdat {
 // CHECK-NTARGET-NEXT:  entry:
 // CHECK-NTARGET-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -2908,7 +2908,7 @@ int bar(int a){
 //
 //
 // SIMD-ONLY2-LABEL: define {{[^@]+}}@_ZN2SAC1Ev
-// SIMD-ONLY2-SAME: (ptr noundef nonnull align 4 dereferenceable(16) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat {
+// SIMD-ONLY2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(16) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat {
 // SIMD-ONLY2-NEXT:  entry:
 // SIMD-ONLY2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY2-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -2944,7 +2944,7 @@ int bar(int a){
 //
 //
 // SIMD-ONLY2-LABEL: define {{[^@]+}}@_ZN2SBC1Ev
-// SIMD-ONLY2-SAME: (ptr noundef nonnull align 4 dereferenceable(32) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// SIMD-ONLY2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(32) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // SIMD-ONLY2-NEXT:  entry:
 // SIMD-ONLY2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY2-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -2980,7 +2980,7 @@ int bar(int a){
 //
 //
 // SIMD-ONLY2-LABEL: define {{[^@]+}}@_ZN2SCC1Ev
-// SIMD-ONLY2-SAME: (ptr noundef nonnull align 4 dereferenceable(64) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// SIMD-ONLY2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(64) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // SIMD-ONLY2-NEXT:  entry:
 // SIMD-ONLY2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY2-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -3008,7 +3008,7 @@ int bar(int a){
 //
 //
 // SIMD-ONLY2-LABEL: define {{[^@]+}}@_ZN2SDC1Ev
-// SIMD-ONLY2-SAME: (ptr noundef nonnull align 4 dereferenceable(128) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// SIMD-ONLY2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(128) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // SIMD-ONLY2-NEXT:  entry:
 // SIMD-ONLY2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY2-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -3036,7 +3036,7 @@ int bar(int a){
 //
 //
 // SIMD-ONLY2-LABEL: define {{[^@]+}}@_ZN2SEC1Ev
-// SIMD-ONLY2-SAME: (ptr noundef nonnull align 4 dereferenceable(256) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// SIMD-ONLY2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(256) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // SIMD-ONLY2-NEXT:  entry:
 // SIMD-ONLY2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY2-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -3064,7 +3064,7 @@ int bar(int a){
 //
 //
 // SIMD-ONLY2-LABEL: define {{[^@]+}}@_ZN2STILi100EEC1Ev
-// SIMD-ONLY2-SAME: (ptr noundef nonnull align 4 dereferenceable(912) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// SIMD-ONLY2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(912) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // SIMD-ONLY2-NEXT:  entry:
 // SIMD-ONLY2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY2-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -3092,7 +3092,7 @@ int bar(int a){
 //
 //
 // SIMD-ONLY2-LABEL: define {{[^@]+}}@_ZN2STILi1000EEC1Ev
-// SIMD-ONLY2-SAME: (ptr noundef nonnull align 4 dereferenceable(4512) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// SIMD-ONLY2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4512) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // SIMD-ONLY2-NEXT:  entry:
 // SIMD-ONLY2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY2-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -3347,7 +3347,7 @@ int bar(int a){
 //
 //
 // SIMD-ONLY2-LABEL: define {{[^@]+}}@_ZN2SAC2Ev
-// SIMD-ONLY2-SAME: (ptr noundef nonnull align 4 dereferenceable(16) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// SIMD-ONLY2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(16) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // SIMD-ONLY2-NEXT:  entry:
 // SIMD-ONLY2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY2-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -3385,7 +3385,7 @@ int bar(int a){
 //
 //
 // SIMD-ONLY2-LABEL: define {{[^@]+}}@_ZN2SBC2Ev
-// SIMD-ONLY2-SAME: (ptr noundef nonnull align 4 dereferenceable(32) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// SIMD-ONLY2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(32) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // SIMD-ONLY2-NEXT:  entry:
 // SIMD-ONLY2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY2-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -3423,7 +3423,7 @@ int bar(int a){
 //
 //
 // SIMD-ONLY2-LABEL: define {{[^@]+}}@_ZN2SCC2Ev
-// SIMD-ONLY2-SAME: (ptr noundef nonnull align 4 dereferenceable(64) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// SIMD-ONLY2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(64) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // SIMD-ONLY2-NEXT:  entry:
 // SIMD-ONLY2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY2-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -3476,7 +3476,7 @@ int bar(int a){
 //
 //
 // SIMD-ONLY2-LABEL: define {{[^@]+}}@_ZN2SDC2Ev
-// SIMD-ONLY2-SAME: (ptr noundef nonnull align 4 dereferenceable(128) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// SIMD-ONLY2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(128) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // SIMD-ONLY2-NEXT:  entry:
 // SIMD-ONLY2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY2-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -3529,7 +3529,7 @@ int bar(int a){
 //
 //
 // SIMD-ONLY2-LABEL: define {{[^@]+}}@_ZN2SEC2Ev
-// SIMD-ONLY2-SAME: (ptr noundef nonnull align 4 dereferenceable(256) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// SIMD-ONLY2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(256) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // SIMD-ONLY2-NEXT:  entry:
 // SIMD-ONLY2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY2-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -3597,7 +3597,7 @@ int bar(int a){
 //
 //
 // SIMD-ONLY2-LABEL: define {{[^@]+}}@_ZN2STILi100EEC2Ev
-// SIMD-ONLY2-SAME: (ptr noundef nonnull align 4 dereferenceable(912) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// SIMD-ONLY2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(912) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // SIMD-ONLY2-NEXT:  entry:
 // SIMD-ONLY2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY2-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -3665,7 +3665,7 @@ int bar(int a){
 //
 //
 // SIMD-ONLY2-LABEL: define {{[^@]+}}@_ZN2STILi1000EEC2Ev
-// SIMD-ONLY2-SAME: (ptr noundef nonnull align 4 dereferenceable(4512) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// SIMD-ONLY2-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4512) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // SIMD-ONLY2-NEXT:  entry:
 // SIMD-ONLY2-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY2-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -3991,7 +3991,7 @@ int bar(int a){
 //
 //
 // OMP-DEfAULT-LABEL: define {{[^@]+}}@_ZN2SAC1Ev
-// OMP-DEfAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(16) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
+// OMP-DEfAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(16) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat align 2 {
 // OMP-DEfAULT-NEXT:  entry:
 // OMP-DEfAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // OMP-DEfAULT-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 4
@@ -4011,7 +4011,7 @@ int bar(int a){
 //
 //
 // OMP-DEfAULT-LABEL: define {{[^@]+}}@_ZN2SAC2Ev
-// OMP-DEfAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(16) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// OMP-DEfAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(16) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // OMP-DEfAULT-NEXT:  entry:
 // OMP-DEfAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // OMP-DEfAULT-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -4065,7 +4065,7 @@ int bar(int a){
 //
 //
 // OMP-DEfAULT-LABEL: define {{[^@]+}}@_ZN2SBC1Ev
-// OMP-DEfAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(32) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// OMP-DEfAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(32) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // OMP-DEfAULT-NEXT:  entry:
 // OMP-DEfAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // OMP-DEfAULT-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 4
@@ -4085,7 +4085,7 @@ int bar(int a){
 //
 //
 // OMP-DEfAULT-LABEL: define {{[^@]+}}@_ZN2SBC2Ev
-// OMP-DEfAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(32) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// OMP-DEfAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(32) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // OMP-DEfAULT-NEXT:  entry:
 // OMP-DEfAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // OMP-DEfAULT-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -4139,7 +4139,7 @@ int bar(int a){
 //
 //
 // OMP-DEfAULT-LABEL: define {{[^@]+}}@_ZN2SCC1Ev
-// OMP-DEfAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(64) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// OMP-DEfAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(64) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // OMP-DEfAULT-NEXT:  entry:
 // OMP-DEfAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // OMP-DEfAULT-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 4
@@ -4159,7 +4159,7 @@ int bar(int a){
 //
 //
 // OMP-DEfAULT-LABEL: define {{[^@]+}}@_ZN2SCC2Ev
-// OMP-DEfAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(64) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// OMP-DEfAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(64) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // OMP-DEfAULT-NEXT:  entry:
 // OMP-DEfAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // OMP-DEfAULT-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -4329,7 +4329,7 @@ int bar(int a){
 //
 //
 // OMP-DEfAULT-LABEL: define {{[^@]+}}@_ZN2SDC1Ev
-// OMP-DEfAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(128) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// OMP-DEfAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(128) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // OMP-DEfAULT-NEXT:  entry:
 // OMP-DEfAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // OMP-DEfAULT-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 4
@@ -4349,7 +4349,7 @@ int bar(int a){
 //
 //
 // OMP-DEfAULT-LABEL: define {{[^@]+}}@_ZN2SDC2Ev
-// OMP-DEfAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(128) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// OMP-DEfAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(128) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // OMP-DEfAULT-NEXT:  entry:
 // OMP-DEfAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // OMP-DEfAULT-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -4519,7 +4519,7 @@ int bar(int a){
 //
 //
 // OMP-DEfAULT-LABEL: define {{[^@]+}}@_ZN2SEC1Ev
-// OMP-DEfAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(256) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// OMP-DEfAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(256) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // OMP-DEfAULT-NEXT:  entry:
 // OMP-DEfAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // OMP-DEfAULT-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 4
@@ -4539,7 +4539,7 @@ int bar(int a){
 //
 //
 // OMP-DEfAULT-LABEL: define {{[^@]+}}@_ZN2SEC2Ev
-// OMP-DEfAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(256) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// OMP-DEfAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(256) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // OMP-DEfAULT-NEXT:  entry:
 // OMP-DEfAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // OMP-DEfAULT-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -4833,7 +4833,7 @@ int bar(int a){
 //
 //
 // OMP-DEfAULT-LABEL: define {{[^@]+}}@_ZN2STILi100EEC1Ev
-// OMP-DEfAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(912) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// OMP-DEfAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(912) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // OMP-DEfAULT-NEXT:  entry:
 // OMP-DEfAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // OMP-DEfAULT-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 4
@@ -4853,7 +4853,7 @@ int bar(int a){
 //
 //
 // OMP-DEfAULT-LABEL: define {{[^@]+}}@_ZN2STILi100EEC2Ev
-// OMP-DEfAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(912) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// OMP-DEfAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(912) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // OMP-DEfAULT-NEXT:  entry:
 // OMP-DEfAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // OMP-DEfAULT-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -5147,7 +5147,7 @@ int bar(int a){
 //
 //
 // OMP-DEfAULT-LABEL: define {{[^@]+}}@_ZN2STILi1000EEC1Ev
-// OMP-DEfAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(4512) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// OMP-DEfAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4512) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // OMP-DEfAULT-NEXT:  entry:
 // OMP-DEfAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // OMP-DEfAULT-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 4
@@ -5167,7 +5167,7 @@ int bar(int a){
 //
 //
 // OMP-DEfAULT-LABEL: define {{[^@]+}}@_ZN2STILi1000EEC2Ev
-// OMP-DEfAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(4512) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
+// OMP-DEfAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4512) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat align 2 {
 // OMP-DEfAULT-NEXT:  entry:
 // OMP-DEfAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 4
 // OMP-DEfAULT-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -6670,7 +6670,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-OMP-DEFAULT-LABEL: define {{[^@]+}}@_ZN2SAC1Ev
-// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(16) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat {
+// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(16) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] comdat {
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:  entry:
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -6690,7 +6690,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-OMP-DEFAULT-LABEL: define {{[^@]+}}@_ZN2SAC2Ev
-// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(16) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(16) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:  entry:
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -6744,7 +6744,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-OMP-DEFAULT-LABEL: define {{[^@]+}}@_ZN2SBC1Ev
-// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(32) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(32) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:  entry:
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -6764,7 +6764,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-OMP-DEFAULT-LABEL: define {{[^@]+}}@_ZN2SBC2Ev
-// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(32) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(32) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:  entry:
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -6818,7 +6818,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-OMP-DEFAULT-LABEL: define {{[^@]+}}@_ZN2SCC1Ev
-// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(64) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(64) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:  entry:
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -6838,7 +6838,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-OMP-DEFAULT-LABEL: define {{[^@]+}}@_ZN2SCC2Ev
-// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(64) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(64) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:  entry:
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -6964,7 +6964,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-OMP-DEFAULT-LABEL: define {{[^@]+}}@_ZN2SDC1Ev
-// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(128) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(128) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:  entry:
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -6984,7 +6984,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-OMP-DEFAULT-LABEL: define {{[^@]+}}@_ZN2SDC2Ev
-// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(128) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(128) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:  entry:
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -7110,7 +7110,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-OMP-DEFAULT-LABEL: define {{[^@]+}}@_ZN2SEC1Ev
-// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(256) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(256) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:  entry:
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -7130,7 +7130,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-OMP-DEFAULT-LABEL: define {{[^@]+}}@_ZN2SEC2Ev
-// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(256) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(256) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:  entry:
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -7336,7 +7336,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-OMP-DEFAULT-LABEL: define {{[^@]+}}@_ZN2STILi100EEC1Ev
-// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(912) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(912) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:  entry:
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -7356,7 +7356,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-OMP-DEFAULT-LABEL: define {{[^@]+}}@_ZN2STILi100EEC2Ev
-// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(912) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(912) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:  entry:
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    [[A:%.*]] = alloca i32, align 4
@@ -7562,7 +7562,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-OMP-DEFAULT-LABEL: define {{[^@]+}}@_ZN2STILi1000EEC1Ev
-// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(4512) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4512) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:  entry:
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -7582,7 +7582,7 @@ int bar(int a){
 //
 //
 // CHECK-NTARGET-OMP-DEFAULT-LABEL: define {{[^@]+}}@_ZN2STILi1000EEC2Ev
-// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noundef nonnull align 4 dereferenceable(4512) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
+// CHECK-NTARGET-OMP-DEFAULT-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4512) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] comdat {
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:  entry:
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NTARGET-OMP-DEFAULT-NEXT:    [[A:%.*]] = alloca i32, align 4

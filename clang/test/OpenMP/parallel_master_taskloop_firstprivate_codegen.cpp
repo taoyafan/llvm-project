@@ -234,7 +234,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // CHECK-LABEL: define {{[^@]+}}@_ZN1SIdEC1Ev
-// CHECK-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] align 2 {
+// CHECK-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] align 2 {
 // CHECK-NEXT:  entry:
 // CHECK-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -244,7 +244,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // CHECK-LABEL: define {{[^@]+}}@_ZN1SIdEC1ERKS0_d
-// CHECK-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[S:%.*]], double noundef [[T:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// CHECK-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[S:%.*]], double noundef [[T:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // CHECK-NEXT:  entry:
 // CHECK-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NEXT:    [[S_ADDR:%.*]] = alloca ptr, align 8
@@ -260,7 +260,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // CHECK-LABEL: define {{[^@]+}}@_ZN1SIdEC1Ed
-// CHECK-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], double noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// CHECK-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], double noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // CHECK-NEXT:  entry:
 // CHECK-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NEXT:    [[A_ADDR:%.*]] = alloca double, align 8
@@ -595,7 +595,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // CHECK-LABEL: define {{[^@]+}}@_ZN1SIdEC2Ev
-// CHECK-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// CHECK-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // CHECK-NEXT:  entry:
 // CHECK-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -606,7 +606,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // CHECK-LABEL: define {{[^@]+}}@_ZN1SIdEC2ERKS0_d
-// CHECK-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[S:%.*]], double noundef [[T:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// CHECK-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[S:%.*]], double noundef [[T:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // CHECK-NEXT:  entry:
 // CHECK-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NEXT:    [[S_ADDR:%.*]] = alloca ptr, align 8
@@ -626,7 +626,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // CHECK-LABEL: define {{[^@]+}}@_ZN1SIdEC2Ed
-// CHECK-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], double noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// CHECK-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], double noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // CHECK-NEXT:  entry:
 // CHECK-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NEXT:    [[A_ADDR:%.*]] = alloca double, align 8
@@ -649,7 +649,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // CHECK-LABEL: define {{[^@]+}}@_ZN1SIiEC1Ev
-// CHECK-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// CHECK-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // CHECK-NEXT:  entry:
 // CHECK-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -659,7 +659,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // CHECK-LABEL: define {{[^@]+}}@_ZN1SIiEC1ERKS0_i
-// CHECK-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[S:%.*]], i32 noundef [[T:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// CHECK-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[S:%.*]], i32 noundef [[T:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // CHECK-NEXT:  entry:
 // CHECK-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NEXT:    [[S_ADDR:%.*]] = alloca ptr, align 8
@@ -675,7 +675,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // CHECK-LABEL: define {{[^@]+}}@_ZN1SIiEC1Ei
-// CHECK-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// CHECK-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // CHECK-NEXT:  entry:
 // CHECK-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -719,17 +719,17 @@ void array_func(int n, float a[n], St s[2]) {
 // CHECK-NEXT:    store ptr [[TMP2]], ptr [[TMP8]], align 8
 // CHECK-NEXT:    call void @__kmpc_taskgroup(ptr @[[GLOB1]], i32 [[TMP4]])
 // CHECK-NEXT:    [[TMP9:%.*]] = call ptr @__kmpc_omp_task_alloc(ptr @[[GLOB1]], i32 [[TMP4]], i32 9, i64 256, i64 16, ptr @.omp_task_entry..3)
-// CHECK-NEXT:    [[TMP10:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_2:%.*]], ptr [[TMP9]], i32 0, i32 0
+// CHECK-NEXT:    [[TMP10:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_3:%.*]], ptr [[TMP9]], i32 0, i32 0
 // CHECK-NEXT:    [[TMP11:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T:%.*]], ptr [[TMP10]], i32 0, i32 0
 // CHECK-NEXT:    [[TMP12:%.*]] = load ptr, ptr [[TMP11]], align 128
 // CHECK-NEXT:    call void @llvm.memcpy.p0.p0.i64(ptr align 8 [[TMP12]], ptr align 8 [[AGG_CAPTURED]], i64 16, i1 false)
-// CHECK-NEXT:    [[TMP13:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_2]], ptr [[TMP9]], i32 0, i32 2
-// CHECK-NEXT:    [[TMP14:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_3:%.*]], ptr [[TMP13]], i32 0, i32 0
+// CHECK-NEXT:    [[TMP13:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_3]], ptr [[TMP9]], i32 0, i32 2
+// CHECK-NEXT:    [[TMP14:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_2:%.*]], ptr [[TMP13]], i32 0, i32 0
 // CHECK-NEXT:    [[TMP15:%.*]] = load i32, ptr [[T_VAR_ADDR]], align 4
 // CHECK-NEXT:    store i32 [[TMP15]], ptr [[TMP14]], align 128
-// CHECK-NEXT:    [[TMP16:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_3]], ptr [[TMP13]], i32 0, i32 1
+// CHECK-NEXT:    [[TMP16:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_2]], ptr [[TMP13]], i32 0, i32 1
 // CHECK-NEXT:    call void @llvm.memcpy.p0.p0.i64(ptr align 4 [[TMP16]], ptr align 4 [[TMP0]], i64 8, i1 false)
-// CHECK-NEXT:    [[TMP17:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_3]], ptr [[TMP13]], i32 0, i32 2
+// CHECK-NEXT:    [[TMP17:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_2]], ptr [[TMP13]], i32 0, i32 2
 // CHECK-NEXT:    [[ARRAY_BEGIN:%.*]] = getelementptr inbounds [2 x %struct.S.0], ptr [[TMP17]], i32 0, i32 0
 // CHECK-NEXT:    [[TMP18:%.*]] = getelementptr inbounds [[STRUCT_S_0:%.*]], ptr [[ARRAY_BEGIN]], i64 2
 // CHECK-NEXT:    [[OMP_ARRAYCPY_ISEMPTY:%.*]] = icmp eq ptr [[ARRAY_BEGIN]], [[TMP18]]
@@ -743,7 +743,7 @@ void array_func(int n, float a[n], St s[2]) {
 // CHECK-NEXT:    [[OMP_ARRAYCPY_DONE:%.*]] = icmp eq ptr [[OMP_ARRAYCPY_DEST_ELEMENT]], [[TMP18]]
 // CHECK-NEXT:    br i1 [[OMP_ARRAYCPY_DONE]], label [[OMP_ARRAYCPY_DONE1]], label [[OMP_ARRAYCPY_BODY]]
 // CHECK:       omp.arraycpy.done1:
-// CHECK-NEXT:    [[TMP19:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_3]], ptr [[TMP13]], i32 0, i32 3
+// CHECK-NEXT:    [[TMP19:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_2]], ptr [[TMP13]], i32 0, i32 3
 // CHECK-NEXT:    call void @_ZN1SIiEC1ERKS0_i(ptr noundef nonnull align 4 dereferenceable(4) [[TMP19]], ptr noundef nonnull align 4 dereferenceable(4) [[TMP2]], i32 noundef 0)
 // CHECK-NEXT:    [[TMP20:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T]], ptr [[TMP10]], i32 0, i32 3
 // CHECK-NEXT:    store ptr @.omp_task_destructor..5, ptr [[TMP20]], align 8
@@ -778,16 +778,16 @@ void array_func(int n, float a[n], St s[2]) {
 // CHECK-NEXT:    store ptr [[TMP3]], ptr [[DOTADDR3]], align 8
 // CHECK-NEXT:    store ptr [[TMP4]], ptr [[DOTADDR4]], align 8
 // CHECK-NEXT:    [[TMP5:%.*]] = load ptr, ptr [[DOTADDR]], align 8
-// CHECK-NEXT:    [[TMP6:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_3:%.*]], ptr [[TMP5]], i32 0, i32 0
+// CHECK-NEXT:    [[TMP6:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_2:%.*]], ptr [[TMP5]], i32 0, i32 0
 // CHECK-NEXT:    [[TMP7:%.*]] = load ptr, ptr [[DOTADDR1]], align 8
 // CHECK-NEXT:    store ptr [[TMP6]], ptr [[TMP7]], align 8
-// CHECK-NEXT:    [[TMP8:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_3]], ptr [[TMP5]], i32 0, i32 1
+// CHECK-NEXT:    [[TMP8:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_2]], ptr [[TMP5]], i32 0, i32 1
 // CHECK-NEXT:    [[TMP9:%.*]] = load ptr, ptr [[DOTADDR2]], align 8
 // CHECK-NEXT:    store ptr [[TMP8]], ptr [[TMP9]], align 8
-// CHECK-NEXT:    [[TMP10:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_3]], ptr [[TMP5]], i32 0, i32 2
+// CHECK-NEXT:    [[TMP10:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_2]], ptr [[TMP5]], i32 0, i32 2
 // CHECK-NEXT:    [[TMP11:%.*]] = load ptr, ptr [[DOTADDR3]], align 8
 // CHECK-NEXT:    store ptr [[TMP10]], ptr [[TMP11]], align 8
-// CHECK-NEXT:    [[TMP12:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_3]], ptr [[TMP5]], i32 0, i32 3
+// CHECK-NEXT:    [[TMP12:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_2]], ptr [[TMP5]], i32 0, i32 3
 // CHECK-NEXT:    [[TMP13:%.*]] = load ptr, ptr [[DOTADDR4]], align 8
 // CHECK-NEXT:    store ptr [[TMP12]], ptr [[TMP13]], align 8
 // CHECK-NEXT:    ret void
@@ -819,11 +819,11 @@ void array_func(int n, float a[n], St s[2]) {
 // CHECK-NEXT:    store ptr [[TMP1]], ptr [[DOTADDR1]], align 8
 // CHECK-NEXT:    [[TMP2:%.*]] = load i32, ptr [[DOTADDR]], align 4
 // CHECK-NEXT:    [[TMP3:%.*]] = load ptr, ptr [[DOTADDR1]], align 8
-// CHECK-NEXT:    [[TMP4:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_2:%.*]], ptr [[TMP3]], i32 0, i32 0
+// CHECK-NEXT:    [[TMP4:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_3:%.*]], ptr [[TMP3]], i32 0, i32 0
 // CHECK-NEXT:    [[TMP5:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T:%.*]], ptr [[TMP4]], i32 0, i32 2
 // CHECK-NEXT:    [[TMP6:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T]], ptr [[TMP4]], i32 0, i32 0
 // CHECK-NEXT:    [[TMP7:%.*]] = load ptr, ptr [[TMP6]], align 128
-// CHECK-NEXT:    [[TMP8:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_2]], ptr [[TMP3]], i32 0, i32 2
+// CHECK-NEXT:    [[TMP8:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_3]], ptr [[TMP3]], i32 0, i32 2
 // CHECK-NEXT:    [[TMP9:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T]], ptr [[TMP4]], i32 0, i32 5
 // CHECK-NEXT:    [[TMP10:%.*]] = load i64, ptr [[TMP9]], align 8
 // CHECK-NEXT:    [[TMP11:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T]], ptr [[TMP4]], i32 0, i32 6
@@ -893,11 +893,11 @@ void array_func(int n, float a[n], St s[2]) {
 // CHECK-NEXT:    store i32 [[TMP2]], ptr [[DOTADDR2]], align 4
 // CHECK-NEXT:    [[TMP3:%.*]] = load ptr, ptr [[DOTADDR]], align 8
 // CHECK-NEXT:    [[TMP4:%.*]] = load ptr, ptr [[DOTADDR1]], align 8
-// CHECK-NEXT:    [[TMP5:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_2:%.*]], ptr [[TMP4]], i32 0, i32 0
+// CHECK-NEXT:    [[TMP5:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_3:%.*]], ptr [[TMP4]], i32 0, i32 0
 // CHECK-NEXT:    [[TMP6:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T:%.*]], ptr [[TMP5]], i32 0, i32 0
 // CHECK-NEXT:    [[TMP7:%.*]] = load ptr, ptr [[TMP6]], align 128
-// CHECK-NEXT:    [[TMP8:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_2]], ptr [[TMP3]], i32 0, i32 2
-// CHECK-NEXT:    [[TMP9:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_3:%.*]], ptr [[TMP8]], i32 0, i32 2
+// CHECK-NEXT:    [[TMP8:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_3]], ptr [[TMP3]], i32 0, i32 2
+// CHECK-NEXT:    [[TMP9:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_2:%.*]], ptr [[TMP8]], i32 0, i32 2
 // CHECK-NEXT:    [[TMP10:%.*]] = getelementptr inbounds nuw [[STRUCT_ANON_1:%.*]], ptr [[TMP7]], i32 0, i32 0
 // CHECK-NEXT:    [[TMP11:%.*]] = load ptr, ptr [[TMP10]], align 8
 // CHECK-NEXT:    [[ARRAY_BEGIN:%.*]] = getelementptr inbounds [2 x %struct.S.0], ptr [[TMP9]], i32 0, i32 0
@@ -913,7 +913,7 @@ void array_func(int n, float a[n], St s[2]) {
 // CHECK-NEXT:    [[OMP_ARRAYCPY_DONE:%.*]] = icmp eq ptr [[OMP_ARRAYCPY_DEST_ELEMENT]], [[TMP12]]
 // CHECK-NEXT:    br i1 [[OMP_ARRAYCPY_DONE]], label [[OMP_ARRAYCPY_DONE3]], label [[OMP_ARRAYCPY_BODY]]
 // CHECK:       omp.arraycpy.done3:
-// CHECK-NEXT:    [[TMP13:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_3]], ptr [[TMP8]], i32 0, i32 3
+// CHECK-NEXT:    [[TMP13:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_2]], ptr [[TMP8]], i32 0, i32 3
 // CHECK-NEXT:    [[TMP14:%.*]] = getelementptr inbounds nuw [[STRUCT_ANON_1]], ptr [[TMP7]], i32 0, i32 1
 // CHECK-NEXT:    [[TMP15:%.*]] = load ptr, ptr [[TMP14]], align 8
 // CHECK-NEXT:    call void @_ZN1SIiEC1ERKS0_i(ptr noundef nonnull align 4 dereferenceable(4) [[TMP13]], ptr noundef nonnull align 4 dereferenceable(4) [[TMP15]], i32 noundef 0)
@@ -929,9 +929,9 @@ void array_func(int n, float a[n], St s[2]) {
 // CHECK-NEXT:    store i32 [[TMP0]], ptr [[DOTADDR]], align 4
 // CHECK-NEXT:    store ptr [[TMP1]], ptr [[DOTADDR1]], align 8
 // CHECK-NEXT:    [[TMP2:%.*]] = load ptr, ptr [[DOTADDR1]], align 8
-// CHECK-NEXT:    [[TMP3:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_2:%.*]], ptr [[TMP2]], i32 0, i32 2
-// CHECK-NEXT:    [[TMP4:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_3:%.*]], ptr [[TMP3]], i32 0, i32 2
-// CHECK-NEXT:    [[TMP5:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_3]], ptr [[TMP3]], i32 0, i32 3
+// CHECK-NEXT:    [[TMP3:%.*]] = getelementptr inbounds nuw [[STRUCT_KMP_TASK_T_WITH_PRIVATES_3:%.*]], ptr [[TMP2]], i32 0, i32 2
+// CHECK-NEXT:    [[TMP4:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_2:%.*]], ptr [[TMP3]], i32 0, i32 2
+// CHECK-NEXT:    [[TMP5:%.*]] = getelementptr inbounds nuw [[STRUCT__KMP_PRIVATES_T_2]], ptr [[TMP3]], i32 0, i32 3
 // CHECK-NEXT:    call void @_ZN1SIiED1Ev(ptr noundef nonnull align 4 dereferenceable(4) [[TMP5]]) #[[ATTR4]]
 // CHECK-NEXT:    [[ARRAY_BEGIN:%.*]] = getelementptr inbounds [2 x %struct.S.0], ptr [[TMP4]], i32 0, i32 0
 // CHECK-NEXT:    [[TMP6:%.*]] = getelementptr inbounds [[STRUCT_S_0:%.*]], ptr [[ARRAY_BEGIN]], i64 2
@@ -958,7 +958,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // CHECK-LABEL: define {{[^@]+}}@_ZN1SIiEC2Ev
-// CHECK-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// CHECK-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // CHECK-NEXT:  entry:
 // CHECK-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -969,7 +969,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // CHECK-LABEL: define {{[^@]+}}@_ZN1SIiEC2ERKS0_i
-// CHECK-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[S:%.*]], i32 noundef [[T:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// CHECK-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[S:%.*]], i32 noundef [[T:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // CHECK-NEXT:  entry:
 // CHECK-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NEXT:    [[S_ADDR:%.*]] = alloca ptr, align 8
@@ -989,7 +989,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // CHECK-LABEL: define {{[^@]+}}@_ZN1SIiEC2Ei
-// CHECK-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// CHECK-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // CHECK-NEXT:  entry:
 // CHECK-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // CHECK-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -1561,7 +1561,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // SIMD-ONLY0-LABEL: define {{[^@]+}}@_ZN1SIdEC1Ev
-// SIMD-ONLY0-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] align 2 {
+// SIMD-ONLY0-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] align 2 {
 // SIMD-ONLY0-NEXT:  entry:
 // SIMD-ONLY0-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY0-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -1571,7 +1571,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // SIMD-ONLY0-LABEL: define {{[^@]+}}@_ZN1SIdEC1ERKS0_d
-// SIMD-ONLY0-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[S:%.*]], double noundef [[T:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// SIMD-ONLY0-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[S:%.*]], double noundef [[T:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // SIMD-ONLY0-NEXT:  entry:
 // SIMD-ONLY0-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY0-NEXT:    [[S_ADDR:%.*]] = alloca ptr, align 8
@@ -1587,7 +1587,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // SIMD-ONLY0-LABEL: define {{[^@]+}}@_ZN1SIdEC1Ed
-// SIMD-ONLY0-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], double noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// SIMD-ONLY0-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], double noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // SIMD-ONLY0-NEXT:  entry:
 // SIMD-ONLY0-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY0-NEXT:    [[A_ADDR:%.*]] = alloca double, align 8
@@ -1666,7 +1666,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // SIMD-ONLY0-LABEL: define {{[^@]+}}@_ZN1SIdEC2Ev
-// SIMD-ONLY0-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// SIMD-ONLY0-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // SIMD-ONLY0-NEXT:  entry:
 // SIMD-ONLY0-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY0-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -1686,7 +1686,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // SIMD-ONLY0-LABEL: define {{[^@]+}}@_ZN1SIdEC2ERKS0_d
-// SIMD-ONLY0-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[S:%.*]], double noundef [[T:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// SIMD-ONLY0-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[S:%.*]], double noundef [[T:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // SIMD-ONLY0-NEXT:  entry:
 // SIMD-ONLY0-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY0-NEXT:    [[S_ADDR:%.*]] = alloca ptr, align 8
@@ -1706,7 +1706,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // SIMD-ONLY0-LABEL: define {{[^@]+}}@_ZN1SIdEC2Ed
-// SIMD-ONLY0-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], double noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// SIMD-ONLY0-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], double noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // SIMD-ONLY0-NEXT:  entry:
 // SIMD-ONLY0-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY0-NEXT:    [[A_ADDR:%.*]] = alloca double, align 8
@@ -1720,7 +1720,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // SIMD-ONLY0-LABEL: define {{[^@]+}}@_ZN1SIiEC1Ev
-// SIMD-ONLY0-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// SIMD-ONLY0-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // SIMD-ONLY0-NEXT:  entry:
 // SIMD-ONLY0-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY0-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -1730,7 +1730,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // SIMD-ONLY0-LABEL: define {{[^@]+}}@_ZN1SIiEC1ERKS0_i
-// SIMD-ONLY0-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[S:%.*]], i32 noundef [[T:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// SIMD-ONLY0-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[S:%.*]], i32 noundef [[T:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // SIMD-ONLY0-NEXT:  entry:
 // SIMD-ONLY0-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY0-NEXT:    [[S_ADDR:%.*]] = alloca ptr, align 8
@@ -1746,7 +1746,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // SIMD-ONLY0-LABEL: define {{[^@]+}}@_ZN1SIiEC1Ei
-// SIMD-ONLY0-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// SIMD-ONLY0-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // SIMD-ONLY0-NEXT:  entry:
 // SIMD-ONLY0-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY0-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -1769,7 +1769,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // SIMD-ONLY0-LABEL: define {{[^@]+}}@_ZN1SIiEC2Ev
-// SIMD-ONLY0-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// SIMD-ONLY0-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // SIMD-ONLY0-NEXT:  entry:
 // SIMD-ONLY0-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY0-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -1780,7 +1780,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // SIMD-ONLY0-LABEL: define {{[^@]+}}@_ZN1SIiEC2ERKS0_i
-// SIMD-ONLY0-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[S:%.*]], i32 noundef [[T:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// SIMD-ONLY0-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[S:%.*]], i32 noundef [[T:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // SIMD-ONLY0-NEXT:  entry:
 // SIMD-ONLY0-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY0-NEXT:    [[S_ADDR:%.*]] = alloca ptr, align 8
@@ -1800,7 +1800,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // SIMD-ONLY0-LABEL: define {{[^@]+}}@_ZN1SIiEC2Ei
-// SIMD-ONLY0-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// SIMD-ONLY0-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // SIMD-ONLY0-NEXT:  entry:
 // SIMD-ONLY0-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY0-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -1882,7 +1882,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // SIMD-ONLY1-LABEL: define {{[^@]+}}@_ZN1SIdEC1Ev
-// SIMD-ONLY1-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] align 2 {
+// SIMD-ONLY1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1:[0-9]+]] align 2 {
 // SIMD-ONLY1-NEXT:  entry:
 // SIMD-ONLY1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY1-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -1892,7 +1892,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // SIMD-ONLY1-LABEL: define {{[^@]+}}@_ZN1SIdEC1ERKS0_d
-// SIMD-ONLY1-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[S:%.*]], double noundef [[T:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// SIMD-ONLY1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[S:%.*]], double noundef [[T:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // SIMD-ONLY1-NEXT:  entry:
 // SIMD-ONLY1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY1-NEXT:    [[S_ADDR:%.*]] = alloca ptr, align 8
@@ -1908,7 +1908,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // SIMD-ONLY1-LABEL: define {{[^@]+}}@_ZN1SIdEC1Ed
-// SIMD-ONLY1-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], double noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// SIMD-ONLY1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], double noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // SIMD-ONLY1-NEXT:  entry:
 // SIMD-ONLY1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY1-NEXT:    [[A_ADDR:%.*]] = alloca double, align 8
@@ -1987,7 +1987,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // SIMD-ONLY1-LABEL: define {{[^@]+}}@_ZN1SIdEC2Ev
-// SIMD-ONLY1-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// SIMD-ONLY1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // SIMD-ONLY1-NEXT:  entry:
 // SIMD-ONLY1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY1-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -2007,7 +2007,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // SIMD-ONLY1-LABEL: define {{[^@]+}}@_ZN1SIdEC2ERKS0_d
-// SIMD-ONLY1-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[S:%.*]], double noundef [[T:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// SIMD-ONLY1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], ptr noundef nonnull align 8 dereferenceable(8) [[S:%.*]], double noundef [[T:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // SIMD-ONLY1-NEXT:  entry:
 // SIMD-ONLY1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY1-NEXT:    [[S_ADDR:%.*]] = alloca ptr, align 8
@@ -2027,7 +2027,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // SIMD-ONLY1-LABEL: define {{[^@]+}}@_ZN1SIdEC2Ed
-// SIMD-ONLY1-SAME: (ptr noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], double noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// SIMD-ONLY1-SAME: (ptr noalias noundef nonnull align 8 dereferenceable(8) [[THIS:%.*]], double noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // SIMD-ONLY1-NEXT:  entry:
 // SIMD-ONLY1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY1-NEXT:    [[A_ADDR:%.*]] = alloca double, align 8
@@ -2041,7 +2041,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // SIMD-ONLY1-LABEL: define {{[^@]+}}@_ZN1SIiEC1Ev
-// SIMD-ONLY1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// SIMD-ONLY1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // SIMD-ONLY1-NEXT:  entry:
 // SIMD-ONLY1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY1-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -2051,7 +2051,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // SIMD-ONLY1-LABEL: define {{[^@]+}}@_ZN1SIiEC1ERKS0_i
-// SIMD-ONLY1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[S:%.*]], i32 noundef [[T:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// SIMD-ONLY1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[S:%.*]], i32 noundef [[T:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // SIMD-ONLY1-NEXT:  entry:
 // SIMD-ONLY1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY1-NEXT:    [[S_ADDR:%.*]] = alloca ptr, align 8
@@ -2067,7 +2067,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // SIMD-ONLY1-LABEL: define {{[^@]+}}@_ZN1SIiEC1Ei
-// SIMD-ONLY1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// SIMD-ONLY1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // SIMD-ONLY1-NEXT:  entry:
 // SIMD-ONLY1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
@@ -2090,7 +2090,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // SIMD-ONLY1-LABEL: define {{[^@]+}}@_ZN1SIiEC2Ev
-// SIMD-ONLY1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// SIMD-ONLY1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // SIMD-ONLY1-NEXT:  entry:
 // SIMD-ONLY1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY1-NEXT:    store ptr [[THIS]], ptr [[THIS_ADDR]], align 8
@@ -2101,7 +2101,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // SIMD-ONLY1-LABEL: define {{[^@]+}}@_ZN1SIiEC2ERKS0_i
-// SIMD-ONLY1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[S:%.*]], i32 noundef [[T:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// SIMD-ONLY1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], ptr noundef nonnull align 4 dereferenceable(4) [[S:%.*]], i32 noundef [[T:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // SIMD-ONLY1-NEXT:  entry:
 // SIMD-ONLY1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY1-NEXT:    [[S_ADDR:%.*]] = alloca ptr, align 8
@@ -2121,7 +2121,7 @@ void array_func(int n, float a[n], St s[2]) {
 //
 //
 // SIMD-ONLY1-LABEL: define {{[^@]+}}@_ZN1SIiEC2Ei
-// SIMD-ONLY1-SAME: (ptr noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
+// SIMD-ONLY1-SAME: (ptr noalias noundef nonnull align 4 dereferenceable(4) [[THIS:%.*]], i32 noundef [[A:%.*]]) unnamed_addr #[[ATTR1]] align 2 {
 // SIMD-ONLY1-NEXT:  entry:
 // SIMD-ONLY1-NEXT:    [[THIS_ADDR:%.*]] = alloca ptr, align 8
 // SIMD-ONLY1-NEXT:    [[A_ADDR:%.*]] = alloca i32, align 4
