@@ -27,17 +27,68 @@ struct CIRGenFunctionInfoArgInfo {
   cir::ABIArgInfo info;
 };
 
+/// A class for recording the number of arguments that a function signature
+/// requires.
+class RequiredArgs {
+  /// The number of required arguments, or ~0 if the signature does not permit
+  /// optional arguments.
+  unsigned numRequired;
+
+public:
+  enum All_t { All };
+
+  RequiredArgs(All_t _) : numRequired(~0U) {}
+  explicit RequiredArgs(unsigned n) : numRequired(n) { assert(n != ~0U); }
+
+  unsigned getOpaqueData() const { return numRequired; }
+
+  bool allowsOptionalArgs() const { return numRequired != ~0U; }
+
+  /// Compute the arguments required by the given formal prototype, given that
+  /// there may be some additional, non-formal arguments in play.
+  ///
+  /// If FD is not null, this will consider pass_object_size params in FD.
+  static RequiredArgs
+  forPrototypePlus(const clang::FunctionProtoType *prototype) {
+    if (!prototype->isVariadic())
+      return All;
+
+    if (prototype->hasExtParameterInfos())
+      llvm_unreachable("NYI");
+
+    return RequiredArgs(prototype->getNumParams());
+  }
+
+  static RequiredArgs
+  forPrototypePlus(clang::CanQual<clang::FunctionProtoType> prototype) {
+    return forPrototypePlus(prototype.getTypePtr());
+  }
+
+  unsigned getNumRequiredArgs() const {
+    assert(allowsOptionalArgs());
+    return numRequired;
+  }
+};
+
 class CIRGenFunctionInfo final
     : public llvm::FoldingSetNode,
       private llvm::TrailingObjects<CIRGenFunctionInfo,
                                     CIRGenFunctionInfoArgInfo> {
   using ArgInfo = CIRGenFunctionInfoArgInfo;
 
+  RequiredArgs required;
+
+  unsigned numArgs;
+
   ArgInfo *getArgsBuffer() { return getTrailingObjects<ArgInfo>(); }
   const ArgInfo *getArgsBuffer() const { return getTrailingObjects<ArgInfo>(); }
 
+  CIRGenFunctionInfo() : required(RequiredArgs::All) {}
+
 public:
-  static CIRGenFunctionInfo *create(CanQualType resultType);
+  static CIRGenFunctionInfo *create(CanQualType resultType,
+                                    llvm::ArrayRef<CanQualType> argTypes,
+                                    RequiredArgs required);
 
   void operator delete(void *p) { ::operator delete(p); }
 
@@ -47,17 +98,50 @@ public:
 
   // This function has to be CamelCase because llvm::FoldingSet requires so.
   // NOLINTNEXTLINE(readability-identifier-naming)
-  static void Profile(llvm::FoldingSetNodeID &id, CanQualType resultType) {
+  static void Profile(llvm::FoldingSetNodeID &id, RequiredArgs required,
+                      CanQualType resultType,
+                      llvm::ArrayRef<CanQualType> argTypes) {
+    id.AddBoolean(required.getOpaqueData());
     resultType.Profile(id);
+    for (const auto &arg : argTypes)
+      arg.Profile(id);
   }
 
-  void Profile(llvm::FoldingSetNodeID &id) { getReturnType().Profile(id); }
+  // NOLINTNEXTLINE(readability-identifier-naming)
+  void Profile(llvm::FoldingSetNodeID &id) {
+    id.AddBoolean(required.getOpaqueData());
+    getReturnType().Profile(id);
+    for (const auto &i : arguments())
+      i.type.Profile(id);
+  }
 
   CanQualType getReturnType() const { return getArgsBuffer()[0].type; }
 
   cir::ABIArgInfo &getReturnInfo() { return getArgsBuffer()[0].info; }
   const cir::ABIArgInfo &getReturnInfo() const {
     return getArgsBuffer()[0].info;
+  }
+  using const_arg_iterator = const ArgInfo *;
+  using arg_iterator = ArgInfo *;
+
+  const_arg_iterator arg_begin() const { return getArgsBuffer() + 1; }
+  const_arg_iterator arg_end() const { return getArgsBuffer() + 1 + numArgs; }
+  arg_iterator arg_begin() { return getArgsBuffer() + 1; }
+  arg_iterator arg_end() { return getArgsBuffer() + 1 + numArgs; }
+
+  unsigned arg_size() const { return numArgs; }
+
+  llvm::MutableArrayRef<ArgInfo> arguments() {
+    return llvm::MutableArrayRef<ArgInfo>(arg_begin(), numArgs);
+  }
+  llvm::ArrayRef<ArgInfo> arguments() const {
+    return llvm::ArrayRef<ArgInfo>(arg_begin(), numArgs);
+  }
+
+  bool isVariadic() const { return required.allowsOptionalArgs(); }
+  RequiredArgs getRequiredArgs() const { return required; }
+  unsigned getNumRequiredArgs() const {
+    return isVariadic() ? getRequiredArgs().getNumRequiredArgs() : arg_size();
   }
 };
 

@@ -13,18 +13,74 @@
 
 #include "CIRGenCall.h"
 #include "CIRGenFunction.h"
+#include "CIRGenFunctionInfo.h"
 #include "clang/CIR/MissingFeatures.h"
 
 using namespace clang;
 using namespace clang::CIRGen;
 
-CIRGenFunctionInfo *CIRGenFunctionInfo::create(CanQualType resultType) {
-  void *buffer = operator new(totalSizeToAlloc<ArgInfo>(1));
+CIRGenFunctionInfo *
+CIRGenFunctionInfo::create(CanQualType resultType,
+                           llvm::ArrayRef<CanQualType> argTypes,
+                           RequiredArgs required) {
+  void *buffer = operator new(totalSizeToAlloc<ArgInfo>(argTypes.size() + 1));
 
   CIRGenFunctionInfo *fi = new (buffer) CIRGenFunctionInfo();
+
+  fi->required = required;
+  fi->numArgs = argTypes.size();
   fi->getArgsBuffer()[0].type = resultType;
+  for (unsigned i = 0; i < argTypes.size(); ++i)
+    fi->getArgsBuffer()[i + 1].type = argTypes[i];
 
   return fi;
+}
+
+cir::FuncType CIRGenTypes::getFunctionType(const CIRGenFunctionInfo &fi) {
+  bool inserted = functionsBeingProcessed.insert(&fi).second;
+  assert(inserted && "Recursively being processed?");
+
+  mlir::Type resultType = nullptr;
+  const cir::ABIArgInfo &retAI = fi.getReturnInfo();
+
+  switch (retAI.getKind()) {
+  case cir::ABIArgInfo::Ignore:
+    // TODO(CIR): This should probably be the None type from the builtin
+    // dialect.
+    resultType = nullptr;
+    break;
+
+  case cir::ABIArgInfo::Direct:
+    resultType = retAI.getCoerceToType();
+    break;
+
+  default:
+    assert(false && "NYI");
+  }
+
+  SmallVector<mlir::Type, 8> argTypes;
+  unsigned argNo = 0;
+  CIRGenFunctionInfo::const_arg_iterator it = fi.arg_begin(),
+                                         ie = it + fi.getNumRequiredArgs();
+  for (; it != ie; ++it, ++argNo) {
+    const auto &argInfo = it->info;
+
+    switch (argInfo.getKind()) {
+    default:
+      llvm_unreachable("NYI");
+    case cir::ABIArgInfo::Direct:
+      mlir::Type argType = argInfo.getCoerceToType();
+      argTypes.push_back(argType);
+      break;
+    }
+  }
+
+  bool erased = functionsBeingProcessed.erase(&fi);
+  assert(erased && "Not in set?");
+
+  return cir::FuncType::get(argTypes,
+                            (resultType ? resultType : builder.getVoidTy()),
+                            fi.isVariadic());
 }
 
 CIRGenCallee CIRGenCallee::prepareConcreteCallee(CIRGenFunction &cgf) const {
@@ -35,6 +91,9 @@ CIRGenCallee CIRGenCallee::prepareConcreteCallee(CIRGenFunction &cgf) const {
 static const CIRGenFunctionInfo &
 arrangeFreeFunctionLikeCall(CIRGenTypes &cgt, CIRGenModule &cgm,
                             const FunctionType *fnType) {
+
+  RequiredArgs required = RequiredArgs::All;
+
   if (const auto *proto = dyn_cast<FunctionProtoType>(fnType)) {
     if (proto->isVariadic())
       cgm.errorNYI("call to variadic function");
@@ -49,7 +108,7 @@ arrangeFreeFunctionLikeCall(CIRGenTypes &cgt, CIRGenModule &cgm,
   CanQualType retType = fnType->getReturnType()
                             ->getCanonicalTypeUnqualified()
                             .getUnqualifiedType();
-  return cgt.arrangeCIRFunctionInfo(retType);
+  return cgt.arrangeCIRFunctionInfo(retType, {}, required);
 }
 
 const CIRGenFunctionInfo &
@@ -69,6 +128,23 @@ static cir::CIRCallOpInterface emitCallLikeOp(CIRGenFunction &cgf,
   assert(!cir::MissingFeatures::opCallIndirect());
 
   return builder.createCallOp(callLoc, directFuncOp);
+}
+
+const CIRGenFunctionInfo &
+CIRGenTypes::arrangeFreeFunctionType(CanQual<FunctionProtoType> fpt) {
+  SmallVector<CanQualType, 16> argTypes;
+  for (unsigned i = 0, e = fpt->getNumParams(); i != e; ++i)
+    argTypes.push_back(fpt->getParamType(i));
+  RequiredArgs required = RequiredArgs::forPrototypePlus(fpt);
+
+  CanQualType resultType = fpt->getReturnType().getUnqualifiedType();
+  return arrangeCIRFunctionInfo(resultType, argTypes, required);
+}
+
+const CIRGenFunctionInfo &
+CIRGenTypes::arrangeFreeFunctionType(CanQual<FunctionNoProtoType> fnpt) {
+  CanQualType resultType = fnpt->getReturnType().getUnqualifiedType();
+  return arrangeCIRFunctionInfo(resultType, {}, RequiredArgs(0));
 }
 
 RValue CIRGenFunction::emitCall(const CIRGenFunctionInfo &funcInfo,

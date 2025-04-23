@@ -73,21 +73,19 @@ mlir::Type CIRGenTypes::convertFunctionTypeInternal(QualType qft) {
     return cir::FuncType::get(SmallVector<mlir::Type, 1>{}, cgm.VoidTy);
   }
 
-  // TODO(CIR): This is a stub of what the final code will be.  See the
-  // implementation of this function and the implementation of class
-  // CIRGenFunction in the ClangIR incubator project.
-
+  const CIRGenFunctionInfo *fi;
   if (const auto *fpt = dyn_cast<FunctionProtoType>(ft)) {
-    SmallVector<mlir::Type> mlirParamTypes;
-    for (unsigned i = 0; i < fpt->getNumParams(); ++i) {
-      mlirParamTypes.push_back(convertType(fpt->getParamType(i)));
-    }
-    return cir::FuncType::get(
-        mlirParamTypes, convertType(fpt->getReturnType().getUnqualifiedType()),
-        fpt->isVariadic());
+    fi = &arrangeFreeFunctionType(
+        CanQual<FunctionProtoType>::CreateUnsafe(QualType(fpt, 0)));
+  } else {
+    const FunctionNoProtoType *fnpt = cast<FunctionNoProtoType>(ft);
+    fi = &arrangeFreeFunctionType(
+        CanQual<FunctionNoProtoType>::CreateUnsafe(QualType(fnpt, 0)));
   }
-  cgm.errorNYI(SourceLocation(), "non-prototype function type", qft);
-  return cir::FuncType::get(SmallVector<mlir::Type, 1>{}, cgm.VoidTy);
+
+  mlir::Type resultType = getFunctionType(*fi);
+
+  return resultType;
 }
 
 // This is CIR's version of CodeGenTypes::addRecordTypeName. It isn't shareable
@@ -494,10 +492,12 @@ bool CIRGenTypes::isZeroInitializable(clang::QualType t) {
 }
 
 const CIRGenFunctionInfo &
-CIRGenTypes::arrangeCIRFunctionInfo(CanQualType returnType) {
+CIRGenTypes::arrangeCIRFunctionInfo(CanQualType returnType,
+                                    llvm::ArrayRef<CanQualType> argTypes,
+                                    RequiredArgs required) {
   // Lookup or create unique function info.
   llvm::FoldingSetNodeID id;
-  CIRGenFunctionInfo::Profile(id, returnType);
+  CIRGenFunctionInfo::Profile(id, required, returnType, argTypes);
 
   void *insertPos = nullptr;
   CIRGenFunctionInfo *fi = functionInfos.FindNodeOrInsertPos(id, insertPos);
@@ -507,14 +507,13 @@ CIRGenTypes::arrangeCIRFunctionInfo(CanQualType returnType) {
   assert(!cir::MissingFeatures::opCallCallConv());
 
   // Construction the function info. We co-allocate the ArgInfos.
-  fi = CIRGenFunctionInfo::create(returnType);
+  fi = CIRGenFunctionInfo::create(returnType, argTypes, required);
   functionInfos.InsertNode(fi, insertPos);
 
   bool inserted = functionsBeingProcessed.insert(fi).second;
   (void)inserted;
   assert(inserted && "Are functions being processed recursively?");
 
-  assert(!cir::MissingFeatures::opCallCallConv());
   getABIInfo().computeInfo(*fi);
 
   // Loop over all of the computed argument and return value info. If any of
@@ -524,7 +523,9 @@ CIRGenTypes::arrangeCIRFunctionInfo(CanQualType returnType) {
   if (retInfo.canHaveCoerceToType() && retInfo.getCoerceToType() == nullptr)
     retInfo.setCoerceToType(convertType(fi->getReturnType()));
 
-  assert(!cir::MissingFeatures::opCallArgs());
+  for (auto &i : fi->arguments())
+    if (i.info.canHaveCoerceToType() && i.info.getCoerceToType() == nullptr)
+      i.info.setCoerceToType(convertType(i.type));
 
   bool erased = functionsBeingProcessed.erase(fi);
   (void)erased;

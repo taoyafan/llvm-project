@@ -123,7 +123,17 @@ public:
 
   const CIRGenFunctionInfo &arrangeFreeFunctionCall(const FunctionType *fnType);
 
-  const CIRGenFunctionInfo &arrangeCIRFunctionInfo(CanQualType returnType);
+  const CIRGenFunctionInfo &
+  arrangeCIRFunctionInfo(CanQualType returnType,
+                         llvm::ArrayRef<CanQualType> argTypes,
+                         RequiredArgs required);
+
+  const CIRGenFunctionInfo &
+  arrangeFreeFunctionType(CanQual<FunctionProtoType> fpt);
+  const CIRGenFunctionInfo &
+  arrangeFreeFunctionType(CanQual<FunctionNoProtoType> fnpt);
+
+  cir::FuncType getFunctionType(const CIRGenFunctionInfo &fi);
 };
 
 } // namespace clang::CIRGen
