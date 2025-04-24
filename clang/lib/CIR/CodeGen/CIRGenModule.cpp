@@ -22,6 +22,7 @@
 #include "clang/CIR/Dialect/IR/CIRDialect.h"
 #include "clang/CIR/MissingFeatures.h"
 
+#include "CIRGenFunctionInfo.h"
 #include "mlir/IR/BuiltinOps.h"
 #include "mlir/IR/Location.h"
 #include "mlir/IR/MLIRContext.h"
@@ -222,8 +223,8 @@ void CIRGenModule::emitGlobalFunctionDefinition(clang::GlobalDecl gd,
           funcDecl->getType()
               ->getCanonicalTypeUnqualified()
               .getAs<FunctionNoProtoType>()) {
-    auto &fi = getTypes().arrangeCIRFunctionInfo(noProto->getReturnType(), {},
-                                                 RequiredArgs::All);
+    const CIRGenFunctionInfo &fi = getTypes().arrangeCIRFunctionInfo(
+        noProto->getReturnType(), {}, RequiredArgs::All);
     funcType = getTypes().getFunctionType(fi);
   } else
     funcType = cast<cir::FuncType>(convertType(funcDecl->getType()));

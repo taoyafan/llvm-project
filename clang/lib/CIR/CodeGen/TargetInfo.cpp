@@ -32,13 +32,11 @@ void X8664ABIInfo::computeInfo(CIRGenFunctionInfo &funcInfo) const {
   // Top level CIR has unlimited arguments and return types. Lowering for ABI
   // specific concerns should happen during a lowering phase. Assume everything
   // is direct for now.
-  for (CIRGenFunctionInfo::arg_iterator it = funcInfo.arg_begin(),
-                                        ie = funcInfo.arg_end();
-       it != ie; ++it) {
-    if (testIfIsVoidTy(it->type))
-      it->info = cir::ABIArgInfo::getIgnore();
+  for (CIRGenFunctionInfoArgInfo &argInfo : funcInfo.argInfos()) {
+    if (testIfIsVoidTy(argInfo.type))
+      argInfo.info = cir::ABIArgInfo::getIgnore();
     else
-      it->info = cir::ABIArgInfo::getDirect(cgt.convertType(it->type));
+      argInfo.info = cir::ABIArgInfo::getDirect(cgt.convertType(argInfo.type));
   }
   CanQualType retTy = funcInfo.getReturnType();
   if (testIfIsVoidTy(retTy))

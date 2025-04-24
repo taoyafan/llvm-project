@@ -1,5 +1,6 @@
 #include "CIRGenTypes.h"
 
+#include "CIRGenFunctionInfo.h"
 #include "CIRGenModule.h"
 
 #include "clang/AST/ASTContext.h"
@@ -523,7 +524,7 @@ CIRGenTypes::arrangeCIRFunctionInfo(CanQualType returnType,
   if (retInfo.canHaveCoerceToType() && retInfo.getCoerceToType() == nullptr)
     retInfo.setCoerceToType(convertType(fi->getReturnType()));
 
-  for (auto &i : fi->arguments())
+  for (CIRGenFunctionInfoArgInfo &i : fi->argInfos())
     if (i.info.canHaveCoerceToType() && i.info.getCoerceToType() == nullptr)
       i.info.setCoerceToType(convertType(i.type));
 

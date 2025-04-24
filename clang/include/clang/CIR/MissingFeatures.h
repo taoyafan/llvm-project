@@ -159,6 +159,8 @@ struct MissingFeatures {
   static bool bitfields() { return false; }
   static bool typeChecks() { return false; }
   static bool lambdaFieldToName() { return false; }
+  static bool paramInfo() { return false; }
+  static bool funcTypeExtInfo() { return false; }
 
   // Missing types
   static bool dataMemberType() { return false; }

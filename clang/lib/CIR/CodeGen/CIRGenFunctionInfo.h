@@ -103,7 +103,7 @@ public:
                       llvm::ArrayRef<CanQualType> argTypes) {
     id.AddBoolean(required.getOpaqueData());
     resultType.Profile(id);
-    for (const auto &arg : argTypes)
+    for (const CanQualType &arg : argTypes)
       arg.Profile(id);
   }
 
@@ -111,8 +111,8 @@ public:
   void Profile(llvm::FoldingSetNodeID &id) {
     id.AddBoolean(required.getOpaqueData());
     getReturnType().Profile(id);
-    for (const auto &i : arguments())
-      i.type.Profile(id);
+    for (const ArgInfo &argInfo : argInfos())
+      argInfo.type.Profile(id);
   }
 
   CanQualType getReturnType() const { return getArgsBuffer()[0].type; }
@@ -124,24 +124,27 @@ public:
   using const_arg_iterator = const ArgInfo *;
   using arg_iterator = ArgInfo *;
 
-  const_arg_iterator arg_begin() const { return getArgsBuffer() + 1; }
-  const_arg_iterator arg_end() const { return getArgsBuffer() + 1 + numArgs; }
-  arg_iterator arg_begin() { return getArgsBuffer() + 1; }
-  arg_iterator arg_end() { return getArgsBuffer() + 1 + numArgs; }
-
-  unsigned arg_size() const { return numArgs; }
-
-  llvm::MutableArrayRef<ArgInfo> arguments() {
-    return llvm::MutableArrayRef<ArgInfo>(arg_begin(), numArgs);
+  const_arg_iterator argInfoBegin() const { return getArgsBuffer() + 1; }
+  const_arg_iterator argInfoEnd() const {
+    return getArgsBuffer() + 1 + numArgs;
   }
-  llvm::ArrayRef<ArgInfo> arguments() const {
-    return llvm::ArrayRef<ArgInfo>(arg_begin(), numArgs);
+  arg_iterator argInfoBegin() { return getArgsBuffer() + 1; }
+  arg_iterator argInfoEnd() { return getArgsBuffer() + 1 + numArgs; }
+
+  unsigned argInfoSize() const { return numArgs; }
+
+  llvm::MutableArrayRef<ArgInfo> argInfos() {
+    return llvm::MutableArrayRef<ArgInfo>(argInfoBegin(), numArgs);
+  }
+  llvm::ArrayRef<ArgInfo> argInfos() const {
+    return llvm::ArrayRef<ArgInfo>(argInfoBegin(), numArgs);
   }
 
   bool isVariadic() const { return required.allowsOptionalArgs(); }
   RequiredArgs getRequiredArgs() const { return required; }
   unsigned getNumRequiredArgs() const {
-    return isVariadic() ? getRequiredArgs().getNumRequiredArgs() : arg_size();
+    return isVariadic() ? getRequiredArgs().getNumRequiredArgs()
+                        : argInfoSize();
   }
 };
 

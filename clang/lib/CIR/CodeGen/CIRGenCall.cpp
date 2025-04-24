@@ -25,25 +25,34 @@ CIRGenFunctionInfo::create(CanQualType resultType,
                            RequiredArgs required) {
   void *buffer = operator new(totalSizeToAlloc<ArgInfo>(argTypes.size() + 1));
 
+  assert(!cir::MissingFeatures::paramInfo());
+  assert(!cir::MissingFeatures::funcTypeExtInfo());
+
   CIRGenFunctionInfo *fi = new (buffer) CIRGenFunctionInfo();
 
   fi->required = required;
   fi->numArgs = argTypes.size();
-  fi->getArgsBuffer()[0].type = resultType;
-  for (unsigned i = 0; i < argTypes.size(); ++i)
-    fi->getArgsBuffer()[i + 1].type = argTypes[i];
+
+  // ArgsBuffer contains the return type at index 0, and the argument types
+  // starting at index 1, so there are argTypes.size() + 1 elements in total.
+  unsigned idx = 1;
+  ArgInfo *argsBuffer = fi->getArgsBuffer();
+  argsBuffer[0].type = resultType;
+  for (const auto &argType : argTypes)
+    argsBuffer[idx++].type = argType;
 
   return fi;
 }
 
 cir::FuncType CIRGenTypes::getFunctionType(const CIRGenFunctionInfo &fi) {
   bool inserted = functionsBeingProcessed.insert(&fi).second;
+  (void)inserted;
   assert(inserted && "Recursively being processed?");
 
-  mlir::Type resultType = nullptr;
-  const cir::ABIArgInfo &retAI = fi.getReturnInfo();
+  mlir::Type resultType;
+  const cir::ABIArgInfo &retInfo = fi.getReturnInfo();
 
-  switch (retAI.getKind()) {
+  switch (retInfo.getKind()) {
   case cir::ABIArgInfo::Ignore:
     // TODO(CIR): This should probably be the None type from the builtin
     // dialect.
@@ -51,31 +60,36 @@ cir::FuncType CIRGenTypes::getFunctionType(const CIRGenFunctionInfo &fi) {
     break;
 
   case cir::ABIArgInfo::Direct:
-    resultType = retAI.getCoerceToType();
+    resultType = retInfo.getCoerceToType();
     break;
 
   default:
-    assert(false && "NYI");
+    cgm.errorNYI("getFunctionType: unhandled return kind");
   }
 
-  SmallVector<mlir::Type, 8> argTypes;
-  unsigned argNo = 0;
-  CIRGenFunctionInfo::const_arg_iterator it = fi.arg_begin(),
-                                         ie = it + fi.getNumRequiredArgs();
-  for (; it != ie; ++it, ++argNo) {
-    const auto &argInfo = it->info;
+  // TODO(cir): ClangToCIRArgMapping
 
-    switch (argInfo.getKind()) {
-    default:
-      llvm_unreachable("NYI");
-    case cir::ABIArgInfo::Direct:
-      mlir::Type argType = argInfo.getCoerceToType();
-      argTypes.push_back(argType);
+  SmallVector<mlir::Type, 8> argTypes(fi.getNumRequiredArgs());
+
+  unsigned argNo = 0;
+  llvm::ArrayRef<CIRGenFunctionInfoArgInfo> argInfos(fi.argInfoBegin(),
+                                                     fi.getNumRequiredArgs());
+  for (const auto &argInfo : argInfos) {
+    const auto &abiArgInfo = argInfo.info;
+
+    switch (abiArgInfo.getKind()) {
+    case cir::ABIArgInfo::Direct: {
+      mlir::Type argType = abiArgInfo.getCoerceToType();
+      argTypes[argNo++] = argType;
       break;
+    }
+    default:
+      cgm.errorNYI("getFunctionType: unhandled argument kind");
     }
   }
 
   bool erased = functionsBeingProcessed.erase(&fi);
+  (void)erased;
   assert(erased && "Not in set?");
 
   return cir::FuncType::get(argTypes,
