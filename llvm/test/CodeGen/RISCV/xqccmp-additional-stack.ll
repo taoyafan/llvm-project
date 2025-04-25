@@ -12,14 +12,12 @@ define ptr @func(ptr %s, i32 %_c, ptr %incdec.ptr, i1 %0, i8 %conv14) #0 {
 ; RV32-NEXT:    li a5, 0
 ; RV32-NEXT:    bnez t0, .LBB0_1
 ; RV32-NEXT:  # %bb.2: # %while.end
-; RV32-NEXT:    slli a5, a1, 8
-; RV32-NEXT:    slli t0, a1, 16
-; RV32-NEXT:    add a5, a5, a1
-; RV32-NEXT:    slli a1, a1, 24
+; RV32-NEXT:    slli a5, a1, 16
 ; RV32-NEXT:    andi a3, a3, 1
-; RV32-NEXT:    add a1, a1, t0
-; RV32-NEXT:    add a2, a2, a3
 ; RV32-NEXT:    add a1, a1, a5
+; RV32-NEXT:    add a2, a2, a3
+; RV32-NEXT:    slli a3, a1, 8
+; RV32-NEXT:    add a1, a1, a3
 ; RV32-NEXT:    sw a1, 0(zero)
 ; RV32-NEXT:    sb a4, 0(a2)
 ; RV32-NEXT:    ret
