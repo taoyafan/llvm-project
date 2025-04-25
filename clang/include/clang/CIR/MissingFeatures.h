@@ -151,7 +151,6 @@ struct MissingFeatures {
   static bool weakRefReference() { return false; }
   static bool hip() { return false; }
   static bool setObjCGCLValueClass() { return false; }
-  static bool mangledNames() { return false; }
   static bool setDLLStorageClass() { return false; }
   static bool openMP() { return false; }
   static bool emitCheckedInBoundsGEP() { return false; }
@@ -161,6 +160,8 @@ struct MissingFeatures {
   static bool lambdaFieldToName() { return false; }
   static bool paramInfo() { return false; }
   static bool funcTypeExtInfo() { return false; }
+  static bool targetSpecificCXXABI() { return false; }
+  static bool moduleNameHash() { return false; }
 
   // Missing types
   static bool dataMemberType() { return false; }
