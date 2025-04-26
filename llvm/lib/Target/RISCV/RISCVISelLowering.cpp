@@ -15446,7 +15446,7 @@ static SDValue expandMulToNAFSequence(SDNode *N, SelectionDAG &DAG,
 
   // Find the Non-adjacent form of the multiplier.
   llvm::SmallVector<std::pair<bool, uint64_t>> Sequence; // {isAdd, shamt}
-  for (auto E = MulAmt, I = 0; E && I < BitWidth; ++I, E >>= 1) {
+  for (uint64_t E = MulAmt, I = 0; E && I < BitWidth; ++I, E >>= 1) {
     if (E & 1) {
       bool isAdd = (E & 3) == 1;
       Sequence.push_back({isAdd, I});
