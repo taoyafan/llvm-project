@@ -15482,13 +15482,8 @@ static SDValue expandMulToBasicOps(SDNode *N, SelectionDAG &DAG,
     return DAG.getConstant(0, DL, N->getValueType(0));
 
   // Try to factorize into (2^N) * (2^M_1 +/- 1) * (2^M_2 +/- 1) * ...
-  uint64_t E = MulAmt;
-  uint64_t TrailingZeros = 0;
-
-  while (E > 0 && (E & 1) == 0) {
-    E >>= 1;
-    TrailingZeros++;
-  }
+  uint64_t TrailingZeros = llvm::countr_zero(MulAmt);
+  uint64_t E = MulAmt >> TrailingZeros;
 
   llvm::SmallVector<std::pair<bool, uint64_t>> Factors; // {is_2^M+1, M}
 
@@ -15497,16 +15492,15 @@ static SDValue expandMulToBasicOps(SDNode *N, SelectionDAG &DAG,
     for (int64_t I = BitWidth - 1; I >= 2; --I) {
       uint64_t Factor = 1ULL << I;
 
-      if (E % (Factor - 1) == 0) {
-        Factors.push_back({false, I});
-        E /= Factor - 1;
-        Found = true;
-        break;
-      }
-
       if (E % (Factor + 1) == 0) {
         Factors.push_back({true, I});
         E /= Factor + 1;
+        Found = true;
+        break;
+      }
+      if (E % (Factor - 1) == 0) {
+        Factors.push_back({false, I});
+        E /= Factor - 1;
         Found = true;
         break;
       }
@@ -15518,8 +15512,7 @@ static SDValue expandMulToBasicOps(SDNode *N, SelectionDAG &DAG,
   SDValue Result;
   SDValue N0 = N->getOperand(0);
 
-  bool UseFactorization =
-      !Factors.empty() && (E < MulAmt) && (Factors.size() < 5);
+  bool UseFactorization = !Factors.empty() && (Factors.size() < 5);
 
   if (UseFactorization) {
     if (E == 1)
